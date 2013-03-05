@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="AdminSite.AdminSite" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>AdminSite :: Control Panel</title>
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+        <link href="assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+        <script src="assets/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+<%--        <div class="row">
+            <div class="span12">
+                <img src="assets/images/Control Panel.png" alt="" class="img-rounded" />
+            </div>
+        </div>--%>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="navbar navbar-fixed-top">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                        <div class="container">
+                            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </a>
+ 
+                            <!-- Be sure to leave the brand out there if you want it shown -->
+                            <a class="brand" href="Admin.aspx?ctl=5"><i class="icon-home icon-black"></i>Control Panel</a>
+                            <ul class="nav">
+                            <li>
+                                <a href="Admin.aspx?ctl=5">Ads</a>
+                            </li>
+                            <%--<li>
+                                <a href="Admin.aspx?ctl=6">News</a>
+                            </li>
+                            <li>
+                                <a href="Admin.aspx?ctl=8">Clients</a>
+                            </li>
+                            <li>
+                                <a href="Admin.aspx?ctl=11">Projects</a>
+                            </li>
+                            <li>
+                                <a href="Admin.aspx?ctl=14">Portfolio</a>
+                            </li>--%>
+                            <li><a href="../Advertisement.aspx?ctl=0">Sign Out</a></li>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <asp:ContentPlaceHolder ID="cphMainContentArea" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                
+            </div>
+        </div>
+    </body>
+</html>

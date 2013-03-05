@@ -1,0 +1,13 @@
+E:\Work\Latest\Advertisement\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\Latest\Advertisement\Advertisement\bin\Advertisement.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\Advertisement.pdb
+E:\Work\Latest\Advertisement\Advertisement\bin\AjaxControlToolkit.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\Anthem.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\eWorld.UI.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\GMDatePicker.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\SubSonic.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\TTD.Common.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\TTD.Web.Providers.dll
+E:\Work\Latest\Advertisement\Advertisement\bin\wwHoverPanel.dll
+E:\Work\Latest\Advertisement\Advertisement\obj\Debug\Advertisement.dll
+E:\Work\Latest\Advertisement\Advertisement\obj\Debug\Advertisement.pdb

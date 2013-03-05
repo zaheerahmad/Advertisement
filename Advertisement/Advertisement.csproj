@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F217EA49-A886-4629-9412-CEBD3878EEFC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Advertisement</RootNamespace>
+    <AssemblyName>Advertisement</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Anthem">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\Anthem.dll</HintPath>
+    </Reference>
+    <Reference Include="eWorld.UI">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\eWorld.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="GMDatePicker">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\GMDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="SubSonic">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\SubSonic.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="TTD.Common">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\TTD.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="TTD.Web.Providers">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\TTD.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="wwHoverPanel">
+      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\wwHoverPanel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\AdminSite.csproj" />
+    <Content Include="Admin\AdminSite.csproj.user" />
+    <Content Include="Admin\assets\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Admin\assets\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Admin\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="Admin\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Admin\assets\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Admin\assets\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Admin\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="Admin\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Admin\assets\images\Control Panel.png" />
+    <Content Include="Admin\assets\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Admin\assets\Scripts\jquery-1.4.1.js" />
+    <Content Include="Admin\assets\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Admin\assets\Styles\Site.css" />
+    <Content Include="Admin\Controls\ctlAd.ascx" />
+    <Content Include="Admin\Controls\ctlAddClient.ascx" />
+    <Content Include="Admin\Controls\ctlAddNews.ascx" />
+    <Content Include="Admin\Controls\ctlAddPortfolio.ascx" />
+    <Content Include="Admin\Controls\ctlAddProject.ascx" />
+    <Content Include="Admin\Controls\ctlAddServices.ascx" />
+    <Content Include="Admin\Controls\ctlClient.ascx" />
+    <Content Include="Admin\Controls\ctlLogin.ascx" />
+    <Content Include="Admin\Controls\ctlManageAd.ascx" />
+    <Content Include="Admin\Controls\ctlManageClient.ascx" />
+    <Content Include="Admin\Controls\ctlManageNews.ascx" />
+    <Content Include="Admin\Controls\ctlManagePortfolio.ascx" />
+    <Content Include="Admin\Controls\ctlManageProject.ascx" />
+    <Content Include="Admin\Controls\ctlManageServices.ascx" />
+    <Content Include="Admin\Controls\ctlNews.ascx" />
+    <Content Include="Admin\Controls\ctlPortfolio.ascx" />
+    <Content Include="Admin\Controls\ctlPostAd.ascx" />
+    <Content Include="Admin\Controls\ctlProject.ascx" />
+    <Content Include="Admin\Controls\ctlServices.ascx" />
+    <Content Include="Admin\Controls\ctlWelcome.ascx" />
+    <Content Include="Admin\Global.asax" />
+    <Content Include="Advertisement.aspx" />
+    <Content Include="assets\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="assets\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="assets\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="assets\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="assets\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\datepicker\css\datepicker.css" />
+    <Content Include="assets\datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="assets\images\1201302-74275-crane-carrying-waste-material-at-recycling-center.jpg" />
+    <Content Include="assets\images\caption1.jpg" />
+    <Content Include="assets\images\caption2.gif" />
+    <Content Include="assets\images\caption3.gif" />
+    <Content Include="assets\images\caption4.gif" />
+    <Content Include="assets\images\Control Panel.png" />
+    <Content Include="assets\images\image-slider-1.jpg" />
+    <Content Include="assets\images\image-slider-2.jpg" />
+    <Content Include="assets\images\image-slider-3.jpg" />
+    <Content Include="assets\images\image-slider-4.jpg" />
+    <Content Include="assets\images\image-slider-5.jpg" />
+    <Content Include="assets\images\Material Advertisement.jpg" />
+    <Content Include="assets\images\photo.jpg" />
+    <Content Include="assets\images\ScrapMetalRecycling.jpg" />
+    <Content Include="assets\images\slider-1.jpg" />
+    <Content Include="assets\images\slider-2.jpg" />
+    <Content Include="assets\images\slider-3.jpg" />
+    <Content Include="assets\images\slider-4.jpg" />
+    <Content Include="assets\images\thumb-1.gif" />
+    <Content Include="assets\images\thumb-2.gif" />
+    <Content Include="assets\images\thumb-3.gif" />
+    <Content Include="assets\images\thumb-4.gif" />
+    <Content Include="assets\images\thumb1.jpg" />
+    <Content Include="assets\images\thumb2.jpg" />
+    <Content Include="assets\images\thumb3.jpg" />
+    <Content Include="assets\images\thumb4.jpg" />
+    <Content Include="assets\images\thumb5.jpg" />
+    <Content Include="assets\images\unknown.jpg" />
+    <Content Include="assets\images\waste-material-handler.jpg" />
+    <Content Include="assets\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="assets\Scripts\jquery-1.4.1.js" />
+    <Content Include="assets\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="assets\Scripts\__MACOSX\._jquery.leanModal.min.js" />
+    <Content Include="assets\slider\images\content-slider-1.jpg" />
+    <Content Include="assets\slider\images\content-slider-2.jpg" />
+    <Content Include="assets\slider\images\content-slider-3.jpg" />
+    <Content Include="assets\slider\images\content-slider-4.jpg" />
+    <Content Include="assets\slider\images\slider-1.jpg" />
+    <Content Include="assets\slider\images\slider-10.jpg" />
+    <Content Include="assets\slider\images\slider-11.jpg" />
+    <Content Include="assets\slider\images\slider-12.jpg" />
+    <Content Include="assets\slider\images\slider-15.jpg" />
+    <Content Include="assets\slider\images\slider-2.jpg" />
+    <Content Include="assets\slider\images\slider-3.jpg" />
+    <Content Include="assets\slider\images\slider-4.jpg" />
+    <Content Include="assets\slider\images\slider-5.jpg" />
+    <Content Include="assets\slider\images\slider-6.jpg" />
+    <Content Include="assets\slider\images\slider-7.jpg" />
+    <Content Include="assets\slider\images\slider-8.jpg" />
+    <Content Include="assets\slider\images\slider-9.jpg" />
+    <Content Include="assets\slider\images\slideshow-10s.jpg" />
+    <Content Include="assets\slider\images\slideshow-11s.jpg" />
+    <Content Include="assets\slider\images\slideshow-12s.jpg" />
+    <Content Include="assets\slider\images\slideshow-1s.jpg" />
+    <Content Include="assets\slider\images\slideshow-2s.jpg" />
+    <Content Include="assets\slider\images\slideshow-3s.jpg" />
+    <Content Include="assets\slider\images\slideshow-4s.jpg" />
+    <Content Include="assets\slider\images\slideshow-5s.jpg" />
+    <Content Include="assets\slider\images\slideshow-6s.jpg" />
+    <Content Include="assets\slider\images\slideshow-7s.jpg" />
+    <Content Include="assets\slider\images\slideshow-8s.jpg" />
+    <Content Include="assets\slider\images\slideshow-9s.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-1.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-10.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-11.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-12.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-2.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-3.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-4.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-5.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-6.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-7.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-8.jpg" />
+    <Content Include="assets\slider\images\thumbnail-slider-9.jpg" />
+    <Content Include="assets\slider\themes\1\jquery-slider.js" />
+    <Content Include="assets\slider\themes\1\loading.gif" />
+    <Content Include="assets\slider\themes\1\navbuttons.png" />
+    <Content Include="assets\slider\themes\1\slider.css" />
+    <Content Include="assets\slider\themes\2\jquery-slider.js" />
+    <Content Include="assets\slider\themes\2\js-image-slider.css" />
+    <Content Include="assets\slider\themes\2\js-image-slider.js" />
+    <Content Include="assets\slider\themes\2\loading.gif" />
+    <Content Include="assets\slider\themes\2\navButtons.png" />
+    <Content Include="assets\slider\themes\2\slider.css" />
+    <Content Include="assets\slider\themes\3\bullet.png" />
+    <Content Include="assets\slider\themes\3\jquery-slider.js" />
+    <Content Include="assets\slider\themes\3\loading.gif" />
+    <Content Include="assets\slider\themes\3\navButtons.png" />
+    <Content Include="assets\slider\themes\3\slider.css" />
+    <Content Include="assets\slider\themes\4\jquery-slider.js" />
+    <Content Include="assets\slider\themes\4\loading.gif" />
+    <Content Include="assets\slider\themes\4\navbuttons.png" />
+    <Content Include="assets\slider\themes\4\slider.css" />
+    <Content Include="assets\slider\themes\4\tooltip.css" />
+    <Content Include="assets\slider\themes\4\tooltip.js" />
+    <Content Include="assets\slider\themes\generic.css" />
+    <Content Include="assets\slider\themes\jquery-1.7.1.min.js" />
+    <Content Include="assets\Styles\Site.css" />
+    <Content Include="assets\themes\1\bullet.png" />
+    <Content Include="assets\themes\1\js-image-slider.css" />
+    <Content Include="assets\themes\1\js-image-slider.js" />
+    <Content Include="assets\themes\1\loading.gif" />
+    <Content Include="assets\themes\1\ribbon.png" />
+    <Content Include="assets\themes\2\js-image-slider.css" />
+    <Content Include="assets\themes\2\js-image-slider.js" />
+    <Content Include="assets\themes\2\loading.gif" />
+    <Content Include="assets\themes\3\active-bg.png" />
+    <Content Include="assets\themes\3\js-image-slider.css" />
+    <Content Include="assets\themes\3\js-image-slider.js" />
+    <Content Include="assets\themes\3\loading.gif" />
+    <Content Include="assets\themes\3\thumbs-bar.gif" />
+    <Content Include="assets\themes\4\active-bg.png" />
+    <Content Include="assets\themes\4\bullet.png" />
+    <Content Include="assets\themes\4\js-image-slider.css" />
+    <Content Include="assets\themes\4\js-image-slider.js" />
+    <Content Include="assets\themes\4\loading.gif" />
+    <Content Include="assets\themes\4\navButtons.gif" />
+    <Content Include="assets\themes\4\navButtons2.gif" />
+    <Content Include="assets\themes\4\thumbs-bar.gif" />
+    <Content Include="assets\themes\5\js-image-slider.css" />
+    <Content Include="assets\themes\5\js-image-slider.js" />
+    <Content Include="assets\themes\5\loading.gif" />
+    <Content Include="assets\themes\6\bullet.png" />
+    <Content Include="assets\themes\6\js-image-slider.css" />
+    <Content Include="assets\themes\6\js-image-slider.js" />
+    <Content Include="assets\themes\6\loading.gif" />
+    <Content Include="assets\themes\6\mcVideoPlugin.js" />
+    <Content Include="assets\themes\6\video.png" />
+    <Content Include="assets\themes\7\bullet.png" />
+    <Content Include="assets\themes\7\js-image-slider.css" />
+    <Content Include="assets\themes\7\js-image-slider.js" />
+    <Content Include="assets\themes\7\loading.gif" />
+    <Content Include="assets\themes\8\bullet.png" />
+    <Content Include="assets\themes\8\js-image-slider.css" />
+    <Content Include="assets\themes\8\js-image-slider.js" />
+    <Content Include="assets\themes\8\loading.gif" />
+    <Content Include="assets\themes\8\tooltip.css" />
+    <Content Include="assets\themes\8\tooltip.js" />
+    <Content Include="Controls\ctlAdDetail.ascx" />
+    <Content Include="Controls\ctlHome.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminSite.Master.cs">
+      <DependentUpon>AdminSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminSite.Master.designer.cs">
+      <DependentUpon>AdminSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Common\Common.cs" />
+    <Compile Include="Admin\Controls\ControlSettings.cs" />
+    <Compile Include="Admin\Controls\ctlAd.ascx.cs">
+      <DependentUpon>ctlAd.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAd.ascx.designer.cs">
+      <DependentUpon>ctlAd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddClient.ascx.cs">
+      <DependentUpon>ctlAddClient.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddClient.ascx.designer.cs">
+      <DependentUpon>ctlAddClient.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddNews.ascx.cs">
+      <DependentUpon>ctlAddNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddNews.ascx.designer.cs">
+      <DependentUpon>ctlAddNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddPortfolio.ascx.cs">
+      <DependentUpon>ctlAddPortfolio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddPortfolio.ascx.designer.cs">
+      <DependentUpon>ctlAddPortfolio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddProject.ascx.cs">
+      <DependentUpon>ctlAddProject.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddProject.ascx.designer.cs">
+      <DependentUpon>ctlAddProject.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddServices.ascx.cs">
+      <DependentUpon>ctlAddServices.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAddServices.ascx.designer.cs">
+      <DependentUpon>ctlAddServices.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlClient.ascx.cs">
+      <DependentUpon>ctlClient.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlClient.ascx.designer.cs">
+      <DependentUpon>ctlClient.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlLogin.ascx.cs">
+      <DependentUpon>ctlLogin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlLogin.ascx.designer.cs">
+      <DependentUpon>ctlLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageAd.ascx.cs">
+      <DependentUpon>ctlManageAd.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageAd.ascx.designer.cs">
+      <DependentUpon>ctlManageAd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageClient.ascx.cs">
+      <DependentUpon>ctlManageClient.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageClient.ascx.designer.cs">
+      <DependentUpon>ctlManageClient.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageNews.ascx.cs">
+      <DependentUpon>ctlManageNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageNews.ascx.designer.cs">
+      <DependentUpon>ctlManageNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManagePortfolio.ascx.cs">
+      <DependentUpon>ctlManagePortfolio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManagePortfolio.ascx.designer.cs">
+      <DependentUpon>ctlManagePortfolio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageProject.ascx.cs">
+      <DependentUpon>ctlManageProject.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageProject.ascx.designer.cs">
+      <DependentUpon>ctlManageProject.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageServices.ascx.cs">
+      <DependentUpon>ctlManageServices.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlManageServices.ascx.designer.cs">
+      <DependentUpon>ctlManageServices.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlNews.ascx.cs">
+      <DependentUpon>ctlNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlNews.ascx.designer.cs">
+      <DependentUpon>ctlNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlPortfolio.ascx.cs">
+      <DependentUpon>ctlPortfolio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlPortfolio.ascx.designer.cs">
+      <DependentUpon>ctlPortfolio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlPostAd.ascx.cs">
+      <DependentUpon>ctlPostAd.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlPostAd.ascx.designer.cs">
+      <DependentUpon>ctlPostAd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlProject.ascx.cs">
+      <DependentUpon>ctlProject.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlProject.ascx.designer.cs">
+      <DependentUpon>ctlProject.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlServices.ascx.cs">
+      <DependentUpon>ctlServices.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlServices.ascx.designer.cs">
+      <DependentUpon>ctlServices.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlWelcome.ascx.cs">
+      <DependentUpon>ctlWelcome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlWelcome.ascx.designer.cs">
+      <DependentUpon>ctlWelcome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\PorfolioCollection.cs" />
+    <Compile Include="Admin\Dao\ClientController.cs" />
+    <Compile Include="Admin\Dao\LoginController.cs" />
+    <Compile Include="Admin\Dao\NewsController.cs" />
+    <Compile Include="Admin\Dao\PortfolioController.cs" />
+    <Compile Include="Admin\Dao\ProjectController.cs" />
+    <Compile Include="Admin\Dao\ServiceController.cs" />
+    <Compile Include="Admin\Dao\ToolsAndTechniqueController.cs" />
+    <Compile Include="Admin\Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Model\Client.cs" />
+    <Compile Include="Admin\Model\Login.cs" />
+    <Compile Include="Admin\Model\News.cs" />
+    <Compile Include="Admin\Model\Portfolio.cs" />
+    <Compile Include="Admin\Model\Project.cs" />
+    <Compile Include="Admin\Model\Service.cs" />
+    <Compile Include="Admin\Model\ToolsAndTechnique.cs" />
+    <Compile Include="Advertisement.aspx.cs">
+      <DependentUpon>Advertisement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advertisement.aspx.designer.cs">
+      <DependentUpon>Advertisement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ControlSettings.cs" />
+    <Compile Include="Controls\ctlAdDetail.ascx.cs">
+      <DependentUpon>ctlAdDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctlAdDetail.ascx.designer.cs">
+      <DependentUpon>ctlAdDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctlHome.ascx.cs">
+      <DependentUpon>ctlHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctlHome.ascx.designer.cs">
+      <DependentUpon>ctlHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\Model\Dao\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site1.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\AdminSite.Master" />
+    <None Include="assets\datepicker\less\datepicker.less" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50231</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
