@@ -226,11 +226,18 @@ body{
                     <table class="table">
                         <tr>
                         <td>
-                            <label>Material Name</label>
-                            <input type="text" class="input-small" placeholder="Material Name"/>
+                            <label>Filter By Material Name</label>
+                            <input type="text" class="input-medium" placeholder="Material Name"/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <label>Filter By Date</label>
+                            <input type="text" class="input-medium" placeholder="Material Date"/>
                         </td>
                         </tr>
                     </table>
+                    
                     <div class="control-group">
                     <div class="controls">
                         <button type="submit" class="btn  btn-primary">Filter Result</button>
@@ -238,40 +245,6 @@ body{
                     </div>
                 </form>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="span3">
-                
-                    <h6>Ads Streaming</h6>
-                        <table class="table table-striped">
-                            <tr>
-                            <td>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                    <img class="media-object" src="../assets/images/thumb1.jpg" data-src="holder.js/64x64">
-                                    </a>
-                                    <div class="media-body">
-                                    <h4 class="media-heading">Material Name</h4>
-                                    This is a test material Detail for Demo
-                                    </div>
-                                </div>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                    <img class="media-object" src="../assets/images/thumb1.jpg" data-src="holder.js/64x64">
-                                    </a>
-                                    <div class="media-body">
-                                    <h4 class="media-heading">Material Name</h4>
-                                    This is a test material Detail for Demo
-                                    </div>
-                                </div>
-                            </td>
-                            </tr>
-                            </table>
             </div>
         </div>
     </div>
