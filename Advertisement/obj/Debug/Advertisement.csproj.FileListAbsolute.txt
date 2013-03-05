@@ -29,3 +29,8 @@ E:\Work\Latest\Advertisement\trunk\Advertisement\bin\Advertisement.pdb
 E:\Work\Latest\Advertisement\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
 E:\Work\Latest\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.dll
 E:\Work\Latest\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.pdb
+C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\bin\Advertisement.dll
+C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\bin\Advertisement.pdb
+C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\obj\Debug\Advertisement.dll
+C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\obj\Debug\Advertisement.pdb
