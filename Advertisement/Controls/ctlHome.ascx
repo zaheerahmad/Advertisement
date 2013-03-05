@@ -79,7 +79,7 @@ body{
 
 #gallery {
 	position:relative;
-	height:358px
+	height:353px;
 }
 	#gallery a {
 		float:left;

@@ -24,3 +24,8 @@ D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\wwHover
 D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
 D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.dll
 D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.pdb
+E:\Work\Latest\Advertisement\trunk\Advertisement\bin\Advertisement.dll
+E:\Work\Latest\Advertisement\trunk\Advertisement\bin\Advertisement.pdb
+E:\Work\Latest\Advertisement\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\Latest\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.dll
+E:\Work\Latest\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.pdb
