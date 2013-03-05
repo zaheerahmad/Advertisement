@@ -11,3 +11,16 @@ E:\Work\Latest\Advertisement\Advertisement\bin\TTD.Web.Providers.dll
 E:\Work\Latest\Advertisement\Advertisement\bin\wwHoverPanel.dll
 E:\Work\Latest\Advertisement\Advertisement\obj\Debug\Advertisement.dll
 E:\Work\Latest\Advertisement\Advertisement\obj\Debug\Advertisement.pdb
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\Advertisement.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\Advertisement.pdb
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\AjaxControlToolkit.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\Anthem.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\eWorld.UI.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\GMDatePicker.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\SubSonic.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\TTD.Common.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\TTD.Web.Providers.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\bin\wwHoverPanel.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.dll
+D:\Zaheer's Personal\Advertisement\Advertisement\trunk\Advertisement\obj\Debug\Advertisement.pdb
