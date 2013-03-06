@@ -34,3 +34,8 @@ C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\bin\Advertisem
 C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
 C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\obj\Debug\Advertisement.dll
 C:\khurram\FreeLancing\MaterialAdvertisement2\trunk\Advertisement\obj\Debug\Advertisement.pdb
+C:\khurram\FreeLancing\New folder\trunk\Advertisement\bin\Advertisement.dll
+C:\khurram\FreeLancing\New folder\trunk\Advertisement\bin\Advertisement.pdb
+C:\khurram\FreeLancing\New folder\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+C:\khurram\FreeLancing\New folder\trunk\Advertisement\obj\Debug\Advertisement.dll
+C:\khurram\FreeLancing\New folder\trunk\Advertisement\obj\Debug\Advertisement.pdb
