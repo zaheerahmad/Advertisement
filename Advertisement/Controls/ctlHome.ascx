@@ -120,7 +120,7 @@ body{
             }
             .priceDiv
             {
-              margin-left: 115px;
+              margin-left: 735px;
               color: #339304;
             }
             #panel
@@ -137,7 +137,7 @@ body{
 			}
 			.moreInfo
 			{
-			    margin-left: 90px;
+			    margin-left: 210px;
 			}
 			.imgInfo
 			{
@@ -350,7 +350,7 @@ body{
                       </a>
                       <div class="media-body">
                         <div class="row">
-                            <div class="span4">
+                            <div class="span5">
                                 <h4 class="media-heading">Waste Material</h4> 
                             </div>
                             <div class="span3 priceDiv">
@@ -358,7 +358,7 @@ body{
                             </div>
                        </div>
                            <div class="row">
-                                <div class="span4">
+                                <div class="span5">
                                     <div class="media">
                                       This material is avaible for sale, if any one interested in it can contact me on metioned number at given description
                                     </div>
@@ -380,7 +380,7 @@ body{
                       </a>
                       <div class="media-body">
                           <div class="row">
-                                <div class="span4">
+                                <div class="span5">
                                     <h4 class="media-heading">Waste Material</h4> 
                                 </div>
                                 <div class="span3 priceDiv">
@@ -390,7 +390,7 @@ body{
     
    
                            <div class="row">
-                                <div class="span4">
+                                <div class="span5">
                                     <div class="media">
                                       This material is avaible for sale, if any one interested in it can contact me on metioned number at given description
                                     </div>
@@ -413,7 +413,7 @@ body{
                       </a>
                       <div class="media-body">
                              <div class="row">
-                                <div class="span4">
+                                <div class="span5">
                                     <h4 class="media-heading">Waste Material</h4> 
                                 </div>
                                 <div class="span3 priceDiv">
@@ -423,7 +423,7 @@ body{
    
    
                            <div class="row">
-                                <div class="span4 style="display: inline-block;">
+                                <div class="span5" style="display: inline-block;">
                                     <div class="media">
                                         I am looking to create a website, where construction companies (big or small) can post pictures, and a description of leftover construction materials. This leftover 
 

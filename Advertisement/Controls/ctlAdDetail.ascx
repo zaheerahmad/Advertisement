@@ -66,7 +66,7 @@
            
             
         </div>
-         <div class='suggestionArea'>            
+         <div class='suggestionArea' style="margin-top:40px;">            
             <div class='control'>                    
                     <textarea name='suggestionBox' style='width: 500px;' placeholder='Suggestions'></textarea></br>
                     <a class='btn btn-mini btn-primary sugst' type='button'>Suggest</a>
