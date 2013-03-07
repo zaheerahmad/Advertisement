@@ -290,6 +290,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebServices\Users.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.aspx.cs">
@@ -508,6 +509,8 @@
     <Compile Include="CodeGen\MasterPage.master.designer.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
     </Compile>
+    <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controls\ControlSettings.cs" />
     <Compile Include="Controls\ctlAdDetail.ascx.cs">
       <DependentUpon>ctlAdDetail.ascx</DependentUpon>
@@ -533,6 +536,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -540,6 +544,11 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ServiceResponce.cs" />
+    <Compile Include="WebServices\Users.asmx.cs">
+      <DependentUpon>Users.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

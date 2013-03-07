@@ -4,19 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <LINK REL="SHORTCUT ICON" HREF="/~your_directory/logo.ico">
+    <%--<LINK REL="SHORTCUT ICON" HREF="/~your_directory/logo.ico">--%>
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!--<script src="assets/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>-->
 	<link href="assets/themes/2/js-image-slider.css" rel="stylesheet" type="text/css" />
-	<script src="assets/themes/2/js-image-slider.js" type="text/javascript">
+	<script src="assets/themes/2/js-image-slider.js" type="text/javascript" />
     <script src="DatePicker/js/bootstrap-datepicker.js"></script>
     <script src="DatePicker/css/datepicker.css"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-
-
             $('a.sugst').live('click', function () {
                 var suggestionBox = $('textarea[name="suggestionBox"]');
                 var suggestion = suggestionBox.val();
@@ -37,11 +35,6 @@
                 }
 
             });
-
-
-
-
-
             $('a#loginAnchor').click(function () {
 
                 $("#panel").slideToggle("slow");
@@ -114,7 +107,7 @@
                   <div class="nav-collapse collapse">
                     <!-- .nav, .navbar-search, .navbar-form, etc -->
                     <ul class="nav">
-                      <li> <a class="home" href='Advertisement.aspx?ctl=0' onClick="">Home</a></li>
+                      <li> <a class="home" href='Advertisement.aspx?ctl=0' onclick="">Home</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         <li><a id="loginAnchor" href="#">Login</a></li>
