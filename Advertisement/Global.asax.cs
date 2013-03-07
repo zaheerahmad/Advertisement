@@ -19,21 +19,21 @@ namespace Advertisement
         {
             Home = 0,
             AdDetail = 1,
-            PostAd = 2,
-            ManageAd = 3,
-            AddNews = 4,
-            Ad = 5,
-            News = 6,
-            ManageNews = 7,
-            Client = 8,
-            AddClient = 9,
-            ManageClient = 10,
-            Project = 11,
-            AddProject = 12,
-            ManageProject = 13,
-            Portfolio = 14,
-            AddPortfolio = 15,
-            ManagePortfolio = 16
+            SignUp = 2,
+            //ManageAd = 3,
+            //AddNews = 4,
+            //Ad = 5,
+            //News = 6,
+            //ManageNews = 7,
+            //Client = 8,
+            //AddClient = 9,
+            //ManageClient = 10,
+            //Project = 11,
+            //AddProject = 12,
+            //ManageProject = 13,
+            //Portfolio = 14,
+            //AddPortfolio = 15,
+            //ManagePortfolio = 16
         }
 
         public const string ControlsPath = "~/Controls/";
@@ -82,51 +82,51 @@ namespace Advertisement
                 case PageLink.AdDetail:
                     qry = "ctl=1";
                     break;
-                case PageLink.PostAd:
+                case PageLink.SignUp:
                     qry = "ctl=2";
                     break;
-                case PageLink.ManageAd:
-                    qry = "ctl=3";
-                    break;
-                case PageLink.AddNews:
-                    qry = "ctl=4";
-                    break;
-                case PageLink.Ad:
-                    qry = "ctl=5";
-                    break;
-                case PageLink.News:
-                    qry = "ctl=6";
-                    break;
-                case PageLink.ManageNews:
-                    qry = "ctl=7";
-                    break;
-                case PageLink.Client:
-                    qry = "ctl=8";
-                    break;
-                case PageLink.AddClient:
-                    qry = "ctl=9";
-                    break;
-                case PageLink.ManageClient:
-                    qry = "ctl=10";
-                    break;
-                case PageLink.Project:
-                    qry = "ctl=11";
-                    break;
-                case PageLink.AddProject:
-                    qry = "ctl=12";
-                    break;
-                case PageLink.ManageProject:
-                    qry = "ctl=13";
-                    break;
-                case PageLink.Portfolio:
-                    qry = "ctl=14";
-                    break;
-                case PageLink.AddPortfolio:
-                    qry = "ctl=15";
-                    break;
-                case PageLink.ManagePortfolio:
-                    qry = "ctl=16";
-                    break;
+                //case PageLink.ManageAd:
+                //    qry = "ctl=3";
+                //    break;
+                //case PageLink.AddNews:
+                //    qry = "ctl=4";
+                //    break;
+                //case PageLink.Ad:
+                //    qry = "ctl=5";
+                //    break;
+                //case PageLink.News:
+                //    qry = "ctl=6";
+                //    break;
+                //case PageLink.ManageNews:
+                //    qry = "ctl=7";
+                //    break;
+                //case PageLink.Client:
+                //    qry = "ctl=8";
+                //    break;
+                //case PageLink.AddClient:
+                //    qry = "ctl=9";
+                //    break;
+                //case PageLink.ManageClient:
+                //    qry = "ctl=10";
+                //    break;
+                //case PageLink.Project:
+                //    qry = "ctl=11";
+                //    break;
+                //case PageLink.AddProject:
+                //    qry = "ctl=12";
+                //    break;
+                //case PageLink.ManageProject:
+                //    qry = "ctl=13";
+                //    break;
+                //case PageLink.Portfolio:
+                //    qry = "ctl=14";
+                //    break;
+                //case PageLink.AddPortfolio:
+                //    qry = "ctl=15";
+                //    break;
+                //case PageLink.ManagePortfolio:
+                //    qry = "ctl=16";
+                //    break;
                 default:
                     qry = "ctl=0";
                     break;
