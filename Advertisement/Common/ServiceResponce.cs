@@ -9,11 +9,13 @@ namespace Advertisement.Common
     {
         public string html { get; set; }
         public int serviceErrorCode { get; set; }
+        public string message { get; set; }
 
         public ServiceResponce()
         {
             html = string.Empty;
             serviceErrorCode = -1;
+            message = string.Empty;
         }
     }
 }
