@@ -510,6 +510,7 @@
       <DependentUpon>MasterPage.master</DependentUpon>
     </Compile>
     <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="Common\Messages.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controls\ControlSettings.cs" />
     <Compile Include="Controls\ctlAdDetail.ascx.cs">
