@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctlHome.ascx.cs" Inherits="Advertisement.Controls.ctlHome" %>
 <link href="../assets/slider/themes/generic.css" rel="stylesheet" type="text/css" />
 <link href="../assets/slider/themes/4/slider.css" rel="stylesheet" type="text/css" />
-<script src="../assets/slider/themes/jquery-1.7.1.min.js" type="text/javascript"></script>
+<%--<script src="../assets/slider/themes/jquery-1.7.1.min.js" type="text/javascript"></script>--%>
 <script src="../assets/slider/themes/4/jquery-slider.js" type="text/javascript"></script>
-<script src="../assets/MainSlider/js/jquery-1.3.1.min.js" type="text/javascript"></script>
+<%--<script src="../assets/MainSlider/js/jquery-1.3.1.min.js" type="text/javascript"></script>--%>
 <script>
 $(document).ready(function() {		
 	

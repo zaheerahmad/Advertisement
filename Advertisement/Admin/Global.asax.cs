@@ -21,7 +21,7 @@ namespace AdminSite
             Welcome = 1,
             PostAd = 2,
             ManageAd = 3,
-            AddNews = 4,
+            SignOut = 4,
             Ad = 5,
             News = 6,
             ManageNews = 7,
@@ -89,7 +89,7 @@ namespace AdminSite
                 case PageLink.ManageAd:
                     qry = "ctl=3";
                     break;
-                case PageLink.AddNews:
+                case PageLink.SignOut:
                     qry = "ctl=4";
                     break;
                 case PageLink.Ad:

@@ -53,7 +53,7 @@ namespace AdminSite.Controls
 
         protected void btnShowAddCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Global.GetPageLink(Global.PageLink.AddNews));
+            Response.Redirect(Global.GetPageLink(Global.PageLink.SignOut));
         }
 
         void DeleteNews(int Id)

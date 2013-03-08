@@ -7,7 +7,10 @@
         <title>AdminSite :: Control Panel</title>
         <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
         <link href="assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
-        <script src="assets/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            
+        </script>
     </head>
     <body>
 <%--        <div class="row">
@@ -46,7 +49,7 @@
                             <li>
                                 <a href="Admin.aspx?ctl=14">Portfolio</a>
                             </li>--%>
-                            <li><a href="../Advertisement.aspx?ctl=0">Sign Out</a></li>
+                            <li><a href="Admin.aspx?ctl=4">Sign Out</a></li>
                         </div>
                         </div>
                     </div>

@@ -7,12 +7,44 @@
     <%--<LINK REL="SHORTCUT ICON" HREF="/~your_directory/logo.ico">--%>
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <!--<script src="assets/Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    
 	<link href="assets/themes/2/js-image-slider.css" rel="stylesheet" type="text/css" />
-	<script src="assets/themes/2/js-image-slider.js" type="text/javascript" />
+	<script src="assets/themes/2/js-image-slider.js" type="text/javascript"></script>
     <script src="DatePicker/js/bootstrap-datepicker.js"></script>
     <script src="DatePicker/css/datepicker.css"></script>
+    <script type="text/javascript">
+        function SignIn() {
+            var userName = document.getElementById('inputEmail').value;
+            var password = document.getElementById('inputPassword').value;
+            if (userName == "" || password == "") {
+                $('#errorAlert').fadeIn(100);
+            }
+            else {
+                $('#errorAlert').fadeOut(0);
+                $.ajax({
+                    type: "POST",
+                    url: "WebServices/Users.asmx/SignInUser",
+                    data: "{'userName':'" + userName + "','password':'" + password + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    cache: false,
+                    success: function (msg) {
+                        var obj = jQuery.parseJSON(msg.d);
+                        if (obj.serviceErrorCode == 0) {
+                            document.getElementById('inputEmail').value = "";
+                            document.getElementById('inputPassword').value = "";
+                            window.location.href = "Admin/Admin.aspx?id=" + obj.id;
+                        }
+                        else {
+                            $('#signUpErrorAlert').fadeIn(100);
+                        }
+                    }
+                });
+            }
+        }
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('a.sugst').live('click', function () {
@@ -52,6 +84,7 @@
             });
         });
     </script>
+    
     <title>Material Advertisement</title>
     <style type="text/css"> 
             #panel,#flip
@@ -144,7 +177,7 @@
                     </div>
                     <div class="control-group">
                     <div class="controls">
-                        <input type="button" class="btn btn-primary" value="Sign In" />
+                        <input type="button" class="btn btn-primary" value="Sign In" onclick="SignIn()" />
                     </div>
                     </div>
                 </form>

@@ -37,14 +37,14 @@
                 success: function (msg) {
                     var obj = jQuery.parseJSON(msg.d);
                     if (obj.serviceErrorCode == 0) {
-                        $('#signUpSuccessAlert').fadeIn(0);
+                        $('#signUpSuccessAlert').fadeIn(100);
                         document.getElementById('fullName').value = "";
                         document.getElementById('user').value = "";
                         document.getElementById('Password').value = "";
                         document.getElementById('cPassword').value = "";
                     }
                     else {
-                        $('#signUpErrorAlert').fadeIn(0);
+                        $('#signUpErrorAlert').fadeIn(100);
                     }
                 }
             });

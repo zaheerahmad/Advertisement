@@ -107,7 +107,9 @@
     <Content Include="Admin\Controls\ctlProject.ascx" />
     <Content Include="Admin\Controls\ctlServices.ascx" />
     <Content Include="Admin\Controls\ctlWelcome.ascx" />
+    <Content Include="Admin\Controls\ctlSignOut.ascx" />
     <Content Include="Admin\Global.asax" />
+    <Content Include="Admin\WebServices\SessionHandler.asmx" />
     <Content Include="Advertisement.aspx" />
     <Content Include="App_Data\materials.mdf" />
     <Content Include="App_Data\materials_log.ldf">
@@ -450,6 +452,13 @@
       <DependentUpon>ctlWelcome.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Controls\PorfolioCollection.cs" />
+    <Compile Include="Admin\Controls\ctlSignOut.ascx.cs">
+      <DependentUpon>ctlSignOut.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlSignOut.ascx.designer.cs">
+      <DependentUpon>ctlSignOut.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Dao\ClientController.cs" />
     <Compile Include="Admin\Dao\LoginController.cs" />
     <Compile Include="Admin\Dao\NewsController.cs" />
@@ -467,6 +476,10 @@
     <Compile Include="Admin\Model\Project.cs" />
     <Compile Include="Admin\Model\Service.cs" />
     <Compile Include="Admin\Model\ToolsAndTechnique.cs" />
+    <Compile Include="Admin\WebServices\SessionHandler.asmx.cs">
+      <DependentUpon>SessionHandler.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Advertisement.aspx.cs">
       <DependentUpon>Advertisement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

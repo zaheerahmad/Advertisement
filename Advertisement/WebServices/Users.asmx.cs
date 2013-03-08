@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Script.Services;
 using Advertisement.Common;
+using System.Web.SessionState;
 
 namespace Advertisement.WebServices
 {
@@ -46,6 +47,47 @@ namespace Advertisement.WebServices
             };
             string jsonStringError = serviceResponceError.ToJSON();
             return jsonStringError;
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        
+        public string SignInUser(string userName, string password)
+        {
+            Model.User user = new Model.User("userName", userName);
+            if (user.FName.Equals("") && user.Username.Equals("") && user.Password.Equals(""))
+            {
+                ServiceResponce serviceResponce = new ServiceResponce
+                {
+                    serviceErrorCode = 1
+                };
+                string jsonString = serviceResponce.ToJSON();
+                return jsonString;
+            }
+            else
+            {
+                if (user.Password.Equals(password))
+                {
+                    ServiceResponce serviceResponceError = new ServiceResponce
+                    {
+                        serviceErrorCode = 0,
+                        id = user.LoginId
+                    };
+                    Session.Timeout = 1;
+                    Session["userId"] = user.LoginId;
+                    string jsonStringError = serviceResponceError.ToJSON();
+                    return jsonStringError;
+                }
+                else
+                {
+                    ServiceResponce serviceResponceError = new ServiceResponce
+                    {
+                        serviceErrorCode = 1
+                    };
+                    string jsonStringError = serviceResponceError.ToJSON();
+                    return jsonStringError;
+                }   
+            }
         }
     }
 }

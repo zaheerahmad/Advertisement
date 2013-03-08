@@ -7,7 +7,7 @@ using System.Web.SessionState;
 
 namespace Advertisement
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : System.Web.HttpApplication, IRequiresSessionState
     {
 
         public enum MessageType : int

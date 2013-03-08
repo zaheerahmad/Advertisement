@@ -13,7 +13,7 @@ namespace AdminSite.Controls
             Welcome = 1,
             PostAd = 2,
             ManageAd = 3,
-            AddNews = 4,
+            SignOut = 4,
             Ad = 5,
             News = 6,
             ManageNews = 7,
@@ -43,8 +43,8 @@ namespace AdminSite.Controls
                 case ControlName.ManageAd:
                     controlName = "ctlManageAd";
                     break;
-                case ControlName.AddNews:
-                    controlName = "ctlAddNews";
+                case ControlName.SignOut:
+                    controlName = "ctlSignOut";
                     break;
                 case ControlName.Ad:
                     controlName = "ctlAd";

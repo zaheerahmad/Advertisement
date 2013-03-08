@@ -53,7 +53,7 @@ namespace OurWeb.Admin.Controls
 
         protected void btnShowAddCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect(AdminSite.Global.GetPageLink(AdminSite.Global.PageLink.AddNews));
+            Response.Redirect(AdminSite.Global.GetPageLink(AdminSite.Global.PageLink.SignOut));
         }
 
         void DeleteProject(int Id)

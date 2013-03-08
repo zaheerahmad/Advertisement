@@ -13,15 +13,30 @@ namespace AdminSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int control = Utility.GetIntParameter("ctl");
-            //if (control > 0)
-            //{
-            //    Common.Common.showSideBar = true;
-            //}
-            //else
-            //{
-            Utility.LoadPageContent(this.PlaceHolder1, ControlSettings.GetControlFileName((ControlSettings.ControlName)control, Global.ControlsPath));
-            //}
+            if (Session["userId"] == null || Session["userId"].Equals(""))
+            {
+                Response.Redirect("../Advertisement.aspx");
+            }
+            else
+            {
+                int id = Utility.GetIntParameter("id");
+                if (Session["userId"].ToString().Equals("" + id))
+                {
+                    int control = Utility.GetIntParameter("ctl");
+                    //if (control > 0)
+                    //{
+                    //    Common.Common.showSideBar = true;
+                    //}
+                    //else
+                    //{
+                    Utility.LoadPageContent(this.PlaceHolder1, ControlSettings.GetControlFileName((ControlSettings.ControlName)control, Global.ControlsPath));
+                    //}
+                }
+                else
+                {
+                    Response.Redirect("../Advertisement.aspx");
+                }
+            }
         }
     }
 }
