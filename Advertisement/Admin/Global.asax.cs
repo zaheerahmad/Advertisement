@@ -40,7 +40,7 @@ namespace AdminSite
         public const string ControlsPath = "~/Admin/Controls/";
         public const string MainPageName = "Admin.aspx";
         public const string ErrorLogin = "*Error - Invalid User/Password";
-        public const string AdImage = "~/upload/AdImage/";
+        public const string AdImages = "~/upload/AdImage/";
         public const string ErrorLabelStatus = "Request couldn't be completed due to an error. Error: ";
         public const string SuccessLabelStatus = "Request created Successfully!";
         public const string UpdatedLabelStatus = "Request Updated Successfully!";

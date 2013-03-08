@@ -18,7 +18,7 @@ namespace Advertisement.DataAccess
 	public partial struct Tables
 	{
 		
-		public static string Ad = @"tblAds";
+		public static string Ad = @"tblAd";
         
 		public static string User = @"tblUsers";
         
@@ -29,7 +29,7 @@ namespace Advertisement.DataAccess
     public partial class Schemas {
 		
 		public static TableSchema.Table Ad{
-            get { return DataService.GetSchema("tblAds","csmDefaultDB"); }
+            get { return DataService.GetSchema("tblAd","csmDefaultDB"); }
 
 		}
 

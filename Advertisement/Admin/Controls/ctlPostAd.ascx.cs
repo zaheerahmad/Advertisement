@@ -79,7 +79,7 @@ namespace AdminSite.Controls
                 string NewFileName = ad.AdId + "-" + "1-" + Path.GetFileName(fuAdPicture1.PostedFile.FileName);
                 string FileNameWithoutExt = ad.AdId + "-" + "1-" + Path.GetFileNameWithoutExtension(fuAdPicture1.PostedFile.FileName);
                 string error;
-                if (fuAdPicture1.PostedFile.FileName != null || !fuAdPicture1.PostedFile.FileName.Equals(""))
+                if (fuAdPicture1.PostedFile.FileName != null && !fuAdPicture1.PostedFile.FileName.Equals(""))
                 {
                     if (fuAdPicture1.PostedFile.ContentLength > 1)
                     {
@@ -92,7 +92,7 @@ namespace AdminSite.Controls
                 }
                 NewFileName = ad.AdId + "-" + "2-" + Path.GetFileName(fuAdPicture2.PostedFile.FileName);
                 FileNameWithoutExt = ad.AdId + "-" + "2-" + Path.GetFileNameWithoutExtension(fuAdPicture2.PostedFile.FileName);
-                if (fuAdPicture2.PostedFile.FileName != null || !fuAdPicture2.PostedFile.FileName.Equals(""))
+                if (fuAdPicture2.PostedFile.FileName != null && !fuAdPicture2.PostedFile.FileName.Equals(""))
                 {
                     if (fuAdPicture2.PostedFile.ContentLength > 1)
                     {
@@ -105,7 +105,7 @@ namespace AdminSite.Controls
                 }
                 NewFileName = ad.AdId + "-" + "3-" + Path.GetFileName(fuAdPicture3.PostedFile.FileName);
                 FileNameWithoutExt = ad.AdId + "-" + "3-" + Path.GetFileNameWithoutExtension(fuAdPicture3.PostedFile.FileName);
-                if (fuAdPicture3.PostedFile.FileName != null || !fuAdPicture3.PostedFile.FileName.Equals(""))
+                if (fuAdPicture3.PostedFile.FileName != null && !fuAdPicture3.PostedFile.FileName.Equals(""))
                 {
                     if (fuAdPicture3.PostedFile.ContentLength > 1)
                     {
@@ -118,7 +118,7 @@ namespace AdminSite.Controls
                 }
                 NewFileName = ad.AdId + "-" + "4-" + Path.GetFileName(fuAdPicture4.PostedFile.FileName);
                 FileNameWithoutExt = ad.AdId + "-" + "4-" + Path.GetFileNameWithoutExtension(fuAdPicture4.PostedFile.FileName);
-                if (fuAdPicture4.PostedFile.FileName != null || !fuAdPicture4.PostedFile.FileName.Equals(""))
+                if (fuAdPicture4.PostedFile.FileName != null && !fuAdPicture4.PostedFile.FileName.Equals(""))
                 {
                     if (fuAdPicture4.PostedFile.ContentLength > 1)
                     {

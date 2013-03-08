@@ -39,3 +39,16 @@ C:\khurram\FreeLancing\New folder\trunk\Advertisement\bin\Advertisement.pdb
 C:\khurram\FreeLancing\New folder\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
 C:\khurram\FreeLancing\New folder\trunk\Advertisement\obj\Debug\Advertisement.dll
 C:\khurram\FreeLancing\New folder\trunk\Advertisement\obj\Debug\Advertisement.pdb
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\obj\Debug\Advertisement.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\obj\Debug\Advertisement.pdb
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\Advertisement.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\Advertisement.pdb
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\AjaxControlToolkit.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\Anthem.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\eWorld.UI.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\GMDatePicker.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\SubSonic.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\TTD.Common.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\TTD.Web.Providers.dll
+D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\wwHoverPanel.dll

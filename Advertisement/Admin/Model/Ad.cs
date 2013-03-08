@@ -26,7 +26,7 @@ namespace Advertisement.Model
 	}
 
 	/// <summary>
-	/// This is an ActiveRecord class which wraps the tblAds table.
+	/// This is an ActiveRecord class which wraps the tblAd table.
 	/// </summary>
 	[Serializable]
 	public partial class Ad : ActiveRecord<Ad>, IActiveRecord
@@ -94,7 +94,7 @@ namespace Advertisement.Model
 			if(!IsSchemaInitialized)
 			{
 				//Schema declaration
-				TableSchema.Table schema = new TableSchema.Table("tblAds", TableType.Table, DataService.GetInstance("csmDefaultDB"));
+				TableSchema.Table schema = new TableSchema.Table("tblAd", TableType.Table, DataService.GetInstance("csmDefaultDB"));
 				schema.Columns = new TableSchema.TableColumnCollection();
 				schema.SchemaName = @"dbo";
 				//columns
@@ -103,7 +103,7 @@ namespace Advertisement.Model
 				colvarAdId.ColumnName = "AdId";
 				colvarAdId.DataType = DbType.Int32;
 				colvarAdId.MaxLength = 0;
-				colvarAdId.AutoIncrement = false;
+				colvarAdId.AutoIncrement = true;
 				colvarAdId.IsNullable = false;
 				colvarAdId.IsPrimaryKey = true;
 				colvarAdId.IsForeignKey = false;
@@ -219,7 +219,7 @@ namespace Advertisement.Model
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
-				DataService.Providers["csmDefaultDB"].AddSchema("tblAds",schema);
+				DataService.Providers["csmDefaultDB"].AddSchema("tblAd",schema);
 			}
 
 		}
@@ -346,11 +346,9 @@ namespace Advertisement.Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varAdId,int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress)
+		public static void Insert(int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress)
 		{
 			Ad item = new Ad();
-			
-			item.AdId = varAdId;
 			
 			item.LoginId = varLoginId;
 			

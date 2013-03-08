@@ -15,7 +15,7 @@ using SubSonic.Utilities;
 namespace Advertisement.DataAccess
 {
     /// <summary>
-    /// Controller class for tblAds
+    /// Controller class for tblAd
     /// </summary>
     [System.ComponentModel.DataObject]
     public partial class AdController
@@ -90,12 +90,10 @@ namespace Advertisement.DataAccess
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
+	    public void Insert(int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
 	    {
 		    Ad item = new Ad();
 		    
-            item.AdId = AdId;
-            
             item.LoginId = LoginId;
             
             item.AdTitle = AdTitle;
