@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AdminSite.Model;
+using Advertisement.Model;
 using System.IO;
 using TTD.Common;
+using System.Text;
 
 namespace AdminSite.Controls
 {
@@ -17,97 +18,144 @@ namespace AdminSite.Controls
         {
             divStatusError.Visible = false;
             divStatusSuccess.Visible = false;
-            serviceId = Utility.GetIntParameter("id");
+            //serviceId = Utility.GetIntParameter("id");
             if (serviceId > 0)
             {
                 //LoadService(serviceId);
             }
         }
 
-        protected void btnAddService_Click(object sender, EventArgs e)
-        {
-            if (Page.IsValid)
-            {
-                
-                if (serviceId > 0)
-                {
-                    Service service = new Service(serviceId);
-                    service.IsNew = false;
+        //protected void btnPostAd_Click(object sender, EventArgs e)
+        //{
+        //    if (Page.IsValid)
+        //    {
 
-                    service.ServiceTitle = txtAdTitle.Text;
-                    service.ServiceDescription = txtAdDetail.Text;
-                    try
+        //        if (serviceId > 0)
+        //        {
+        //            //Service service = new Service(serviceId);
+        //            //service.IsNew = false;
+
+        //            //service.ServiceTitle = txtAdTitle.Text;
+        //            //service.ServiceDescription = txtAdDetail.Text;
+        //            //try
+        //            //{
+        //            //    service.Save();
+        //            //    UploadPrintableFile(service);
+        //            //    divStatusError.Visible = false;
+        //            //    divStatusSuccess.Visible = true;
+        //            //    lblStatusSuccess.Text = Global.UpdatedLabelStatus;
+        //            //    //lblStatusSuccess.ForeColor = System.Drawing.Color.Green;
+        //            //}
+        //            //catch (Exception ex)
+        //            //{
+        //            //    divStatusSuccess.Visible = false;
+        //            //    divStatusError.Visible = true;
+        //            //    labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
+        //            //    //labelStatusError.ForeColor = System.Drawing.Color.Red;
+        //            //}
+        //        }
+        //        else
+        //        {
+        //            try
+        //            {
+        //                Save();
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                divStatusSuccess.Visible = false;
+        //                divStatusError.Visible = true;
+        //                labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
+        //            }
+        //        }
+        //    }
+            
+        //}
+
+        string UploadPrintableFile(Ad ad)
+        {
+            try
+            {
+                StringBuilder stringFiles = new StringBuilder();
+                string NewFileName = ad.AdId + "-" + "1-" + Path.GetFileName(fuAdPicture1.PostedFile.FileName);
+                string FileNameWithoutExt = ad.AdId + "-" + "1-" + Path.GetFileNameWithoutExtension(fuAdPicture1.PostedFile.FileName);
+                string error;
+                if (fuAdPicture1.PostedFile.FileName != null || !fuAdPicture1.PostedFile.FileName.Equals(""))
+                {
+                    if (fuAdPicture1.PostedFile.ContentLength > 1)
                     {
-                        service.Save();
-                        UploadPrintableFile(service);
-                        divStatusError.Visible = false;
-                        divStatusSuccess.Visible = true;
-                        lblStatusSuccess.Text = Global.UpdatedLabelStatus;
-                        //lblStatusSuccess.ForeColor = System.Drawing.Color.Green;
-                    }
-                    catch (Exception ex) {
-                        divStatusSuccess.Visible = false;
-                        divStatusError.Visible = true;
-                        labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
-                        //labelStatusError.ForeColor = System.Drawing.Color.Red;
+                        Utility.DeleteFile(Global.AdImages + ad.AdPicture);
+                        if (Utility.UploadFile(fuAdPicture1, FileNameWithoutExt, Global.AdImages, out error))
+                        {
+                            stringFiles.Append(NewFileName + ",");
+                        }
                     }
                 }
-                else
+                NewFileName = ad.AdId + "-" + "2-" + Path.GetFileName(fuAdPicture2.PostedFile.FileName);
+                FileNameWithoutExt = ad.AdId + "-" + "2-" + Path.GetFileNameWithoutExtension(fuAdPicture2.PostedFile.FileName);
+                if (fuAdPicture2.PostedFile.FileName != null || !fuAdPicture2.PostedFile.FileName.Equals(""))
                 {
-                    try
+                    if (fuAdPicture2.PostedFile.ContentLength > 1)
                     {
-                        //Save();
+                        Utility.DeleteFile(Global.AdImages + ad.AdPicture);
+                        if (Utility.UploadFile(fuAdPicture2, FileNameWithoutExt, Global.AdImages, out error))
+                        {
+                            stringFiles.Append(NewFileName + ",");
+                        }
                     }
-                    catch(Exception ex)
+                }
+                NewFileName = ad.AdId + "-" + "3-" + Path.GetFileName(fuAdPicture3.PostedFile.FileName);
+                FileNameWithoutExt = ad.AdId + "-" + "3-" + Path.GetFileNameWithoutExtension(fuAdPicture3.PostedFile.FileName);
+                if (fuAdPicture3.PostedFile.FileName != null || !fuAdPicture3.PostedFile.FileName.Equals(""))
+                {
+                    if (fuAdPicture3.PostedFile.ContentLength > 1)
                     {
-                        divStatusSuccess.Visible = false;
-                        divStatusError.Visible = true;
-                        labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
+                        Utility.DeleteFile(Global.AdImages + ad.AdPicture);
+                        if (Utility.UploadFile(fuAdPicture3, FileNameWithoutExt, Global.AdImages, out error))
+                        {
+                            stringFiles.Append(NewFileName + ",");
+                        }
                     }
+                }
+                NewFileName = ad.AdId + "-" + "4-" + Path.GetFileName(fuAdPicture4.PostedFile.FileName);
+                FileNameWithoutExt = ad.AdId + "-" + "4-" + Path.GetFileNameWithoutExtension(fuAdPicture4.PostedFile.FileName);
+                if (fuAdPicture4.PostedFile.FileName != null || !fuAdPicture4.PostedFile.FileName.Equals(""))
+                {
+                    if (fuAdPicture4.PostedFile.ContentLength > 1)
+                    {
+                        Utility.DeleteFile(Global.AdImages + ad.AdPicture);
+                        if (Utility.UploadFile(fuAdPicture4, FileNameWithoutExt, Global.AdImages, out error))
+                        {
+                            stringFiles.Append(NewFileName + ",");
+                        }
+                    }
+                }
+                if (!stringFiles.ToString().Equals(""))
+                {
+                    ad = new Ad(Ad.Columns.AdId, ad.AdId);
+                    ad.IsNew = false;
+                    ad.AdPicture = stringFiles.ToString();
+                    ad.Save(Guid.NewGuid());
+                    return String.Empty;
                 }
             }
-            
-        }
-
-        string UploadPrintableFile(Service service)
-        {
-
-            //string NewFileName = service.ServiceId + "-" + Path.GetFileName(fuServicePicture.PostedFile.FileName);
-            //string FileNameWithoutExt = service.ServiceId + "-" + Path.GetFileNameWithoutExtension(fuServicePicture.PostedFile.FileName);
-            //string error;
-            //if (fuServicePicture.PostedFile.FileName == null || fuServicePicture.PostedFile.FileName.Equals("") && serviceId == 0)
-            //{
-            //    service = new Service(Service.Columns.ServiceId, service.ServiceId);
-            //    service.IsNew = false;
-            //    service.ServiceImage = "NoImage.jpg";
-            //    service.Save(Guid.NewGuid());
-            //    return string.Empty;
-            //}
-            //if (fuServicePicture.PostedFile.ContentLength > 1)
-            //{
-            //    Utility.DeleteFile(Global.ServicesImages + service.ServiceImage);
-            //    if (Utility.UploadFile(fuServicePicture, FileNameWithoutExt, Global.ServicesImages, out error))
-            //    {
-            //        service = new Service(Service.Columns.ServiceId, service.ServiceId);
-            //        service.IsNew = false;
-            //        service.ServiceImage = NewFileName;
-            //        service.Save(Guid.NewGuid());
-            //    }
-            //    else
-            //    {
-            //        Service.Destroy(service.ServiceId);
-            //        return error.ToString();
-            //    }
-            //}
-            return String.Empty;
+            catch (Exception ex)
+            {
+                Ad.Destroy(ad.AdId);
+                return ex.Message;
+            }
+            return "Record Could not be Updated";
         } // Upload file ends here 
 
-        //public void ClearForm()
-        //{
-        //    txtServiceTitle.Text = "";
-        //    txtServiceDescription.Text = "";
-        //    fuServicePicture.Dispose();
-        //}
+        public void ClearForm()
+        {
+            txtAdTitle.Text = "";
+            txtAdDetail.Text = "";
+            txtAskingPrice.Text = "";
+            chkBoxFree.Checked = false;
+            txtContactNo.Text = "";
+            txtEmail.Text = "";
+            txtAddress.Text = "";
+        }
 
         //public void LoadService(int pServiceId)
         //{
@@ -116,35 +164,98 @@ namespace AdminSite.Controls
         //    txtServiceDescription.Text = service.ServiceDescription;
         //}
 
-        //public void Save()
-        //{
-        //    string serviceTitle = txtServiceTitle.Text;
-        //    string serviceDescription = txtServiceDescription.Text;
+        public void Save()
+        {
+            int userId = Utility.GetIntParameter("id");
+            string adTitle = txtAdTitle.Text;
+            string adDetatil = txtAdDetail.Text;
+            string askingPrice = string.Empty;
+            if (chkBoxFree.Checked)
+            {
+                askingPrice = "Free";
+            }
+            else
+            {
+                askingPrice = txtAskingPrice.Text;
+            }
+            string contactNo = txtContactNo.Text;
+            string email = txtEmail.Text;
+            string address = txtAddress.Text;
 
-        //    Service service = new Service();
-        //    service.IsNew = true;
-        //    service.ServiceTitle = serviceTitle;
-        //    service.ServiceDescription = serviceDescription;
-        //    service.Save();
+            Ad ad = new Ad();
+            ad.IsNew = true;
+            ad.LoginId = userId;
+            ad.AdTitle = adTitle;
+            ad.AdDetail = adDetatil;
+            ad.AdAskingPrice = askingPrice;
+            ad.AdContactNo = contactNo;
+            ad.AdEmailAddress = email;
+            ad.AdAddress = address;
 
-        //    //Now Save Picture As Well..
-        //    string result = UploadPrintableFile(service);
-        //    if (result.Equals(""))
-        //    {
-        //        divStatusError.Visible = false;
-        //        divStatusSuccess.Visible = true;
-        //        lblStatusSuccess.Text = Global.SuccessLabelStatus;
-        //        //lblStatusSuccess.ForeColor = System.Drawing.Color.Green;
-        //    }
-        //    else
-        //    {
-        //        divStatusSuccess.Visible = false;
-        //        divStatusError.Visible = true;
-        //        labelStatusError.Text = Global.ErrorLabelStatus + result;
-        //        //labelStatusError.ForeColor = System.Drawing.Color.Red;
-        //    }
-        //    ClearForm();
-        //}
+            ad.Save();
+
+            //Now Save Picture As Well..
+            string result = UploadPrintableFile(ad);
+            if (result.Equals(""))
+            {
+                divStatusError.Visible = false;
+                divStatusSuccess.Visible = true;
+                lblStatusSuccess.Text = Global.SuccessLabelStatus;
+            }
+            else
+            {
+                divStatusSuccess.Visible = false;
+                divStatusError.Visible = true;
+                labelStatusError.Text = Global.ErrorLabelStatus + result;
+                Ad.Destroy(ad.AdId);
+            }
+            ClearForm();
+        }
+
+        protected void btnPostAd_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+
+                if (serviceId > 0)
+                {
+                    //Service service = new Service(serviceId);
+                    //service.IsNew = false;
+
+                    //service.ServiceTitle = txtAdTitle.Text;
+                    //service.ServiceDescription = txtAdDetail.Text;
+                    //try
+                    //{
+                    //    service.Save();
+                    //    UploadPrintableFile(service);
+                    //    divStatusError.Visible = false;
+                    //    divStatusSuccess.Visible = true;
+                    //    lblStatusSuccess.Text = Global.UpdatedLabelStatus;
+                    //    //lblStatusSuccess.ForeColor = System.Drawing.Color.Green;
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    divStatusSuccess.Visible = false;
+                    //    divStatusError.Visible = true;
+                    //    labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
+                    //    //labelStatusError.ForeColor = System.Drawing.Color.Red;
+                    //}
+                }
+                else
+                {
+                    try
+                    {
+                        Save();
+                    }
+                    catch (Exception ex)
+                    {
+                        divStatusSuccess.Visible = false;
+                        divStatusError.Visible = true;
+                        labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
+                    }
+                }
+            }
+        }
 
     }
 }

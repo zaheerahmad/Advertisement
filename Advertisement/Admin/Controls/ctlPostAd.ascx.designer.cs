@@ -103,6 +103,15 @@ namespace AdminSite.Controls {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
+        /// chkBoxFree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkBoxFree;
+        
+        /// <summary>
         /// fuAdPicture1 control.
         /// </summary>
         /// <remarks>
@@ -184,12 +193,12 @@ namespace AdminSite.Controls {
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
-        /// btnAddService control.
+        /// btnPostAd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddService;
+        protected global::System.Web.UI.WebControls.Button btnPostAd;
     }
 }

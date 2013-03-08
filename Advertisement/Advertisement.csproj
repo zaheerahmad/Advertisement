@@ -33,19 +33,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Anthem">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\Anthem.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\Anthem.dll</HintPath>
     </Reference>
     <Reference Include="eWorld.UI">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\eWorld.UI.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\eWorld.UI.dll</HintPath>
     </Reference>
     <Reference Include="GMDatePicker">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\GMDatePicker.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\GMDatePicker.dll</HintPath>
     </Reference>
     <Reference Include="SubSonic">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\SubSonic.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\SubSonic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,13 +61,13 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="TTD.Common">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\TTD.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\TTD.Common.dll</HintPath>
     </Reference>
     <Reference Include="TTD.Web.Providers">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\TTD.Web.Providers.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\TTD.Web.Providers.dll</HintPath>
     </Reference>
     <Reference Include="wwHoverPanel">
-      <HintPath>..\..\..\Admin\trunk\OurWeb\bin\wwHoverPanel.dll</HintPath>
+      <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\wwHoverPanel.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -88,26 +88,9 @@
     <Content Include="Admin\assets\Scripts\jquery-1.4.1.min.js" />
     <Content Include="Admin\assets\Styles\Site.css" />
     <Content Include="Admin\Controls\ctlAd.ascx" />
-    <Content Include="Admin\Controls\ctlAddClient.ascx" />
-    <Content Include="Admin\Controls\ctlAddNews.ascx" />
-    <Content Include="Admin\Controls\ctlAddPortfolio.ascx" />
-    <Content Include="Admin\Controls\ctlAddProject.ascx" />
-    <Content Include="Admin\Controls\ctlAddServices.ascx" />
-    <Content Include="Admin\Controls\ctlClient.ascx" />
-    <Content Include="Admin\Controls\ctlLogin.ascx" />
     <Content Include="Admin\Controls\ctlManageAd.ascx" />
-    <Content Include="Admin\Controls\ctlManageClient.ascx" />
-    <Content Include="Admin\Controls\ctlManageNews.ascx" />
-    <Content Include="Admin\Controls\ctlManagePortfolio.ascx" />
-    <Content Include="Admin\Controls\ctlManageProject.ascx" />
-    <Content Include="Admin\Controls\ctlManageServices.ascx" />
-    <Content Include="Admin\Controls\ctlNews.ascx" />
-    <Content Include="Admin\Controls\ctlPortfolio.ascx" />
     <Content Include="Admin\Controls\ctlPostAd.ascx" />
-    <Content Include="Admin\Controls\ctlProject.ascx" />
-    <Content Include="Admin\Controls\ctlServices.ascx" />
     <Content Include="Admin\Controls\ctlWelcome.ascx" />
-    <Content Include="Admin\Controls\ctlSignOut.ascx" />
     <Content Include="Admin\Global.asax" />
     <Content Include="Admin\WebServices\SessionHandler.asmx" />
     <Content Include="Advertisement.aspx" />
@@ -310,6 +293,7 @@
       <DependentUpon>AdminSite.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\Common\Common.cs" />
+    <Compile Include="Admin\Controller\AdController.cs" />
     <Compile Include="Admin\Controls\ControlSettings.cs" />
     <Compile Include="Admin\Controls\ctlAd.ascx.cs">
       <DependentUpon>ctlAd.ascx</DependentUpon>
@@ -318,55 +302,6 @@
     <Compile Include="Admin\Controls\ctlAd.ascx.designer.cs">
       <DependentUpon>ctlAd.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Controls\ctlAddClient.ascx.cs">
-      <DependentUpon>ctlAddClient.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddClient.ascx.designer.cs">
-      <DependentUpon>ctlAddClient.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddNews.ascx.cs">
-      <DependentUpon>ctlAddNews.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddNews.ascx.designer.cs">
-      <DependentUpon>ctlAddNews.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddPortfolio.ascx.cs">
-      <DependentUpon>ctlAddPortfolio.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddPortfolio.ascx.designer.cs">
-      <DependentUpon>ctlAddPortfolio.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddProject.ascx.cs">
-      <DependentUpon>ctlAddProject.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddProject.ascx.designer.cs">
-      <DependentUpon>ctlAddProject.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddServices.ascx.cs">
-      <DependentUpon>ctlAddServices.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlAddServices.ascx.designer.cs">
-      <DependentUpon>ctlAddServices.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlClient.ascx.cs">
-      <DependentUpon>ctlClient.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlClient.ascx.designer.cs">
-      <DependentUpon>ctlClient.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlLogin.ascx.cs">
-      <DependentUpon>ctlLogin.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlLogin.ascx.designer.cs">
-      <DependentUpon>ctlLogin.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Controls\ctlManageAd.ascx.cs">
       <DependentUpon>ctlManageAd.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,75 +309,12 @@
     <Compile Include="Admin\Controls\ctlManageAd.ascx.designer.cs">
       <DependentUpon>ctlManageAd.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Controls\ctlManageClient.ascx.cs">
-      <DependentUpon>ctlManageClient.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageClient.ascx.designer.cs">
-      <DependentUpon>ctlManageClient.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageNews.ascx.cs">
-      <DependentUpon>ctlManageNews.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageNews.ascx.designer.cs">
-      <DependentUpon>ctlManageNews.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManagePortfolio.ascx.cs">
-      <DependentUpon>ctlManagePortfolio.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManagePortfolio.ascx.designer.cs">
-      <DependentUpon>ctlManagePortfolio.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageProject.ascx.cs">
-      <DependentUpon>ctlManageProject.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageProject.ascx.designer.cs">
-      <DependentUpon>ctlManageProject.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageServices.ascx.cs">
-      <DependentUpon>ctlManageServices.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlManageServices.ascx.designer.cs">
-      <DependentUpon>ctlManageServices.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlNews.ascx.cs">
-      <DependentUpon>ctlNews.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlNews.ascx.designer.cs">
-      <DependentUpon>ctlNews.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlPortfolio.ascx.cs">
-      <DependentUpon>ctlPortfolio.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlPortfolio.ascx.designer.cs">
-      <DependentUpon>ctlPortfolio.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Controls\ctlPostAd.ascx.cs">
       <DependentUpon>ctlPostAd.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Controls\ctlPostAd.ascx.designer.cs">
       <DependentUpon>ctlPostAd.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlProject.ascx.cs">
-      <DependentUpon>ctlProject.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlProject.ascx.designer.cs">
-      <DependentUpon>ctlProject.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlServices.ascx.cs">
-      <DependentUpon>ctlServices.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlServices.ascx.designer.cs">
-      <DependentUpon>ctlServices.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Controls\ctlWelcome.ascx.cs">
       <DependentUpon>ctlWelcome.ascx</DependentUpon>
@@ -452,30 +324,10 @@
       <DependentUpon>ctlWelcome.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Controls\PorfolioCollection.cs" />
-    <Compile Include="Admin\Controls\ctlSignOut.ascx.cs">
-      <DependentUpon>ctlSignOut.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\ctlSignOut.ascx.designer.cs">
-      <DependentUpon>ctlSignOut.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Dao\ClientController.cs" />
-    <Compile Include="Admin\Dao\LoginController.cs" />
-    <Compile Include="Admin\Dao\NewsController.cs" />
-    <Compile Include="Admin\Dao\PortfolioController.cs" />
-    <Compile Include="Admin\Dao\ProjectController.cs" />
-    <Compile Include="Admin\Dao\ServiceController.cs" />
-    <Compile Include="Admin\Dao\ToolsAndTechniqueController.cs" />
     <Compile Include="Admin\Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Model\Client.cs" />
-    <Compile Include="Admin\Model\Login.cs" />
-    <Compile Include="Admin\Model\News.cs" />
-    <Compile Include="Admin\Model\Portfolio.cs" />
-    <Compile Include="Admin\Model\Project.cs" />
-    <Compile Include="Admin\Model\Service.cs" />
-    <Compile Include="Admin\Model\ToolsAndTechnique.cs" />
+    <Compile Include="Admin\Model\Ad.cs" />
     <Compile Include="Admin\WebServices\SessionHandler.asmx.cs">
       <DependentUpon>SessionHandler.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -565,9 +417,7 @@
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\Model\Dao\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Site1.Master" />
   </ItemGroup>

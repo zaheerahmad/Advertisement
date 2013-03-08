@@ -12,9 +12,9 @@
 <div class="span2" style="position:fixed">
     <ul class="nav nav-list">
       <li class="nav-header">Advertisements</li>
-      <li id="home"><a href="Admin.aspx?ctl=5">Home</a></li>
-      <li id="add" class="active"><a href="Admin.aspx?ctl=2">Post Ad</a></li>
-      <li id="manage"><a href="Admin.aspx?ctl=3">Manage Your Ads</a></li>
+      <li id="home"><a href="Admin.aspx?ctl=5&id=<%=Session["userId"]%>">Home</a></li>
+      <li id="add" class="active"><a href="Admin.aspx?ctl=2&id=<%=Session["userId"]%>">Post Ad</a></li>
+      <li id="manage"><a href="Admin.aspx?ctl=3&id=<%=Session["userId"]%>">Manage Your Ads</a></li>
     </ul>
 </div>
 <div class="span8 offset2">
@@ -48,7 +48,7 @@
           <asp:TextBox ID="txtAskingPrice" runat="server" placeHolder="e.g. '250$' or 'On Call'" TextMode="SingleLine"></asp:TextBox>
           <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtAskingPrice" runat="server" ForeColor="Red" Text="*" />
             <label class="checkbox">
-                <input type="checkbox"> Free
+                <asp:CheckBox ID="chkBoxFree" runat="server"/> Free
             </label>
         </div>
       </div>
@@ -84,8 +84,8 @@
       </div>
       <div class="control-group">
         <div class="controls">
-            <asp:Button ID="btnAddService" class="btn btn-primary" runat="server" Text="Post Ad" 
-                onclick="btnAddService_Click"/>
+            <asp:Button ID="btnPostAd" class="btn btn-primary" runat="server" Text="Post Ad" 
+                onclick="btnPostAd_Click"/>
         </div>
       </div>
     </form>

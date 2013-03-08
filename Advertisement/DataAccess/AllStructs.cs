@@ -18,6 +18,8 @@ namespace Advertisement.DataAccess
 	public partial struct Tables
 	{
 		
+		public static string Ad = @"tblAds";
+        
 		public static string User = @"tblUsers";
         
 	}
@@ -26,6 +28,12 @@ namespace Advertisement.DataAccess
     #region Schemas
     public partial class Schemas {
 		
+		public static TableSchema.Table Ad{
+            get { return DataService.GetSchema("tblAds","csmDefaultDB"); }
+
+		}
+
+        
 		public static TableSchema.Table User{
             get { return DataService.GetSchema("tblUsers","csmDefaultDB"); }
 

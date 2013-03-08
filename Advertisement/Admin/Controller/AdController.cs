@@ -11,18 +11,18 @@ using System.Xml;
 using System.Xml.Serialization;
 using SubSonic; 
 using SubSonic.Utilities;
-using OurWeb.Model;
+using Advertisement.Model;
 
-namespace OurWeb.Dao
+namespace Advertisement.Controller
 {
     /// <summary>
-    /// Controller class for tblToolsAndTechniques
+    /// Controller class for tblAds
     /// </summary>
     [System.ComponentModel.DataObject]
-    public partial class ToolsAndTechniqueController
+    public partial class AdController
     {
         // Preload our schema..
-        ToolsAndTechnique thisSchemaLoad = new ToolsAndTechnique();
+        Ad thisSchemaLoad = new Ad();
         private string userName = string.Empty;
         protected string UserName
         {
@@ -48,40 +48,40 @@ namespace OurWeb.Dao
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public ToolsAndTechniqueCollection FetchAll()
+        public AdCollection FetchAll()
         {
-            ToolsAndTechniqueCollection coll = new ToolsAndTechniqueCollection();
-            Query qry = new Query(ToolsAndTechnique.Schema);
+            AdCollection coll = new AdCollection();
+            Query qry = new Query(Ad.Schema);
             coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public ToolsAndTechniqueCollection FetchByID(object TatId)
+        public AdCollection FetchByID(object AdId)
         {
-            ToolsAndTechniqueCollection coll = new ToolsAndTechniqueCollection().Where("tatId", TatId).Load();
+            AdCollection coll = new AdCollection().Where("AdId", AdId).Load();
             return coll;
         }
 
 		
 		[DataObjectMethod(DataObjectMethodType.Select, false)]
-        public ToolsAndTechniqueCollection FetchByQuery(Query qry)
+        public AdCollection FetchByQuery(Query qry)
         {
-            ToolsAndTechniqueCollection coll = new ToolsAndTechniqueCollection();
+            AdCollection coll = new AdCollection();
             coll.LoadAndCloseReader(qry.ExecuteReader()); 
             return coll;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object TatId)
+        public bool Delete(object AdId)
         {
-            return (ToolsAndTechnique.Delete(TatId) == 1);
+            return (Ad.Delete(AdId) == 1);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object TatId)
+        public bool Destroy(object AdId)
         {
-            return (ToolsAndTechnique.Destroy(TatId) == 1);
+            return (Ad.Destroy(AdId) == 1);
         }
 
         
@@ -91,11 +91,27 @@ namespace OurWeb.Dao
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string TatName)
+	    public void Insert(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
 	    {
-		    ToolsAndTechnique item = new ToolsAndTechnique();
+		    Ad item = new Ad();
 		    
-            item.TatName = TatName;
+            item.AdId = AdId;
+            
+            item.LoginId = LoginId;
+            
+            item.AdTitle = AdTitle;
+            
+            item.AdDetail = AdDetail;
+            
+            item.AdAskingPrice = AdAskingPrice;
+            
+            item.AdPicture = AdPicture;
+            
+            item.AdContactNo = AdContactNo;
+            
+            item.AdEmailAddress = AdEmailAddress;
+            
+            item.AdAddress = AdAddress;
             
 	    
 		    item.Save(UserName);
@@ -106,15 +122,29 @@ namespace OurWeb.Dao
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int TatId,string TatName)
+	    public void Update(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
 	    {
-		    ToolsAndTechnique item = new ToolsAndTechnique();
+		    Ad item = new Ad();
 	        item.MarkOld();
 	        item.IsLoaded = true;
 		    
-			item.TatId = TatId;
+			item.AdId = AdId;
 				
-			item.TatName = TatName;
+			item.LoginId = LoginId;
+				
+			item.AdTitle = AdTitle;
+				
+			item.AdDetail = AdDetail;
+				
+			item.AdAskingPrice = AdAskingPrice;
+				
+			item.AdPicture = AdPicture;
+				
+			item.AdContactNo = AdContactNo;
+				
+			item.AdEmailAddress = AdEmailAddress;
+				
+			item.AdAddress = AdAddress;
 				
 	        item.Save(UserName);
 	    }

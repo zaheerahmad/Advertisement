@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AdminSite.Model;
+using Advertisement.Model;
 
 namespace AdminSite.Controls
 {

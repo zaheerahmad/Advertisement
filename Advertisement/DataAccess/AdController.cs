@@ -11,18 +11,17 @@ using System.Xml;
 using System.Xml.Serialization;
 using SubSonic; 
 using SubSonic.Utilities;
-using AdminSite.Model;
 
-namespace AdminSite.Dao
+namespace Advertisement.DataAccess
 {
     /// <summary>
-    /// Controller class for tblService
+    /// Controller class for tblAds
     /// </summary>
     [System.ComponentModel.DataObject]
-    public partial class ServiceController
+    public partial class AdController
     {
         // Preload our schema..
-        Service thisSchemaLoad = new Service();
+        Ad thisSchemaLoad = new Ad();
         private string userName = string.Empty;
         protected string UserName
         {
@@ -48,40 +47,40 @@ namespace AdminSite.Dao
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public ServiceCollection FetchAll()
+        public AdCollection FetchAll()
         {
-            ServiceCollection coll = new ServiceCollection();
-            Query qry = new Query(Service.Schema);
+            AdCollection coll = new AdCollection();
+            Query qry = new Query(Ad.Schema);
             coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public ServiceCollection FetchByID(object ServiceId)
+        public AdCollection FetchByID(object AdId)
         {
-            ServiceCollection coll = new ServiceCollection().Where("serviceId", ServiceId).Load();
+            AdCollection coll = new AdCollection().Where("AdId", AdId).Load();
             return coll;
         }
 
 		
 		[DataObjectMethod(DataObjectMethodType.Select, false)]
-        public ServiceCollection FetchByQuery(Query qry)
+        public AdCollection FetchByQuery(Query qry)
         {
-            ServiceCollection coll = new ServiceCollection();
+            AdCollection coll = new AdCollection();
             coll.LoadAndCloseReader(qry.ExecuteReader()); 
             return coll;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
-        public bool Delete(object ServiceId)
+        public bool Delete(object AdId)
         {
-            return (Service.Delete(ServiceId) == 1);
+            return (Ad.Delete(AdId) == 1);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
-        public bool Destroy(object ServiceId)
+        public bool Destroy(object AdId)
         {
-            return (Service.Destroy(ServiceId) == 1);
+            return (Ad.Destroy(AdId) == 1);
         }
 
         
@@ -91,15 +90,27 @@ namespace AdminSite.Dao
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string ServiceTitle,string ServiceDescription,string ServiceImage)
+	    public void Insert(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
 	    {
-		    Service item = new Service();
+		    Ad item = new Ad();
 		    
-            item.ServiceTitle = ServiceTitle;
+            item.AdId = AdId;
             
-            item.ServiceDescription = ServiceDescription;
+            item.LoginId = LoginId;
             
-            item.ServiceImage = ServiceImage;
+            item.AdTitle = AdTitle;
+            
+            item.AdDetail = AdDetail;
+            
+            item.AdAskingPrice = AdAskingPrice;
+            
+            item.AdPicture = AdPicture;
+            
+            item.AdContactNo = AdContactNo;
+            
+            item.AdEmailAddress = AdEmailAddress;
+            
+            item.AdAddress = AdAddress;
             
 	    
 		    item.Save(UserName);
@@ -110,19 +121,29 @@ namespace AdminSite.Dao
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int ServiceId,string ServiceTitle,string ServiceDescription,string ServiceImage)
+	    public void Update(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
 	    {
-		    Service item = new Service();
+		    Ad item = new Ad();
 	        item.MarkOld();
 	        item.IsLoaded = true;
 		    
-			item.ServiceId = ServiceId;
+			item.AdId = AdId;
 				
-			item.ServiceTitle = ServiceTitle;
+			item.LoginId = LoginId;
 				
-			item.ServiceDescription = ServiceDescription;
+			item.AdTitle = AdTitle;
 				
-			item.ServiceImage = ServiceImage;
+			item.AdDetail = AdDetail;
+				
+			item.AdAskingPrice = AdAskingPrice;
+				
+			item.AdPicture = AdPicture;
+				
+			item.AdContactNo = AdContactNo;
+				
+			item.AdEmailAddress = AdEmailAddress;
+				
+			item.AdAddress = AdAddress;
 				
 	        item.Save(UserName);
 	    }
