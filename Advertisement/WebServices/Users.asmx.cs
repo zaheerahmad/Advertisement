@@ -73,7 +73,7 @@ namespace Advertisement.WebServices
                         serviceErrorCode = 0,
                         id = user.LoginId
                     };
-                    Session.Timeout = 1;
+                    Session.Timeout = 40;
                     Session["userId"] = user.LoginId;
                     string jsonStringError = serviceResponceError.ToJSON();
                     return jsonStringError;

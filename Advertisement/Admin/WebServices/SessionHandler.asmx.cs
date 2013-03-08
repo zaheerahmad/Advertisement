@@ -19,7 +19,7 @@ namespace Advertisement.Admin.WebServices
     public class SessionHandler : System.Web.Services.WebService
     {
 
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void RemoveSession()
         {
