@@ -3,15 +3,17 @@
 <script src="../assets/themes/2/js-image-slider.js" type="text/javascript"></script>
 
 <div class="page-header">
-            <h1>Details<small> Ad Name here</small></h1>
-        </div>
+<%int id = TTD.Common.Utility.GetIntParameter("id");
+                    Advertisement.Model.Ad ad = new Advertisement.Model.Ad("AdId", id);%>
+        <div class="hero-unit">
+            <h1>Details<small> <%=ad.AdTitle %></small></h1>
+        
         <div id="sliderFrame">
             <div id="slider">
                         
                   <!--  <img src="../../assets/images/image-slider-1.jpg" alt="Welcome to jQuery Slider" />-->
-                  <%int id = TTD.Common.Utility.GetIntParameter("id");
-                    Advertisement.Model.Ad ad = new Advertisement.Model.Ad("AdId", id);
-                    string[] adImage = ad.AdPicture.Split(new Char[]{','}, StringSplitOptions.RemoveEmptyEntries);
+                  
+                    <%string[] adImage = ad.AdPicture.Split(new Char[]{','}, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string image in adImage)
                     {
                         if (ad.AdDetail.Length > 60)
@@ -51,32 +53,41 @@
             <!--clear above float:left elements. It is required if above #slider is styled as float:left. -->
             <div style="clear:both;height:0;"></div>
         </div>
-        <div class="page-header">
-            <h4>Contact Details</h4>
+        <legend>
+            Ad Detail
+        </legend>
+        <div style="display:inline-block; background-color:ThreeDHighlight">
+           <p>
+            <%=ad.AdDetail %>
+          </p>
+          </div>
+          <br />
+          <br />
+        <legend>
+            Contact Details
+        </legend>
+        <div style="display:inline-block">
+            <%Advertisement.Model.User user = new Advertisement.Model.User("LoginId", ad.LoginId);%>
+                <address>
+                    <strong><%=user.FName%></strong><br>
+                    <a href="mailto:#"><%=ad.AdEmailAddress%></a>
+                    <p><%=ad.AdAddress%></p>
+                    <strong>Price: </strong><%=ad.AdAskingPrice%><br />
+                    <abbr title="Phone">P:</abbr> <%=ad.AdContactNo%>
+                </address>
         </div>
-        <address>
-            <strong>Twitter, Inc.</strong><br>
-            795 Folsom Ave, Suite 600<br>
-            San Francisco, CA 94107<br>
-            <abbr title="Phone">P:</abbr> (123) 456-7890
-        </address>
- 
-        <address>
-            <strong>Full Name</strong><br>
-            <a href="mailto:#">first.last@example.com</a>
-        </address>
         <div class='page-header'>
 			<h4>
 				Suggestions for use
 			</h4>
 		</div>
         <div class='commentBox'>
-           
-            
         </div>
          <div class='suggestionArea' style="margin-top:40px;">            
             <div class='control'>                    
                     <textarea name='suggestionBox' style='width: 500px;' placeholder='Suggestions'></textarea></br>
                     <a class='btn btn-mini btn-primary sugst' type='button'>Suggest</a>
             </div>
+        </div>
+        </div>
         </div>
