@@ -52,3 +52,8 @@ D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\SubSonic.dll
 D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\TTD.Common.dll
 D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\TTD.Web.Providers.dll
 D:\Zaheer's Personal\Advertisement2\trunk\Advertisement\bin\wwHoverPanel.dll
+E:\Work\Latest\Advertisement2\trunk\Advertisement\bin\Advertisement.dll
+E:\Work\Latest\Advertisement2\trunk\Advertisement\bin\Advertisement.pdb
+E:\Work\Latest\Advertisement2\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\Latest\Advertisement2\trunk\Advertisement\obj\Debug\Advertisement.dll
+E:\Work\Latest\Advertisement2\trunk\Advertisement\obj\Debug\Advertisement.pdb

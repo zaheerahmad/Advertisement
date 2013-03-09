@@ -58,7 +58,8 @@
                 </tr>
                 <%Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
                   int i = 0;
-                  foreach (Advertisement.Model.Ad ad in adController.FetchAll().Where("LoginId", Session["userId"]).OrderByDesc("AdDate"))
+                  int id = TTD.Common.Utility.GetIntParameter("id");
+                  foreach (Advertisement.Model.Ad ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
                   {
                       i++;
                       if (i == 5)

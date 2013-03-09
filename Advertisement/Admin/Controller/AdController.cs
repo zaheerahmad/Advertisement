@@ -63,6 +63,13 @@ namespace Advertisement.Controller
             return coll;
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public AdCollection FetchByLoginID(object LoginId)
+        {
+            AdCollection coll = new AdCollection().Where("LoginId", LoginId).Load();
+            return coll;
+        }
+
 		
 		[DataObjectMethod(DataObjectMethodType.Select, false)]
         public AdCollection FetchByQuery(Query qry)

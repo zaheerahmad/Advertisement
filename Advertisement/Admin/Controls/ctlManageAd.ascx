@@ -30,101 +30,28 @@
         <legend>Your Current Ads</legend>
             <table class="table table-hover">
                 <tr>
-                    <th>Material Name</th>
+                    <th>Title</th>
                     <th>Image</th>
                     <th>Posted On (Date)</th>
                     <th>Status</th>
                     <th><i class="icon-edit"></i></th>
                     <th><i class="icon-remove"></i></th>
                 </tr>
-                <tr id="1">
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a id="1" href="#">Delete</a></td>
-                </tr>
-                <tr id="2">
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a id="2" href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#" onclick="fadeOut(this)">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td><img src="../../assets/images/thumb1.jpg" alt="" /></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-flag"></i>Available</td>
-                    <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                    <td><i class="icon-remove"></i><a href="#">Delete</a></td>
-                </tr>
+                <%
+                    Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
+                    int id = TTD.Common.Utility.GetIntParameter("id");
+                    foreach (Advertisement.Model.Ad ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
+                    {%>
+                        <tr id="<%=ad.AdId %>">
+                            <td><%=ad.AdTitle %></td>
+                            <td><img src="../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(',')) %>" alt="" /></td>
+                            <td><%=ad.AdDate %></td>
+                            <td><i class="icon-flag"></i><%=ad.AdStatus %></td>
+                            <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
+                            <td><i class="icon-remove"></i><a id="1" href="#">Delete</a></td>
+                        </tr>
+                   <% }
+                     %>
             </table>
     </form>
 </div>
