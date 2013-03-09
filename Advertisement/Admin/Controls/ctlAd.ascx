@@ -70,12 +70,10 @@
                             <td><%=ad.AdDate %></td>
                             <td><%=ad.AdAskingPrice %></td>
                             <th><i class="icon-flag"></i>Availabe</th>
-                            <td><a href="#">Check Details</a></td>
+                            <td><a href="../Advertisement.aspx?ctl=1&id=<%=ad.AdId %>">Check Details</a></td>
                         </tr>
                   <%
-                      
                   }
-                    
                      %>
             </table>
         </div>
