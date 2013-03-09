@@ -179,52 +179,21 @@ body{
                     <legend>Featured Ads</legend>
                     <div id="gallery" class="mainGallery">
 
-                        <%--<% Advertisement.Controller.AdController controllerAd = new Advertisement.Controller.AdController();
-                           foreach (Advertisement.Model.Ad ad in controllerAd.FetchAll())
+                        <% Advertisement.Controller.AdController controllerAd = new Advertisement.Controller.AdController();
+                           foreach (Advertisement.Model.Ad ad in controllerAd.FetchAll().OrderByDesc("AdDate"))
                            {
-                               
-                               %>--%>
-                                <a href="Advertisement.aspx?ctl=1" class="show">
-		                            <img src="../assets/MainSlider/images/flowing-rock.jpg" alt="Flowing Rock" width="950" height="450" title="" alt="" rel="<h3>Flowing Rock</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
-	                            </a>
-                           <%--<%}
-                             %>--%>
-
-	                    <a href="Advertisement.aspx?ctl=1" class="show">
-		                    <img src="../assets/MainSlider/images/flowing-rock.jpg" alt="Flowing Rock" width="950" height="450" title="" alt="" rel="<h3>Flowing Rock</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
-	                    </a>
-	
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/grass-blades.jpg" alt="Grass Blades" width="950" height="450" title="" alt="" rel="<h3>Grass Blades</h3>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "/>
-	                    </a>
-	
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/ladybug.jpg" alt="Ladybug" width="950" height="450" title="" alt="" rel="<h3>Ladybug</h3>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
-	                    </a>
-
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/lightning.jpg" alt="Lightning" width="950" height="450" title="" alt="" rel="<h3>Lightning</h3>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-	                    </a>
-	
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/lotus.jpg" alt="Lotus" width="950" height="450" title="" alt="" rel="<h3>Lotus</h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."/>
-	                    </a>
-	
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/mojave.jpg" alt="Mojave" width="950" height="450" title="" alt="" rel="<h3>Mojave</h3>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."/>
-	                    </a>
-		
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/pier.jpg" alt="Pier" width="950" height="450" title="" alt="" rel="<h3>Pier</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
-	                    </a>
-	
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/sea-mist.jpg" alt="Sea Mist" width="950" height="450" title="" alt="" rel="<h3>Sea Mist</h3>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
-	                    </a>
-	
-	                    <a href="Advertisement.aspx?ctl=1">
-		                    <img src="../assets/MainSlider/images/stones.jpg" alt="Stone" width="950" height="450" title="" alt="" rel="<h3>Stone</h3>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
-	                    </a>
+                               string[] arr = ad.AdPicture.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                               foreach (string image in arr)
+                               {
+                               %>
+                            
+                           <a href="Advertisement.aspx?ctl=1&id=<%=ad.AdId %>" class="show">
+                            <img src="../upload/AdImage/MainSlider/<%=image%>" alt="Flowing Rock" width="950" height="450" title="" alt="" rel="<h3><%=ad.AdTitle %></h3><%if(ad.AdDetail.Length > 60){ %><%=ad.AdDetail.Substring(0,60) + "..." %> <%}%><%else{ %><%=ad.AdDetail %><%} %>" />
+                           </a>
+                             
+                           <%}
+                           }
+                             %>
 
 	                    <div class="caption"><div class="content"></div></div>
                     </div>
@@ -264,121 +233,52 @@ body{
             </div>
         </div>
             <legend>Recent Posts</legend>
-           <div class="row materialContent">                   
-                    <div class="media infoDiv"  style="margin-top:19px;">
-                      <a class="pull-left" href="../Advertisement.aspx?ctl=1">
-                        <img class="media-object imgInfo" src='../../assets/images/ScrapMetalRecycling.jpg' alt='No Image'></img>
+           <div class="row materialContent">
+                    <%Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
+                      foreach (Advertisement.Model.Ad ad in adController.FetchAll().OrderByDesc("AdDate"))
+                      {%>
+                        <div class="media infoDiv"  style="margin-top:19px;">
+                      <a class="pull-left" href="../Advertisement.aspx?ctl=1&id=<%=ad.AdId %>">
+                        <img class="media-object imgInfo" src='../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(','))%>' alt='No Image'></img>
                       </a>
                       <div class="media-body">
                         <div class="row">
                             <div class="span5">
-                                <h4 class="media-heading">Waste Material</h4> 
+                                <h4 class="media-heading"><%=ad.AdTitle %></h4> 
                             </div>
                             <div class="span3 priceDiv">
-                                <span>$ 00000.00</span>
+                                <span><%=ad.AdAskingPrice %></span>
                             </div>
                        </div>
                            <div class="row">
                                 <div class="span5">
                                     <div class="media">
-                                      This material is avaible for sale, if any one interested in it can contact me on metioned number at given description
+
+                                      <%if (ad.AdDetail.Length > 100)
+                                        {%>
+                                           <%=ad.AdDetail.Substring(0, 100) + "..."%>
+                                        <%}
+                                        else
+                                        {%>
+                                            <%=ad.AdDetail %>
+                                        <%}
+                                             %>
                                     </div>
                                 </div>
                                 <div class="span3 moreInfo">
                                            <ul> 
-                                                <li><i class="icon-asterisk"></i><strong>Company Name</strong></li>
-                                                <li><i class="icon-asterisk"></i><strong>Location</strong></li>
-                                                <li><i class="icon-ok"></i><strong>Available</strong></li>
+                                            <%Advertisement.Model.User user = new Advertisement.Model.User("LoginId", ad.LoginId); %>
+                                                <li><i class="icon-asterisk"></i><strong><%=user.FName %></strong></li>
+                                                <li><i class="icon-asterisk"></i><strong><%=ad.AdAddress %></strong></li>
+                                                <li><i class="icon-ok"></i><strong><%=ad.AdStatus %></strong></li>
                                            </ul>
                                 </div>
                            </div>
                       </div>
 
                     </div>
-                    <div class="media infoDiv"  style="margin-top:19px;">
-                      <a class="pull-left" href="../Advertisement.aspx?ctl=1">
-                        <img class="media-object imgInfo" src='../../assets/images/1201302-74275-crane-carrying-waste-material-at-recycling-center.jpg' alt='No Image'></img>
-                      </a>
-                      <div class="media-body">
-                          <div class="row">
-                                <div class="span5">
-                                    <h4 class="media-heading">Waste Material</h4> 
-                                </div>
-                                <div class="span3 priceDiv">
-                                    <span>$ 00000.00</span>
-                                </div>
-                           </div>
-    
-   
-                           <div class="row">
-                                <div class="span5">
-                                    <div class="media">
-                                      This material is avaible for sale, if any one interested in it can contact me on metioned number at given description
-                                    </div>
-                                </div>
-                                <div class="span3 moreInfo">
-                                    <ul>
-                                        <li><i class="icon-asterisk"></i><strong>Company Name</strong></li>
-                                        <li><i class="icon-asterisk"></i><strong>Location</strong></li>
-                                        <li><i class="icon-ok"></i><strong>Available</strong></li>
-                                    </ul>
-
-                                </div>
-                           </div>
-                      </div>
-
-                    </div>
-                    <div class="media infoDiv"  style="margin-top:19px;">
-                      <a class="pull-left" href="../Advertisement.aspx?ctl=1">
-                        <img class="media-object imgInfo" src='../../assets/images/waste-material-handler.jpg' alt='No Image'></img>
-                      </a>
-                      <div class="media-body">
-                             <div class="row">
-                                <div class="span5">
-                                    <h4 class="media-heading">Waste Material</h4> 
-                                </div>
-                                <div class="span3 priceDiv">
-                                    <span>$ 00000.00</span>
-                                </div>
-                            </div>
-   
-   
-                           <div class="row">
-                                <div class="span5" style="display: inline-block;">
-                                    <div class="media">
-                                        I am looking to create a website, where construction companies (big or small) can post pictures, and a description of leftover construction materials. This leftover 
-
-                    material, would normally be considered waste, and would end up in the dump a lot of the time. My website will allow these companies to post material to the public, so 
-
-                    that it can be viewed by the users of the site, and then the users can make arrangement to pick up the material. This will cut down on the cost of costly dumping into 
-
-                    our landfills, and help to support smaller reno companies, artists, do it yourselfers, in making affordable, and more enviromentally friendly projects. My focus is on 
-
-                    reducing the amount of waste that is thrown into the landfill every year. There is a large number of materials that can be saved, and all that is lacking is a 
-
-                    connection point for larger scale projects to connect with individuals who need materials. The focus is on simplicity, fast, and easy. I am not looking for anything to 
-
-                    fancy off the bat. just a site to get the ball rolling. I will need to have contstruction companies able to post pictures and descriptions, as well as have users 
-
-                    coming and cehcking on the website, that is how it will get traffic. I will need front and back end coding. I am looking for front end coding first, a home page, and 
-
-                    then we can go from there
-
-                                    </div>
-                                </div>
-                                <div class="span3 moreInfo" style="display: inline-block;">
-                                    <ul>
-                                        <li><i class="icon-asterisk"></i><strong>Company Name</strong></li>
-                                        <li><i class="icon-asterisk"></i><strong>Location</strong></li>
-                                        <li><i class="icon-ok"></i><strong>Available</strong></li>
-                                    </ul>
-
-                                </div>
-                           </div>
-                      </div>
-
-
-                    </div>
+                     <% }
+                         %>
 
                     <div class='row'>
                                   <ul class='pager'>

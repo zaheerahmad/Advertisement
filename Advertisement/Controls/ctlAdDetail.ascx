@@ -53,6 +53,8 @@
             <!--clear above float:left elements. It is required if above #slider is styled as float:left. -->
             <div style="clear:both;height:0;"></div>
         </div>
+        <br />
+        <br />
         <legend>
             Ad Detail
         </legend>
@@ -77,9 +79,9 @@
                 </address>
         </div>
         <div class='page-header'>
-			<h4>
+			<legend>
 				Suggestions for use
-			</h4>
+			</legend>
 		</div>
         <div class='commentBox'>
         </div>
