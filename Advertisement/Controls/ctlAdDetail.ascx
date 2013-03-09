@@ -9,35 +9,43 @@
             <div id="slider">
                         
                   <!--  <img src="../../assets/images/image-slider-1.jpg" alt="Welcome to jQuery Slider" />-->
-                     
-                     <img src="../assets/images/ScrapMetalRecycling.jpg" alt="Welcome to jQuery Slider" />
-                   
-                        <img src="../assets/images/waste-material-handler.jpg" alt="Pure Javascript. No jQuery. No Flash." />
-                        <img src="../assets/images/1201302-74275-crane-carrying-waste-material-at-recycling-center.jpg" />
-                        <img src="../assets/images/image-slider-4.jpg" />
+                  <%int id = TTD.Common.Utility.GetIntParameter("id");
+                    Advertisement.Model.Ad ad = new Advertisement.Model.Ad("AdId", id);
+                    string[] adImage = ad.AdPicture.Split(new Char[]{','}, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string image in adImage)
+                    {
+                        if (ad.AdDetail.Length > 60)
+                        {
+                            %>
+                      <img src="../upload/AdImage/Detail/<%=image%>" alt="<%=ad.AdDetail.Substring(0,60)+"..." %>" />
+                      <%}
+                        else
+                        {%>
+                      <img src="../upload/AdImage/Detail/<%=image%>" alt="<%=ad.AdDetail%>" />
+                        <%}
+                    }%>
+                      
             </div>
             <!--thumbnails-->
             <div id="thumbs">
-                <div class="thumb">
-                    <div class="frame"><img src="../assets/images/ScrapMetalRecycling.jpg" /></div>
-                    <div class="thumb-content"><p>HTML Content</p>Thumbnails allows any HTML content</div>
-                    <div style="clear:both;"></div>
-                </div>
-                <div class="thumb">
-                    <div class="frame"><img src="../assets/images/waste-material-handler.jpg" /></div>
-                    <div class="thumb-content"><p>Customizable</p>Thumbnail style is customizable</div>
-                    <div style="clear:both;"></div>
-                </div>
-                <div class="thumb">
-                    <div class="frame"><img src="../assets/images/1201302-74275-crane-carrying-waste-material-at-recycling-center.jpg" /></div>
-                    <div class="thumb-content"><p>Variety of Layouts</p>Just a CSS tweak.</div>
-                    <div style="clear:both;"></div>
-                </div>
-                <div class="thumb">
-                    <div class="frame"><img src="../assets/images/thumb4.jpg" /></div>
-                    <div class="thumb-content"><p>Integration</p>Built-in functions for the thumbnails</div>
-                    <div style="clear:both;"></div>
-                </div>
+            <%
+                    foreach (string image in adImage)
+                    {%>
+                        <div class="thumb">
+                        <div class="frame"><img src="../upload/AdImage/Detail/<%=image %>" /></div>
+                        <%if (ad.AdDetail.Length > 20)
+                        {
+                            %>
+                      <div class="thumb-content"><p><%=ad.AdTitle %></p><%=ad.AdDetail.Substring(0,20)+"..." %></div>
+                      <%}
+                        else
+                        {%>
+                      <div class="thumb-content"><p><%=ad.AdTitle %></p><%=ad.AdDetail %></div>
+                        <%}%>
+                        
+                        <div style="clear:both;"></div>
+                    </div>
+                   <% }%>
             </div>
 
             <!--clear above float:left elements. It is required if above #slider is styled as float:left. -->
