@@ -143,7 +143,7 @@ namespace AdminSite.Controls
                 Ad.Destroy(ad.AdId);
                 return ex.Message;
             }
-            return "Record Could not be Updated";
+            return String.Empty;
         } // Upload file ends here 
 
         public void ClearForm()
