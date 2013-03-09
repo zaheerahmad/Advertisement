@@ -90,7 +90,7 @@ namespace Advertisement.DataAccess
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
+	    public void Insert(int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress,string AdStatus,string AdDate)
 	    {
 		    Ad item = new Ad();
 		    
@@ -110,6 +110,10 @@ namespace Advertisement.DataAccess
             
             item.AdAddress = AdAddress;
             
+            item.AdStatus = AdStatus;
+            
+            item.AdDate = AdDate;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -119,7 +123,7 @@ namespace Advertisement.DataAccess
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress)
+	    public void Update(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress,string AdStatus,string AdDate)
 	    {
 		    Ad item = new Ad();
 	        item.MarkOld();
@@ -142,6 +146,10 @@ namespace Advertisement.DataAccess
 			item.AdEmailAddress = AdEmailAddress;
 				
 			item.AdAddress = AdAddress;
+				
+			item.AdStatus = AdStatus;
+				
+			item.AdDate = AdDate;
 				
 	        item.Save(UserName);
 	    }

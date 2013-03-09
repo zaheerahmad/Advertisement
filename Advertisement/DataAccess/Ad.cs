@@ -216,6 +216,32 @@ namespace Advertisement.DataAccess
 				colvarAdAddress.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarAdAddress);
 				
+				TableSchema.TableColumn colvarAdStatus = new TableSchema.TableColumn(schema);
+				colvarAdStatus.ColumnName = "AdStatus";
+				colvarAdStatus.DataType = DbType.String;
+				colvarAdStatus.MaxLength = 50;
+				colvarAdStatus.AutoIncrement = false;
+				colvarAdStatus.IsNullable = false;
+				colvarAdStatus.IsPrimaryKey = false;
+				colvarAdStatus.IsForeignKey = false;
+				colvarAdStatus.IsReadOnly = false;
+				colvarAdStatus.DefaultSetting = @"";
+				colvarAdStatus.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarAdStatus);
+				
+				TableSchema.TableColumn colvarAdDate = new TableSchema.TableColumn(schema);
+				colvarAdDate.ColumnName = "AdDate";
+				colvarAdDate.DataType = DbType.String;
+				colvarAdDate.MaxLength = 50;
+				colvarAdDate.AutoIncrement = false;
+				colvarAdDate.IsNullable = false;
+				colvarAdDate.IsPrimaryKey = false;
+				colvarAdDate.IsForeignKey = false;
+				colvarAdDate.IsReadOnly = false;
+				colvarAdDate.DefaultSetting = @"";
+				colvarAdDate.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarAdDate);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -326,6 +352,28 @@ namespace Advertisement.DataAccess
 
 		}
 
+		  
+		[XmlAttribute("AdStatus")]
+		[Bindable(true)]
+		public string AdStatus 
+		{
+			get { return GetColumnValue<string>(Columns.AdStatus); }
+
+			set { SetColumnValue(Columns.AdStatus, value); }
+
+		}
+
+		  
+		[XmlAttribute("AdDate")]
+		[Bindable(true)]
+		public string AdDate 
+		{
+			get { return GetColumnValue<string>(Columns.AdDate); }
+
+			set { SetColumnValue(Columns.AdDate, value); }
+
+		}
+
 		
 		#endregion
 		
@@ -346,7 +394,7 @@ namespace Advertisement.DataAccess
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress)
+		public static void Insert(int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress,string varAdStatus,string varAdDate)
 		{
 			Ad item = new Ad();
 			
@@ -366,6 +414,10 @@ namespace Advertisement.DataAccess
 			
 			item.AdAddress = varAdAddress;
 			
+			item.AdStatus = varAdStatus;
+			
+			item.AdDate = varAdDate;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -377,7 +429,7 @@ namespace Advertisement.DataAccess
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varAdId,int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress)
+		public static void Update(int varAdId,int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress,string varAdStatus,string varAdDate)
 		{
 			Ad item = new Ad();
 			
@@ -398,6 +450,10 @@ namespace Advertisement.DataAccess
 				item.AdEmailAddress = varAdEmailAddress;
 			
 				item.AdAddress = varAdAddress;
+			
+				item.AdStatus = varAdStatus;
+			
+				item.AdDate = varAdDate;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -494,6 +550,24 @@ namespace Advertisement.DataAccess
         
         
         
+        public static TableSchema.TableColumn AdStatusColumn
+        {
+            get { return Schema.Columns[9]; }
+
+        }
+
+        
+        
+        
+        public static TableSchema.TableColumn AdDateColumn
+        {
+            get { return Schema.Columns[10]; }
+
+        }
+
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -507,6 +581,8 @@ namespace Advertisement.DataAccess
 			 public static string AdContactNo = @"AdContactNo";
 			 public static string AdEmailAddress = @"AdEmailAddress";
 			 public static string AdAddress = @"AdAddress";
+			 public static string AdStatus = @"AdStatus";
+			 public static string AdDate = @"AdDate";
 						
 		}
 

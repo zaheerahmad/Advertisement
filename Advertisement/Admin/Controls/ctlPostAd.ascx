@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctlPostAd.ascx.cs" Inherits="AdminSite.Controls.ctlPostAd" %>
 <link href="~/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link href="~/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+<%@ Register TagPrefix="CuteWebUI" Namespace="CuteWebUI" Assembly="CuteWebUI.AjaxUploader" %>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -38,7 +39,7 @@
       <div class="control-group">
         <label class="control-label" for="txtServiceDescription">Detail of your Ad</label>
         <div class="controls">
-          <asp:TextBox ID="txtAdDetail" runat="server" placeHolder="Type Ad Description..." TextMode="MultiLine" MaxLength="100" Height="50px" Width="400px"></asp:TextBox>
+          <asp:TextBox ID="txtAdDetail" runat="server" placeHolder="Type Ad Description..." TextMode="MultiLine" Height="150px" Width="400px"></asp:TextBox>
           <asp:RequiredFieldValidator ID="rfvServiceDescription" ControlToValidate="txtAdDetail" runat="server" ForeColor="Red" Text="*" />
         </div>
       </div>
@@ -48,17 +49,29 @@
           <asp:TextBox ID="txtAskingPrice" runat="server" placeHolder="e.g. '250$' or 'On Call'" TextMode="SingleLine"></asp:TextBox>
           <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtAskingPrice" runat="server" ForeColor="Red" Text="*" />
             <label class="checkbox">
-                <asp:CheckBox ID="chkBoxFree" runat="server"/> Free
+                <asp:CheckBox ID="chkBoxFree" runat="server" 
+                oncheckedchanged="chkBoxFree_CheckedChanged" AutoPostBack="True"/> Free
             </label>
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="fuAdPictures">Pictures of your Ad<br /><small>You can add 4 pictures</small></label><br />
+        <label class="control-label" for="fuAdPictures">Pictures of your Ad<br /><i class="icon-picture"></i><small>You can add 4 pictures</small></label><br />
         <div class="controls">
+            <CuteWebUI:Uploader id="Uploader1" runat="server" MultipleFilesUpload="true" ShowProgressBar="true" ShowProgressInfo="true"
+              MaxFilesLimit="4" OnUploadCompleted="uploader1_UploadCompleted"/><br />
+              <asp:DataList ID="ItemsList" RepeatDirection="Vertical" RepeatLayout="Table" runat="server">  
+                <ItemTemplate>  
+                    file name:  
+                    <%# DataBinder.Eval(Container.DataItem, "FileName")%>  
+                </ItemTemplate>  
+            </asp:DataList>  
+
+<%--
+
             <asp:FileUpload ID="fuAdPicture1" runat="server"/>
             <asp:FileUpload ID="fuAdPicture2" runat="server" />
             <asp:FileUpload ID="fuAdPicture3" runat="server" />
-            <asp:FileUpload ID="fuAdPicture4" runat="server" />
+            <asp:FileUpload ID="fuAdPicture4" runat="server" />--%>
         </div>
       </div>
       <legend>Your Details</legend>
@@ -67,6 +80,7 @@
         <div class="controls">
           <asp:TextBox ID="txtContactNo" runat="server" placeHolder="e.g. '+923219570199'" TextMode="SingleLine"></asp:TextBox>
           <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtContactNo" runat="server" ForeColor="Red" Text="*" />
+          <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Mismatch Format (e.g. +923219570199)" ForeColor="Red" ValidationExpression="(\+){1}[0-9]{12}" ControlToValidate="txtContactNo"></asp:RegularExpressionValidator>
         </div>
       </div>
       <div class="control-group">
@@ -74,12 +88,13 @@
         <div class="controls">
           <asp:TextBox ID="txtEmail" runat="server" placeHolder="something@domain.com" TextMode="SingleLine"></asp:TextBox>
           <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtEmail" runat="server" ForeColor="Red" Text="*" />
+          <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Bad Email" ForeColor="Red" ValidationExpression="\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b" ControlToValidate="txtEmail"></asp:RegularExpressionValidator>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label" for="txtAddress">Address(Optional)</label>
         <div class="controls">
-          <asp:TextBox ID="txtAddress" runat="server" placeHolder="Type Address Here..." TextMode="MultiLine" MaxLength="100" Height="50px" Width="400px"></asp:TextBox>
+          <asp:TextBox ID="txtAddress" runat="server" placeHolder="Type Address Here..." TextMode="MultiLine" Height="150px" Width="400px"></asp:TextBox>
         </div>
       </div>
       <div class="control-group">

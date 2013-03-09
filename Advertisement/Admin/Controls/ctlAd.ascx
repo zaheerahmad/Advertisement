@@ -27,7 +27,7 @@
             <div class="span4">
                 <table class="table">
                     <tr>
-                        <td><p class="muted"><strong>0</strong></p></td>
+                        <td><p class="muted"><strong><asp:Label ID="lblActiveListing" runat="server"></asp:Label></strong></p></td>
                         <td>&nbsp;</td>
                         <td>Active Listings</td>
                     </tr>
@@ -36,7 +36,7 @@
             <div class="span4 offset1">
                 <table class="table">
                     <tr>
-                        <td><p class="muted"><strong>0</strong></p></td>
+                        <td><p class="muted"><strong><asp:Label ID="lblExpiredListing" runat="server"></asp:Label></strong></p></td>
                         <td>&nbsp;</td>
                         <td>Expired Listings</td>
                     </tr>
@@ -48,22 +48,28 @@
         <div class="span12">
             <legend>Latest Ad</legend>
             <table class="table">
-                <tr>
-                    <th>Material Name</th>
-                    <th>Material Type</th>
+            <tr>
+                    <th>Title</th>
+                    <th>Detail</th>
                     <th>Image</th>
                     <th>Posted On (Date)</th>
                     <th>Status</th>
                     <th>&nbsp;</th>
                 </tr>
-                <tr>
-                    <td>Material Name A</td>
-                    <td>Material Type A</td>
-                    <td></td>
-                    <td>10-12-2012</td>
-                    <td><i class="icon-ok"></i>Sold</td>
-                    <td><a href="#">Check Details</a></td>
-                </tr>
+                <%Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
+                  
+                  foreach (Advertisement.Model.Ad ad in adController.FetchAll().Where("LoginId", Session["userId"]))
+                  {%>
+                        <tr>
+                            <th><%=ad.AdTitle%></th>
+                            <th>Material Type</th>
+                            <td><%=ad.AdAskingPrice %></td>
+                            <td>10-12-2012</td>
+                            <th><i class="icon-flag"></i>Availabe</th>
+                            <td><a href="#">Check Details</a></td>
+                        </tr>
+                  <%}
+                     %>
             </table>
         </div>
     </div>

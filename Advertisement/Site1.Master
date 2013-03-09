@@ -38,7 +38,7 @@
                             window.location.href = "Admin/Admin.aspx?id=" + obj.id;
                         }
                         else {
-                            $('#signUpErrorAlert').fadeIn(100);
+                            $('#errorAlert').fadeIn(100);
                         }
                     }
                 });

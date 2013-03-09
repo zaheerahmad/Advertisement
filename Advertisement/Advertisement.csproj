@@ -38,6 +38,10 @@
     <Reference Include="Anthem">
       <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\Anthem.dll</HintPath>
     </Reference>
+    <Reference Include="CuteWebUI.AjaxUploader, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc00d4b0e43ec38d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CuteWebUI.AjaxUploader.dll</HintPath>
+    </Reference>
     <Reference Include="eWorld.UI">
       <HintPath>..\..\..\..\..\Material Advertisement\trunk\MaterialAdvertisement\MaterialAdvertisement\bin\eWorld.UI.dll</HintPath>
     </Reference>
@@ -293,6 +297,7 @@
       <DependentUpon>AdminSite.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\Common\Common.cs" />
+    <Compile Include="Admin\Common\ImageResizer.cs" />
     <Compile Include="Admin\Controller\AdController.cs" />
     <Compile Include="Admin\Controls\ControlSettings.cs" />
     <Compile Include="Admin\Controls\ctlAd.ascx.cs">
@@ -374,6 +379,7 @@
     <Compile Include="CodeGen\MasterPage.master.designer.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
     </Compile>
+    <Compile Include="Common\Common.cs" />
     <Compile Include="Common\JsonHelper.cs" />
     <Compile Include="Common\Messages.cs" />
     <Compile Include="Controller\UserController.cs" />

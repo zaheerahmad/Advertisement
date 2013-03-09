@@ -45,10 +45,10 @@
                             </a>
  
                             <!-- Be sure to leave the brand out there if you want it shown -->
-                            <a class="brand" href="Admin.aspx?ctl=5"><i class="icon-home icon-black"></i>Control Panel</a>
+                            <a class="brand" href="Admin.aspx?ctl=5&id=<%=Session["userId"]%>"><i class="icon-home icon-black"></i>Control Panel</a>
                             <ul class="nav">
                             <li>
-                                <a href="Admin.aspx?ctl=5">Ads</a>
+                                <a href="Admin.aspx?ctl=5&id=<%=Session["userId"]%>">Ads</a>
                             </li>
                             <%--<li>
                                 <a href="Admin.aspx?ctl=6">News</a>

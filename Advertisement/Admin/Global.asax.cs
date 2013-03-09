@@ -41,6 +41,9 @@ namespace AdminSite
         public const string MainPageName = "Admin.aspx";
         public const string ErrorLogin = "*Error - Invalid User/Password";
         public const string AdImages = "~/upload/AdImage/";
+        public const string MainSliderAdImages = "~/upload/AdImage/MainSlider/";
+        public const string AdThumbnailImage = "~/upload/AdImage/thumbnails/";
+        public const string AdDetailImage = "~/upload/AdImage/Detail/";
         public const string ErrorLabelStatus = "Request couldn't be completed due to an error. Error: ";
         public const string SuccessLabelStatus = "Request created Successfully!";
         public const string UpdatedLabelStatus = "Request Updated Successfully!";

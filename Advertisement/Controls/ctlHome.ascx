@@ -179,6 +179,17 @@ body{
                     <legend>Featured Ads</legend>
                     <div id="gallery" class="mainGallery">
 
+                        <%--<% Advertisement.Controller.AdController controllerAd = new Advertisement.Controller.AdController();
+                           foreach (Advertisement.Model.Ad ad in controllerAd.FetchAll())
+                           {
+                               
+                               %>--%>
+                                <a href="Advertisement.aspx?ctl=1" class="show">
+		                            <img src="../assets/MainSlider/images/flowing-rock.jpg" alt="Flowing Rock" width="950" height="450" title="" alt="" rel="<h3>Flowing Rock</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
+	                            </a>
+                           <%--<%}
+                             %>--%>
+
 	                    <a href="Advertisement.aspx?ctl=1" class="show">
 		                    <img src="../assets/MainSlider/images/flowing-rock.jpg" alt="Flowing Rock" width="950" height="450" title="" alt="" rel="<h3>Flowing Rock</h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
 	                    </a>
