@@ -50,25 +50,32 @@
             <table class="table">
             <tr>
                     <th>Title</th>
-                    <th>Detail</th>
                     <th>Image</th>
                     <th>Posted On (Date)</th>
+                    <th>Asking Price</th>
                     <th>Status</th>
                     <th>&nbsp;</th>
                 </tr>
                 <%Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
-                  
-                  foreach (Advertisement.Model.Ad ad in adController.FetchAll().Where("LoginId", Session["userId"]))
-                  {%>
+                  int i = 0;
+                  foreach (Advertisement.Model.Ad ad in adController.FetchAll().Where("LoginId", Session["userId"]).OrderByDesc("AdDate"))
+                  {
+                      i++;
+                      if (i == 5)
+                      { break; }
+                      %>
                         <tr>
                             <th><%=ad.AdTitle%></th>
-                            <th>Material Type</th>
+                            <td><img src="../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(','))%>" /></td>
+                            <td><%=ad.AdDate %></td>
                             <td><%=ad.AdAskingPrice %></td>
-                            <td>10-12-2012</td>
                             <th><i class="icon-flag"></i>Availabe</th>
                             <td><a href="#">Check Details</a></td>
                         </tr>
-                  <%}
+                  <%
+                      
+                  }
+                    
                      %>
             </table>
         </div>

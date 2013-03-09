@@ -112,6 +112,8 @@ namespace AdminSite.Controls
             ad.AdContactNo = contactNo;
             ad.AdEmailAddress = email;
             ad.AdAddress = address;
+            ad.AdDate = DateTime.Now.ToString();
+            ad.AdStatus = "Available";
 
             ad.Save();
 
