@@ -279,6 +279,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebServices\ManageSuggestion.asmx" />
     <Content Include="WebServices\Users.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +383,7 @@
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\JsonHelper.cs" />
     <Compile Include="Common\Messages.cs" />
+    <Compile Include="Controller\SuggestionController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controls\ControlSettings.cs" />
     <Compile Include="Controls\ctlAdDetail.ascx.cs">
@@ -408,6 +410,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -418,6 +421,10 @@
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Common\ServiceResponce.cs" />
+    <Compile Include="WebServices\ManageSuggestion.asmx.cs">
+      <DependentUpon>ManageSuggestion.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WebServices\Users.asmx.cs">
       <DependentUpon>Users.asmx</DependentUpon>
       <SubType>Component</SubType>

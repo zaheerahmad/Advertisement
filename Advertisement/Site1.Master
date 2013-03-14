@@ -47,7 +47,12 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('a.sugst').live('click', function () {
+            $('a.sugst').live('click', function (e) {
+                e.preventDefault();
+               
+                var advertisementId = $('#adverID').val();
+               
+                var link = $(this).attr('href');
                 var suggestionBox = $('textarea[name="suggestionBox"]');
                 var suggestion = suggestionBox.val();
                 suggestion.replace(/\s/g, '')
@@ -61,6 +66,31 @@
                         suggestionBox.removeClass('error');
 
                     }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "WebServices/Users.asmx/ManageUser",
+                        data: "{'adverId':'" + advertisementId + "','suggestionText':'" + suggestion + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        cache: false,
+                        success: function (msg) {
+                            var obj = jQuery.parseJSON(msg.d);
+                            if (obj.serviceErrorCode == 0) {
+                                document.getElementById('inputEmail').value = "";
+                                document.getElementById('inputPassword').value = "";
+                                window.location.href = "Admin/Admin.aspx?id=" + obj.id;
+                            }
+                            else {
+                                $('#errorAlert').fadeIn(100);
+                            }
+                        }
+                    });
+
+
+
+
 
                 } else {
                     $('textarea[name="suggestionBox"]').addClass('error');
