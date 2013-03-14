@@ -20,6 +20,8 @@ namespace Advertisement.DataAccess
 		
 		public static string Ad = @"tblAd";
         
+		public static string Suggestion = @"tblSuggestion";
+        
 		public static string User = @"tblUsers";
         
 	}
@@ -30,6 +32,12 @@ namespace Advertisement.DataAccess
 		
 		public static TableSchema.Table Ad{
             get { return DataService.GetSchema("tblAd","csmDefaultDB"); }
+
+		}
+
+        
+		public static TableSchema.Table Suggestion{
+            get { return DataService.GetSchema("tblSuggestion","csmDefaultDB"); }
 
 		}
 
