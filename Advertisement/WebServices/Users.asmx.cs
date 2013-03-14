@@ -89,5 +89,28 @@ namespace Advertisement.WebServices
                 }   
             }
         }
+
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string ManageUser(string adverId, string suggestionText)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(adverId) && !string.IsNullOrEmpty(suggestionText))
+                {
+                    Model.Suggestion sugesstion = new Model.Suggestion();
+                    sugesstion.AdverId = Convert.ToInt32(adverId);
+                    sugesstion.SuggestionText = suggestionText;
+                    sugesstion.Save();
+                }
+              
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return string.Empty;
+        }
     }
 }
