@@ -2,6 +2,13 @@
 <link href="../assets/themes/2/js-image-slider.css" rel="stylesheet" type="text/css" />
 <script src="../assets/themes/2/js-image-slider.js" type="text/javascript"></script>
 
+<script>
+
+    
+
+</script>
+
+
 <div class="page-header">
 <%int id = TTD.Common.Utility.GetIntParameter("id");
                     Advertisement.Model.Ad ad = new Advertisement.Model.Ad("AdId", id);%>
@@ -84,11 +91,23 @@
 			</legend>
 		</div>
         <div class='commentBox'>
+
+            <%  Advertisement.Model.SuggestionCollection coll = new Advertisement.Model.SuggestionCollection().Where(Advertisement.Model.Suggestion.Columns.AdverId, id).Load(); %>
+
+            <%foreach(Advertisement.Model.Suggestion suggestionData in coll) 
+                  
+              {%>
+                <div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;">Anonymous</h4>  <div class="media"><%=suggestionData.SuggestionText%></div>  </div>    </div>
+
+              <%} %>
+
+
         </div>
          <div class='suggestionArea' style="margin-top:40px;">            
             <div class='control'>                    
                     <textarea name='suggestionBox' style='width: 500px;' placeholder='Suggestions'></textarea></br>
                     <a class='btn btn-mini btn-primary sugst' type='button'>Suggest</a>
+                    <input type="hidden" id="adverID" value="<%=id%>"> </input >
             </div>
         </div>
         </div>
