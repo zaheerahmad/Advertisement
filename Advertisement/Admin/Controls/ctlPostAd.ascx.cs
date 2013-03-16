@@ -17,7 +17,7 @@ namespace AdminSite.Controls
 {
     public partial class ctlPostAd : System.Web.UI.UserControl
     {
-        int serviceId = 0;
+        int adId = 0;
         public static List<string> imageList = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,10 +25,10 @@ namespace AdminSite.Controls
             chkBoxFree.Checked = false;
             divStatusError.Visible = false;
             divStatusSuccess.Visible = false;
-            //serviceId = Utility.GetIntParameter("id");
-            if (serviceId > 0)
+            adId = Utility.GetIntParameter("ad");
+            if (adId > 0)
             {
-                //LoadService(serviceId);
+                LoadAd(adId);
             }
         }
 
@@ -36,6 +36,8 @@ namespace AdminSite.Controls
         {
             try
             {
+                if(pImageList.Count > 0)
+                    DeletePreviousAdImages(ad.AdId);
                 int i = 1;
                 StringBuilder stringFiles = new StringBuilder();
                 foreach (string image in pImageList)
@@ -53,14 +55,17 @@ namespace AdminSite.Controls
                     stringFiles.Append(NewFileName + ",");
                     i++;
                 }
-                Directory.Delete(Server.MapPath(Global.AdImages + "/temp"));
-                if (!stringFiles.ToString().Equals(""))
+                if (pImageList.Count > 0)
                 {
-                    ad = new Ad(Ad.Columns.AdId, ad.AdId);
-                    ad.IsNew = false;
-                    ad.AdPicture = stringFiles.ToString();
-                    ad.Save(Guid.NewGuid());
-                    return String.Empty;
+                    Directory.Delete(Server.MapPath(Global.AdImages + "/temp"));
+                    if (!stringFiles.ToString().Equals(""))
+                    {
+                        ad = new Ad(Ad.Columns.AdId, ad.AdId);
+                        ad.IsNew = false;
+                        ad.AdPicture = stringFiles.ToString();
+                        ad.Save(Guid.NewGuid());
+                        return String.Empty;
+                    }
                 }
             }
             catch (Exception ex)
@@ -140,9 +145,52 @@ namespace AdminSite.Controls
             if (Page.IsValid)
             {
 
-                if (serviceId > 0)
+                if (adId > 0)
                 {
-                    
+                    string adTitle = txtAdTitle.Text;
+                    string adDetatil = txtAdDetail.Text;
+                    string askingPrice = string.Empty;
+                    if (chkBoxFree.Checked)
+                    {
+                        askingPrice = "Free";
+                    }
+                    else
+                    {
+                        askingPrice = txtAskingPrice.Text;
+                    }
+                    string contactNo = txtContactNo.Text;
+                    string email = txtEmail.Text;
+                    string address = txtAddress.Text;
+
+                    Ad ad = new Ad("AdId", adId);
+                    ad.IsNew = false;
+                    ad.AdTitle = adTitle;
+                    ad.AdDetail = adDetatil;
+                    ad.AdAskingPrice = askingPrice;
+                    ad.AdContactNo = contactNo;
+                    ad.AdEmailAddress = email;
+                    ad.AdAddress = address;
+                    ad.AdDate = DateTime.Now.ToString();
+                    ad.AdStatus = "Available";
+
+                    ad.Save();
+
+                    //Now Save Picture As Well..
+                    string result = UploadPrintableFile(imageList, ad);
+                    if (result.Equals(""))
+                    {
+                        divStatusError.Visible = false;
+                        divStatusSuccess.Visible = true;
+                        lblStatusSuccess.Text = Global.SuccessLabelStatus;
+                    }
+                    else
+                    {
+                        divStatusSuccess.Visible = false;
+                        divStatusError.Visible = true;
+                        labelStatusError.Text = Global.ErrorLabelStatus + result;
+                        Ad.Destroy(ad.AdId);
+                    }
+                    ClearForm();
                 }
                 else
                 {
@@ -207,6 +255,101 @@ namespace AdminSite.Controls
             //generate the data source  
             ItemsList.DataSource = CreateDataSource(files);
             ItemsList.DataBind();
-        } 
+        }
+
+        public void LoadAd(int pAdId)
+        {
+            Ad ad = new Ad("AdId", pAdId);
+            if (ad != null)
+            {
+                txtAdDetail.Text = ad.AdDetail;
+                txtAddress.Text = ad.AdAddress;
+                txtAdTitle.Text = ad.AdTitle;
+                if (ad.AdAskingPrice.Equals("free", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    chkBoxFree.Checked = true;
+                    txtAskingPrice.Text = "None";
+                    txtAskingPrice.Enabled = false;
+                }
+                else
+                {
+                    txtAskingPrice.Enabled = true;
+                    txtAskingPrice.Text = "";
+                    txtAskingPrice.Text = ad.AdAskingPrice;
+                }
+                txtContactNo.Text = ad.AdContactNo;
+                txtEmail.Text = ad.AdEmailAddress;
+
+
+                /////////////////
+
+                string file = ad.AdPicture;
+                string []files = file.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                if (files.Length > 0)
+                {
+                    DataTable dt = new DataTable();
+                    DataRow dr;
+                    dt.Columns.Add(new DataColumn("FileName", typeof(String)));
+                    for (int i = 0; i < files.Length; i++)
+                    {
+                        dr = dt.NewRow();
+                        dr[0] = files[i].ToString();
+                        dt.Rows.Add(dr);
+                    }
+                    DataView dv = new DataView(dt);
+                    ItemsList.DataSource = dv;
+                    ItemsList.DataBind();
+                }
+            }
+        }
+
+        public void DeletePreviousAdImages(int pAdId)
+        {
+            string[] filesPath = Directory.GetFiles(Server.MapPath(Global.AdImages));
+            foreach (string filePath in filesPath)
+            {
+                string[] filePathArr = filePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+
+                string fileName = filePathArr[filePathArr.Length - 1];
+                if (fileName.StartsWith("" + pAdId + "-"))
+                {
+                    File.Delete(filePath);
+                }
+            }
+
+            filesPath = Directory.GetFiles(Server.MapPath(Global.MainSliderAdImages));
+            foreach (string filePath in filesPath)
+            {
+                string[] filePathArr = filePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+
+                string fileName = filePathArr[filePathArr.Length - 1];
+                if (fileName.StartsWith("" + pAdId + "-"))
+                {
+                    File.Delete(filePath);
+                }
+            }
+            filesPath = Directory.GetFiles(Server.MapPath(Global.AdThumbnailImage));
+            foreach (string filePath in filesPath)
+            {
+                string[] filePathArr = filePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+
+                string fileName = filePathArr[filePathArr.Length - 1];
+                if (fileName.StartsWith("" + pAdId + "-"))
+                {
+                    File.Delete(filePath);
+                }
+            }
+            filesPath = Directory.GetFiles(Server.MapPath(Global.AdDetailImage));
+            foreach (string filePath in filesPath)
+            {
+                string[] filePathArr = filePath.Split(new Char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries);
+
+                string fileName = filePathArr[filePathArr.Length - 1];
+                if (fileName.StartsWith("" + pAdId + "-"))
+                {
+                    File.Delete(filePath);
+                }
+            }
+        }
     }
 }

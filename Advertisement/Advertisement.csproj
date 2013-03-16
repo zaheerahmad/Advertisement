@@ -96,6 +96,7 @@
     <Content Include="Admin\Controls\ctlPostAd.ascx" />
     <Content Include="Admin\Controls\ctlWelcome.ascx" />
     <Content Include="Admin\Global.asax" />
+    <Content Include="Admin\WebServices\AdService.asmx" />
     <Content Include="Admin\WebServices\SessionHandler.asmx" />
     <Content Include="Advertisement.aspx" />
     <Content Include="App_Data\materials.mdf" />
@@ -334,6 +335,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Admin\Model\Ad.cs" />
+    <Compile Include="Admin\WebServices\AdService.asmx.cs">
+      <DependentUpon>AdService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Admin\WebServices\SessionHandler.asmx.cs">
       <DependentUpon>SessionHandler.asmx</DependentUpon>
       <SubType>Component</SubType>

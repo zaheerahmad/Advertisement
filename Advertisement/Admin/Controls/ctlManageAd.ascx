@@ -6,13 +6,29 @@
         $('a').click(
         function () {
             $(this).parent().parent().fadeOut(1000);
+            var AdId = $(this).attr('title');
             //Do something with link_text 
+            $.ajax({
+                type: "POST",
+                url: "WebServices/AdService.asmx/RemoveAd",
+                data: "{'pAdId':" + AdId + "}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                cache: false,
+                success: function (msg) {
+                    var obj = jQuery.parseJSON(msg.d);
+
+
+                }
+            });
         });
         $('a#signUpAnchor').click(function () {
             $('a#signUpAnchor').parent().addClass('active');
         });
     });
 </script>
+
 <div class="span2" style="position:fixed">
     <ul class="nav nav-list">
       <li class="nav-header">ADVERTISEMENTS</li>
@@ -47,8 +63,8 @@
                             <td><img src="../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(',')) %>" alt="" /></td>
                             <td><%=ad.AdDate %></td>
                             <td><i class="icon-flag"></i><%=ad.AdStatus %></td>
-                            <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2">Edit</a></td>
-                            <td><i class="icon-remove"></i><a id="1" href="#">Delete</a></td>
+                            <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2&id=<%=Session["userId"]%>&ad=<%=ad.AdId %>">Edit</a></td>
+                            <td><i class="icon-remove"></i><a  title="<%=ad.AdId %>" href="#">Delete</a></td>
                         </tr>
                    <% }
                      %>
