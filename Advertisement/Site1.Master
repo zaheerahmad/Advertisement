@@ -115,9 +115,10 @@
         });
     </script>
     
+    
     <title>Material Advertisement</title>
     <style type="text/css"> 
-            #panel,#flip
+            #panel,#flips
             {
             padding:0px;
             background-color:#F8F8F8;

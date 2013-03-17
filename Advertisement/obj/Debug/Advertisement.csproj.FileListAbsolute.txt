@@ -57,3 +57,17 @@ E:\Work\Latest\Advertisement2\trunk\Advertisement\bin\Advertisement.pdb
 E:\Work\Latest\Advertisement2\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
 E:\Work\Latest\Advertisement2\trunk\Advertisement\obj\Debug\Advertisement.dll
 E:\Work\Latest\Advertisement2\trunk\Advertisement\obj\Debug\Advertisement.pdb
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\Advertisement.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\Advertisement.pdb
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\AjaxControlToolkit.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\Anthem.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\CuteWebUI.AjaxUploader.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\eWorld.UI.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\GMDatePicker.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\SubSonic.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\TTD.Common.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\TTD.Web.Providers.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\wwHoverPanel.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\obj\Debug\Advertisement.dll
+C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\obj\Debug\Advertisement.pdb

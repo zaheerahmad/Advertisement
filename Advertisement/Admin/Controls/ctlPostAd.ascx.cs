@@ -328,6 +328,8 @@ namespace AdminSite.Controls
                     File.Delete(filePath);
                 }
             }
+
+
             filesPath = Directory.GetFiles(Server.MapPath(Global.AdThumbnailImage));
             foreach (string filePath in filesPath)
             {
@@ -339,6 +341,8 @@ namespace AdminSite.Controls
                     File.Delete(filePath);
                 }
             }
+            
+            
             filesPath = Directory.GetFiles(Server.MapPath(Global.AdDetailImage));
             foreach (string filePath in filesPath)
             {

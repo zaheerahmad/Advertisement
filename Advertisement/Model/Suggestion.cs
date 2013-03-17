@@ -138,6 +138,19 @@ namespace Advertisement.Model
 				colvarSuggestionText.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarSuggestionText);
 				
+				TableSchema.TableColumn colvarUsername = new TableSchema.TableColumn(schema);
+				colvarUsername.ColumnName = "username";
+				colvarUsername.DataType = DbType.String;
+				colvarUsername.MaxLength = 150;
+				colvarUsername.AutoIncrement = false;
+				colvarUsername.IsNullable = true;
+				colvarUsername.IsPrimaryKey = false;
+				colvarUsername.IsForeignKey = false;
+				colvarUsername.IsReadOnly = false;
+				colvarUsername.DefaultSetting = @"";
+				colvarUsername.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarUsername);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -182,6 +195,17 @@ namespace Advertisement.Model
 
 		}
 
+		  
+		[XmlAttribute("Username")]
+		[Bindable(true)]
+		public string Username 
+		{
+			get { return GetColumnValue<string>(Columns.Username); }
+
+			set { SetColumnValue(Columns.Username, value); }
+
+		}
+
 		
 		#endregion
 		
@@ -202,13 +226,15 @@ namespace Advertisement.Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int? varAdverId,string varSuggestionText)
+		public static void Insert(int? varAdverId,string varSuggestionText,string varUsername)
 		{
 			Suggestion item = new Suggestion();
 			
 			item.AdverId = varAdverId;
 			
 			item.SuggestionText = varSuggestionText;
+			
+			item.Username = varUsername;
 			
 		
 			if (System.Web.HttpContext.Current != null)
@@ -221,7 +247,7 @@ namespace Advertisement.Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int? varAdverId,int varSuggestionId,string varSuggestionText)
+		public static void Update(int? varAdverId,int varSuggestionId,string varSuggestionText,string varUsername)
 		{
 			Suggestion item = new Suggestion();
 			
@@ -230,6 +256,8 @@ namespace Advertisement.Model
 				item.SuggestionId = varSuggestionId;
 			
 				item.SuggestionText = varSuggestionText;
+			
+				item.Username = varUsername;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -272,6 +300,15 @@ namespace Advertisement.Model
         
         
         
+        public static TableSchema.TableColumn UsernameColumn
+        {
+            get { return Schema.Columns[3]; }
+
+        }
+
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -279,6 +316,7 @@ namespace Advertisement.Model
 			 public static string AdverId = @"adverId";
 			 public static string SuggestionId = @"suggestionId";
 			 public static string SuggestionText = @"suggestionText";
+			 public static string Username = @"username";
 						
 		}
 

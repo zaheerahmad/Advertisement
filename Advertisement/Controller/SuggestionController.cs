@@ -90,13 +90,15 @@ namespace Advertisement.Model
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int? AdverId,string SuggestionText)
+	    public void Insert(int? AdverId,string SuggestionText,string Username)
 	    {
 		    Suggestion item = new Suggestion();
 		    
             item.AdverId = AdverId;
             
             item.SuggestionText = SuggestionText;
+            
+            item.Username = Username;
             
 	    
 		    item.Save(UserName);
@@ -107,7 +109,7 @@ namespace Advertisement.Model
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int? AdverId,int SuggestionId,string SuggestionText)
+	    public void Update(int? AdverId,int SuggestionId,string SuggestionText,string Username)
 	    {
 		    Suggestion item = new Suggestion();
 	        item.MarkOld();
@@ -118,6 +120,8 @@ namespace Advertisement.Model
 			item.SuggestionId = SuggestionId;
 				
 			item.SuggestionText = SuggestionText;
+				
+			item.Username = Username;
 				
 	        item.Save(UserName);
 	    }

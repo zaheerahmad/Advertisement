@@ -97,7 +97,7 @@
             <%foreach(Advertisement.Model.Suggestion suggestionData in coll) 
                   
               {%>
-                <div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;">Anonymous</h4>  <div class="media"><%=suggestionData.SuggestionText%></div>  </div>    </div>
+                <div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;"><%=suggestionData.Username %></h4>  <div class="media"><%=suggestionData.SuggestionText%></div>  </div>    </div>
 
               <%} %>
 

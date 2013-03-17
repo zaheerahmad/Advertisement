@@ -11,10 +11,12 @@ namespace Advertisement.Common
         public int serviceErrorCode { get; set; }
         public string message { get; set; }
         public int id { get; set; }
+        public string htmlFeatureAdd { get; set; }
 
         public ServiceResponce()
         {
             html = string.Empty;
+            htmlFeatureAdd = string.Empty;
             serviceErrorCode = -1;
             message = string.Empty;
             id = 0;
