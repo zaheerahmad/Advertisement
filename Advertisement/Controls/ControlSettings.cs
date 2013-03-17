@@ -12,6 +12,8 @@ namespace Advertisement.Controls
             Home = 0,
             AdDetail = 1,
             SignUp = 2,
+            AboutUs = 3,
+            MissionStatement = 4,
             //ManageAd = 3,
             //AddNews = 4,
             //Ad = 5,
@@ -39,6 +41,12 @@ namespace Advertisement.Controls
                     break;
                 case ControlName.SignUp:
                     controlName = "ctlSignUp";
+                    break;
+                case ControlName.AboutUs:
+                    controlName = "ctlAboutUs";
+                    break;
+                case ControlName.MissionStatement:
+                    controlName = "ctlMissionStatement";
                     break;
                 //case ControlName.ManageAd:
                 //    controlName = "ctlManageAd";

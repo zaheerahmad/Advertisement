@@ -138,6 +138,7 @@ namespace AdminSite.Controls
                 Ad.Destroy(ad.AdId);
             }
             ClearForm();
+            Session["userId"] = userId;
         }
 
         protected void btnPostAd_Click(object sender, EventArgs e)
@@ -191,6 +192,7 @@ namespace AdminSite.Controls
                         Ad.Destroy(ad.AdId);
                     }
                     ClearForm();
+                 
                 }
                 else
                 {

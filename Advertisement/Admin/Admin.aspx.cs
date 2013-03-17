@@ -13,7 +13,8 @@ namespace AdminSite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userId"] == null || Session["userId"].Equals(""))
+            //if (Session["userId"] == null || Session["userId"].Equals(""))
+            if (Session["userId"] == null)
             {
                 Response.Redirect("../Advertisement.aspx");
             }

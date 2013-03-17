@@ -266,8 +266,10 @@
     <Content Include="CodeGen\Configuration.aspx" />
     <Content Include="CodeGen\Generators.aspx" />
     <Content Include="CodeGen\style.css" />
+    <Content Include="Controls\ctlAboutUs.ascx" />
     <Content Include="Controls\ctlAdDetail.ascx" />
     <Content Include="Controls\ctlHome.ascx" />
+    <Content Include="Controls\ctlMissionStatement.ascx" />
     <Content Include="Controls\ctlSignUp.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -391,6 +393,13 @@
     <Compile Include="Controller\SuggestionController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controls\ControlSettings.cs" />
+    <Compile Include="Controls\ctlAboutUs.ascx.cs">
+      <DependentUpon>ctlAboutUs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctlAboutUs.ascx.designer.cs">
+      <DependentUpon>ctlAboutUs.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ctlAdDetail.ascx.cs">
       <DependentUpon>ctlAdDetail.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,6 +413,13 @@
     </Compile>
     <Compile Include="Controls\ctlHome.ascx.designer.cs">
       <DependentUpon>ctlHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctlMissionStatement.ascx.cs">
+      <DependentUpon>ctlMissionStatement.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ctlMissionStatement.ascx.designer.cs">
+      <DependentUpon>ctlMissionStatement.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\ctlSignUp.ascx.cs">
       <DependentUpon>ctlSignUp.ascx</DependentUpon>

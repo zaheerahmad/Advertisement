@@ -172,6 +172,8 @@
                     <!-- .nav, .navbar-search, .navbar-form, etc -->
                     <ul class="nav">
                       <li> <a class="home" href='Advertisement.aspx?ctl=0' onclick="">Home</a></li>
+                      <li> <a class="home" href='Advertisement.aspx?ctl=4' onclick="">About Us</a></li>
+                      <li> <a class="home" href='Advertisement.aspx?ctl=3' onclick="">Mission Statement</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         <li><a id="loginAnchor" href="#">Login</a></li>

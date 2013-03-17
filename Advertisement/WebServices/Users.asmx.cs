@@ -151,18 +151,14 @@ namespace Advertisement.WebServices
                 AdController adController = new AdController();
                 AdCollection coll = adController.FetchAll().OrderByDesc("AdDate");
 
-                if(coll.Count > 0){
-                     User user = new User("LoginId", coll[0].LoginId);
-                     username = user.Username;
-                }
-
-               
-               
-               
+             
                 
                 foreach (Ad ad in coll)
                 {
 
+
+                    User user = new User("LoginId", ad.LoginId);
+                    username = user.Username;
                     string[] arr = ad.AdPicture.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string image in arr){
                         sbReturnHtmlGallery.AppendFormat(@"
