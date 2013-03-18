@@ -13,7 +13,27 @@
 
                                     //Execute the slideShow
                                     slideShow();
+
                                     getLatestAdds();
+
+
+                                    $("li").live("click", function (e) {
+
+                                        if (!$(this).parent().hasClass("nav")) {
+                                         
+                                            e.preventDefault();
+                                            $("li.currentLi").removeClass("currentLi");
+                                            $(this).addClass("currentLi");
+
+
+                                            getLatestAdds();
+                                        }
+
+
+
+
+
+                                    });
 
                                 });
 
@@ -73,31 +93,97 @@
 	                        }
 	                        function getLatestAdds() {
 
-	                          
+	                            val = '';
+
+	                            if ($("li.currentLi").length > 0) {
+	                               
+                                     val = $("li.currentLi").find('a').text();
+	                            
+                                }
+                                
+                               
+
+                                var suggestion = "";
+
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "WebServices/Users.asmx/GetUpdatedAdds",
+                                    data: "{'paginationVal':'" + val + "'}",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    async: false,
+                                    cache: false,
+                                    success: function (msg) {
+                                        setTimeout(function () { getLatestAdds(); }, 20000);
+                                        var obj = jQuery.parseJSON(msg.d);
+                                        if (obj.serviceErrorCode == 0) {
+                                            $('div.materialContent').html('');
+                                            $('div.materialContent').html(obj.html);
+
+
+                                            $("#pages").html(' ');
+                                            $("#pages").html(obj.htmlPagination);
+                                        }
+                                        else {
+                                            $('#errorAlert').fadeIn(100);
+                                        }
+                                    }
+                                });
 
 
 
-	                            $.ajax({
-	                                type: "POST",
-	                                url: "WebServices/Users.asmx/GetUpdatedAdds",
-	                                async: false,
-	                                contentType: "application/json; charset=utf-8",
-	                                dataType: "json",
-	                                cache: false,	                                
-	                                success: function (msg) {	                                   
-	                                    setTimeout(function () { getLatestAdds(); }, 20000);
-	                                    var obj = jQuery.parseJSON(msg.d);	                                    
-	                                    if (obj.serviceErrorCode == 0) {	                                       
-	                                        $('div.materialContent').html('');
-	                                        $('div.materialContent').html(obj.html);
-	                                       
-	                                    }
-	                                    else {
-	                                        $('#errorAlert').fadeIn(100);
-	                                    }
-	                                }
-	                            });
-                                    
+//                                $.ajax({
+//                                    type: "POST",
+//                                    url: "WebServices/Users.asmx/GetUpdatedAdds",
+//                                    data: "{'pagination':'" + val + "'}",
+//                                    contentType: "application/json; charset=utf-8",
+//                                    dataType: "json",
+//                                    async: false,
+//                                    cache: false,
+//                                    success: function (msg) {
+//                                        setTimeout(function () { getLatestAdds(); }, 20000);
+//                                        var obj = jQuery.parseJSON(msg.d);
+//                                        if (obj.serviceErrorCode == 0) {
+//                                            $('div.materialContent').html('');
+//                                            $('div.materialContent').html(obj.html);
+
+
+//                                            $("#pages").html(' ');
+//                                            $("#pages").html(obj.htmlPagination);
+//                                        }
+//                                        else {
+//                                          
+//                                        }
+//                                    }
+//                                });
+
+//	                            $.ajax({
+//	                                type: "POST",
+//	                                url: "WebServices/Users.asmx/GetUpdatedAdds",
+//	                                data: "{'pagination':'" + val + "','suggestionText':'" + suggestion + "'}",
+//                                    async: false,	                                
+//	                                contentType: "application/json; charset=utf-8",                                   
+//	                                dataType: "json",
+//	                                cache: false,
+//	                                success: function (msg) {
+//	                                  
+//	                                    var obj = jQuery.parseJSON(msg.d);
+//	                                    if (obj.serviceErrorCode == 0) {
+//	                                        $('div.materialContent').html('');
+//	                                        $('div.materialContent').html(obj.html);
+
+//	                                      
+//	                                        $("#pages").html(' ');
+//	                                        $("#pages").html(obj.htmlPagination);
+
+//	                                    }
+//	                                    else {
+//	                                        $('#errorAlert').fadeIn(100);
+//	                                    }
+//	                                }
+//	                            });
+//                                    
                                     
 	                            
 
@@ -281,7 +367,16 @@
                                 <legend>Recent Posts</legend>
                                <div class="row materialContent">
                                      
+                               
+                               
+                               
+                               
                                </div>
+                               
+                                    <div class="pagination" id="pages">
+
+
+                                    </div>
                     </div>
             </body>
    </html>  

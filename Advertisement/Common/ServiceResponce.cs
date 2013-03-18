@@ -12,6 +12,7 @@ namespace Advertisement.Common
         public string message { get; set; }
         public int id { get; set; }
         public string htmlFeatureAdd { get; set; }
+        public string htmlPagination { get; set; }
 
         public ServiceResponce()
         {

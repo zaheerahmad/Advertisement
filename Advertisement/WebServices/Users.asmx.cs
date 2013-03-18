@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using Advertisement.Controller;
 using Advertisement.Model;
 using System.Text;
+using System.Web.Configuration;
 
 
 namespace Advertisement.WebServices
@@ -137,25 +138,54 @@ namespace Advertisement.WebServices
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string GetUpdatedAdds()
+        public string GetUpdatedAdds(string paginationVal)
         {
+            if (string.IsNullOrEmpty(paginationVal))
+            {
+                paginationVal = "1";
 
+
+            }
             string returnHtml = string.Empty;
             StringBuilder sbReturnHtml = new StringBuilder();
             StringBuilder sbReturnHtmlGallery = new StringBuilder();
+            string strPagination = string.Empty;
+
+           
+            Dictionary<string, int> paramsDict = new Dictionary<string, int>();
+           
+            
+            
+            
             try
             {
              
-                string username = string.Empty; 
-                
+                string username = string.Empty;
+                int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
                 AdController adController = new AdController();
-                AdCollection coll = adController.FetchAll().OrderByDesc("AdDate");
+                AdCollection coll2 = adController.FetchAll();
+                int totalCount = coll2.Count;
+                                    
+                AdCollection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByDesc("AdDate");
+                                   
 
              
-                
+                paramsDict["paginationCount"] = paginationCount;
+                paramsDict["paginationLimit"] = totalCount;
+                paramsDict["selectedParam"] = Convert.ToInt32(paginationVal);
+                strPagination =  PreparePagination(paramsDict);
+
+
+
+                //int countAdds = 0;
                 foreach (Ad ad in coll)
                 {
-
+                    //if (countAdds == paginationCount)
+                    //{
+                    //    break;
+                    //}
+                    //countAdds += 1;
+                  
 
                     User user = new User("LoginId", ad.LoginId);
                     username = user.Username;
@@ -260,14 +290,63 @@ namespace Advertisement.WebServices
             {
             }
 
+           
+            
             ServiceResponce serviceResponceError = new ServiceResponce
             {
                 serviceErrorCode = 0,
                 html = Convert.ToString(sbReturnHtml),
-                htmlFeatureAdd = Convert.ToString(sbReturnHtmlGallery),
+                htmlPagination = strPagination,
             };
             string jsonStringError = serviceResponceError.ToJSON();
             return jsonStringError;
         }
+        
+        public string PreparePagination(Dictionary<string,int> paramsDict)
+        {
+            string returnString = string.Empty;
+            StringBuilder sbReturnPaginationHtml = new StringBuilder();
+            if (paramsDict.ContainsKey("paginationCount") && paramsDict.ContainsKey("paginationLimit"))
+            {
+                double paginationCount = paramsDict["paginationCount"];
+                double paginationLimit = paramsDict["paginationLimit"];
+                int selectedPagination = paramsDict["selectedParam"];
+                if (paginationLimit < paginationCount)
+                {
+                                       
+                    return string.Empty;
+                }
+                double res = paginationLimit / paginationCount;
+                double totalPages =Math.Ceiling(res);
+
+                for(int i = 0; i < totalPages; i++){
+                    if (i + 1 == selectedPagination)
+                    {
+                        sbReturnPaginationHtml.AppendFormat(@"
+                                      <ul>                           
+                                        <li class='currentLi'><a href='#'>{0}</a></li>
+                                                              
+                                      </ul>
+                                ", Convert.ToString(i + 1));
+                    }
+                    else
+                    {
+                        sbReturnPaginationHtml.AppendFormat(@"
+                                          <ul>                           
+                                            <li><a href='#'>{0}</a></li>
+                                                              
+                                          </ul>
+                                    ", Convert.ToString(i + 1));
+                    }
+                }
+                    
+
+            }
+
+            return Convert.ToString(sbReturnPaginationHtml);
+        }
+      
     }
+     
+
 }

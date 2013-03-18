@@ -56,6 +56,16 @@ namespace Advertisement.Controller
             return coll;
         }
 
+        public AdCollection FetchPagination(int paginationSize,int pageIndex)
+        {
+            AdCollection coll = new AdCollection();
+            Query qry = new Query(Ad.Schema);
+            qry.PageIndex = pageIndex;
+            qry.PageSize = paginationSize;
+            coll.LoadAndCloseReader(qry.ExecuteReader());
+            return coll;
+        }
+
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public AdCollection FetchByID(object AdId)
         {

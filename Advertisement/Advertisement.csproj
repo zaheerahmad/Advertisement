@@ -124,8 +124,10 @@
     <Content Include="assets\images\image-slider-3.jpg" />
     <Content Include="assets\images\image-slider-4.jpg" />
     <Content Include="assets\images\image-slider-5.jpg" />
+    <Content Include="assets\images\images.jpg" />
     <Content Include="assets\images\Material Advertisement.jpg" />
     <Content Include="assets\images\photo.jpg" />
+    <Content Include="assets\images\recycle-logo.jpg" />
     <Content Include="assets\images\ScrapMetalRecycling.jpg" />
     <Content Include="assets\images\slider-1.jpg" />
     <Content Include="assets\images\slider-2.jpg" />
