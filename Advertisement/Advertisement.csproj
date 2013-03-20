@@ -345,7 +345,6 @@
     <Compile Include="Admin\Common\Common.cs" />
     <Compile Include="Admin\Common\ImageResizer.cs" />
     <Compile Include="Admin\Controller\AdController.cs" />
-    <Compile Include="Admin\Controller\AdvertismentTblController.cs" />
     <Compile Include="Admin\Controls\ControlSettings.cs" />
     <Compile Include="Admin\Controls\ctlAd.ascx.cs">
       <DependentUpon>ctlAd.ascx</DependentUpon>
@@ -380,7 +379,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Admin\Model\Ad.cs" />
-    <Compile Include="Admin\Model\AdvertismentTbl.cs" />
     <Compile Include="Admin\WebServices\AdService.asmx.cs">
       <DependentUpon>AdService.asmx</DependentUpon>
       <SubType>Component</SubType>
