@@ -14,7 +14,7 @@
                                     $("a.filter").live("click", function (e) {
                                         e.preventDefault();
 
-
+                                        $("div.materialContent").addClass("noAjax");
                                         var startDate = $("input[name='startDate']").val();
                                         var endDate = $("input[name='endDate']").val();
 
@@ -25,10 +25,9 @@
                                             val = $("li.currentLi").find('a').text();
 
                                         }
-                                
 
-                                        var link = $(this).attr('href');
-                                        alert(link);
+
+                                        var link = $(this).attr('href');                                      
                                         $.ajax({
                                             type: "POST",
                                             url: link,
@@ -67,7 +66,7 @@
                                     //Execute the slideShow
                                     slideShow();
 
-                                                                        getLatestAdds();
+                                    getLatestAdds();
 
 
                                     $("li").live("click", function (e) {
@@ -158,33 +157,33 @@
 
                                 var suggestion = "";
 
+                                if (!$("div.materialContent").hasClass("noAjax")) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "WebServices/Users.asmx/GetUpdatedAdds",
+                                        data: "{'paginationVal':'" + val + "'}",
+                                        contentType: "application/json; charset=utf-8",
+                                        dataType: "json",
+                                        async: false,
+                                        cache: false,
+                                        success: function (msg) {
+                                            setTimeout(function () { getLatestAdds(); }, 20000);
+                                            var obj = jQuery.parseJSON(msg.d);
+                                            if (obj.serviceErrorCode == 0) {
+                                                $('div.materialContent').html('');
+                                                $('div.materialContent').html(obj.html);
 
-                                $.ajax({
-                                    type: "POST",
-                                    url: "WebServices/Users.asmx/GetUpdatedAdds",
-                                    data: "{'paginationVal':'" + val + "'}",
-                                    contentType: "application/json; charset=utf-8",
-                                    dataType: "json",
-                                    async: false,
-                                    cache: false,
-                                    success: function (msg) {
-                                        setTimeout(function () { getLatestAdds(); }, 20000);
-                                        var obj = jQuery.parseJSON(msg.d);
-                                        if (obj.serviceErrorCode == 0) {
-                                            $('div.materialContent').html('');
-                                            $('div.materialContent').html(obj.html);
 
-
-                                            $("#pages").html(' ');
-                                            $("#pages").html(obj.htmlPagination);
+                                                $("#pages").html(' ');
+                                                $("#pages").html(obj.htmlPagination);
+                                            }
+                                            else {
+                                                $('#errorAlert').fadeIn(100);
+                                            }
                                         }
-                                        else {
-                                            $('#errorAlert').fadeIn(100);
-                                        }
-                                    }
-                                });
+                                    });
 
-
+                                }
 
 //                                $.ajax({
 //                                    type: "POST",
