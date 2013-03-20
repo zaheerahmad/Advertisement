@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TTD.Common;
 using Advertisement.Controls;
+using Advertisement.Model;
+using Advertisement.Controller;
 
 namespace Advertisement
 {

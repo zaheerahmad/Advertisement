@@ -11,16 +11,69 @@
                             <script>
                                 $(document).ready(function () {
 
+                                    $("a.filter").live("click", function (e) {
+                                        e.preventDefault();
+
+
+                                        var startDate = $("input[name='startDate']").val();
+                                        var endDate = $("input[name='endDate']").val();
+
+                                        val = '';
+
+                                        if ($("li.currentLi").length > 0) {
+
+                                            val = $("li.currentLi").find('a').text();
+
+                                        }
+                                
+
+                                        var link = $(this).attr('href');
+                                        alert(link);
+                                        $.ajax({
+                                            type: "POST",
+                                            url: link,
+                                            data: "{'startDate':'" + startDate + "','endDate':'" + endDate + "','paginationVal':'" + val + "'}",
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            async: false,
+                                            cache: false,
+                                            success: function (msg) {
+                                                setTimeout(function () { getLatestAdds(); }, 20000);
+                                                var obj = jQuery.parseJSON(msg.d);
+                                                if (obj.serviceErrorCode == 0) {
+                                                    $('div.materialContent').html('');
+                                                    $('div.materialContent').html(obj.html);
+
+
+                                                    $("#pages").html(' ');
+                                                    $("#pages").html(obj.htmlPagination);
+                                                }
+                                                else {
+                                                    $('#errorAlert').fadeIn(100);
+                                                }
+                                            }
+                                        });
+
+                                    });
+
+
+
+                                    $('.date').live("click", function () {
+
+                                        $(this).datepicker('show');
+
+                                    });
+
                                     //Execute the slideShow
                                     slideShow();
 
-                                    getLatestAdds();
+                                                                        getLatestAdds();
 
 
                                     $("li").live("click", function (e) {
 
                                         if (!$(this).parent().hasClass("nav")) {
-                                         
+
                                             e.preventDefault();
                                             $("li.currentLi").removeClass("currentLi");
                                             $(this).addClass("currentLi");
@@ -305,7 +358,7 @@
                     </head>
                     <body>
                         <div class="container">
-                                <div class="row">
+                                <div class="row" style="margin-top:-180px">
                                     <div class="span9">
                                     <div class="hero-unit">
                                         <legend>Featured Ads</legend>
@@ -347,20 +400,42 @@
                                                     </tr>
                                                     <tr>
                                                     <td>
-                                                        <label>Filter By Date</label>
-                                                        <input type="text" class="input-medium" placeholder="Material Date"/>
+                                                     
+                                                       
+                                                              
+                                                                   
+                                                                        <label class="control-label">Start Date</label>
+                                                                    
+                                                                    
+                                                                        <div class="input-append date" id="startDate"  data-date="12-02-2012" data-date-format="mm/dd/yyyy">
+                                                                                <input class="span2" name="startDate" size="16" style="width: 90px;" type="text" value="12-02-2012">
+                                                                                <span class="add-on"><i class="icon-th"></i></span>
+                                                                        </div>
+                                                                       
+                                                                       
+                                                                        <label class="control-label">End Date</label>
+                                                                        <div class="input-append date" id="endDate"  data-date="12-02-2012" data-date-format="mm/dd/yyyy">
+                                                                                <input class="span2" name="endDate" size="16" style="width: 90px;" type="text" value="12-02-2012">
+                                                                                <span class="add-on"><i class="icon-th"></i></span>
+                                                                        </div>
+                                                                   
+
+                                                            
+
+                                                       
                                                     </td>
                                                     </tr>
                                                 </table>
                     
                                                 <div class="control-group">
                                                 <div class="controls">
-                                                    <button type="submit" class="btn  btn-primary">Filter Result</button>
+                                                    <a href="WebServices/Users.asmx/FilterResultsByDate" class="btn btn-primary filter">Filter Result</a>
                                                 </div>
                                                 </div>
                                             </form>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

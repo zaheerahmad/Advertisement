@@ -12,6 +12,7 @@ using System.Text;
 using System.Web.Configuration;
 
 
+
 namespace Advertisement.WebServices
 {
     /// <summary>
@@ -301,7 +302,140 @@ namespace Advertisement.WebServices
             string jsonStringError = serviceResponceError.ToJSON();
             return jsonStringError;
         }
-        
+
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string FilterResultsByDate(string startDate, string endDate, string paginationVal)
+        {
+            string returnHtml = string.Empty;
+            StringBuilder sbReturnHtmlGallery = new StringBuilder();
+            StringBuilder sbReturnHtml = new StringBuilder();
+            int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
+            string strPagination = string.Empty;
+         
+           
+            if (string.IsNullOrEmpty(paginationVal))
+            {
+                paginationVal = "1";
+
+
+            }
+            string[] lsStartDate;
+            string[] lsEndDate;
+            string username = string.Empty;
+            try
+            {
+                System.DateTime dtEndDate = new DateTime();
+                bool bothDates = false;
+                lsStartDate = startDate.Split('/');
+                if (!string.IsNullOrEmpty(endDate))
+                {
+                    lsEndDate = endDate.Split('/');
+                    int eDmonth = Convert.ToInt32(lsEndDate[0]);
+                    int eDday = Convert.ToInt32(lsEndDate[1]);
+                    int eDyear = Convert.ToInt32(lsEndDate[2]);
+                    dtEndDate = new DateTime(eDyear, eDmonth, eDday, 0, 0, 0, 0);
+                    bothDates = true;
+                }
+                int sDmonth = Convert.ToInt32(lsStartDate[0]);
+                int sDday = Convert.ToInt32(lsStartDate[1]);
+                int sDyear = Convert.ToInt32(lsStartDate[2]);
+
+                System.DateTime dtStartDate = new DateTime(sDyear, sDmonth, sDday, 0, 0, 0, 0);
+
+                if (bothDates)
+                {
+                    if (dtStartDate > dtEndDate)
+                    {
+                        return string.Empty;
+                    }
+
+                }
+
+                AdCollection adver = new AdController().FetchByDate("AdDate", dtStartDate, dtEndDate, paginationCount, Convert.ToInt32(paginationVal));
+                int totalCount = adver.Count;
+
+                Dictionary<string, int> paramsDict = new Dictionary<string, int>();
+                paramsDict["paginationCount"] = paginationCount;
+                paramsDict["paginationLimit"] = totalCount;
+                paramsDict["selectedParam"] = Convert.ToInt32(paginationVal);
+                strPagination = PreparePagination(paramsDict);
+
+
+                foreach (Ad ad in adver)
+                {
+
+                    User user = new User("LoginId", ad.LoginId);
+                    username = user.Username;
+                    string[] arr = ad.AdPicture.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string image in arr)
+                    {
+                        sbReturnHtmlGallery.AppendFormat(@"
+                                                   <a href='Advertisement.aspx?ctl=1&id={0}' class='show'>
+                                                    <img src='../upload/AdImage/MainSlider/{1}' alt='Flowing Rock' width='950' height='450' title='' alt='' rel='<h3>{2}</h3>{3}/>
+                                                   </a>
+                                                   <div class='caption'><div class='content'></div></div>", ad.AdId, image, ad.AdTitle, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) + " ..." : ad.AdDetail);
+                    }
+
+
+
+                    sbReturnHtml.AppendFormat(@" <div class='media infoDiv'  style='margin-top:19px;'>
+                                                <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                                                    <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
+                                                </a>
+                                               <div class='media-body'>
+                                                <div class='row'>
+                                                    <div class='span5'>
+                                                        <h4 class='media-heading'>{7}</h4> 
+                                                    </div>
+                                                    <div class='span3 priceDiv'>
+                                                        <span>{2}</span>
+                                                    </div>
+                                                </div>
+                                                 <div class='row'>
+                                                    <div class='span5'>
+                                                        <div class='media'>
+                                                            {3}
+                                                        
+                                                        </div>
+                                                    </div>
+                                                    <div class='span3 moreInfo'>
+                                                               <ul> 
+                                                               
+                                                                    <li><i class='icon-asterisk'></i><strong>{4}</strong></li>
+                                                                    <li><i class='icon-asterisk'></i><strong>{5}</strong></li>
+                                                                    <li><i class='icon-ok'></i><strong>{6}</strong></li>
+                                                               </ul>
+                                                    </div>
+                                               </div>
+                                            </div>
+
+                                        </div>
+
+                                                    ", Convert.ToString(ad.AdId), ad.AdPicture.Substring(0, ad.AdPicture.IndexOf(',')), ad.AdAskingPrice, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) + " ..." : ad.AdDetail, username, ad.AdAddress, ad.AdStatus, ad.AdTitle);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            ServiceResponce serviceResponceError = new ServiceResponce
+            {
+                serviceErrorCode = 0,
+                html = Convert.ToString(sbReturnHtml),
+                htmlPagination = strPagination,
+            };
+            string jsonStringError = serviceResponceError.ToJSON();
+            return jsonStringError;
+
+        }
+
+
         public string PreparePagination(Dictionary<string,int> paramsDict)
         {
             string returnString = string.Empty;

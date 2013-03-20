@@ -12,6 +12,7 @@ using BlackBeltCoder;
 using System.Collections;
 using System.Data;
 using CuteWebUI;
+using Advertisement.Controller;
 
 namespace AdminSite.Controls
 {
@@ -117,7 +118,7 @@ namespace AdminSite.Controls
             ad.AdContactNo = contactNo;
             ad.AdEmailAddress = email;
             ad.AdAddress = address;
-            ad.AdDate = DateTime.Now.ToString();
+            ad.AdDate = DateTime.Now;
             ad.AdStatus = "Available";
 
             ad.Save();
@@ -171,7 +172,7 @@ namespace AdminSite.Controls
                     ad.AdContactNo = contactNo;
                     ad.AdEmailAddress = email;
                     ad.AdAddress = address;
-                    ad.AdDate = DateTime.Now.ToString();
+                    ad.AdDate = DateTime.Now;
                     ad.AdStatus = "Available";
 
                     ad.Save();

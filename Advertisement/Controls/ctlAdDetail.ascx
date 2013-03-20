@@ -7,8 +7,13 @@
     
 
 </script>
+<style>
+    div.hero-unit
+    {
+        margin-top:-215px;        
+    }
 
-
+</style>
 <div class="page-header">
 <%int id = TTD.Common.Utility.GetIntParameter("id");
                     Advertisement.Model.Ad ad = new Advertisement.Model.Ad("AdId", id);%>

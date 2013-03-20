@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Script.Services;
 using Advertisement.Model;
+using Advertisement.Controller;
 
 namespace Advertisement.Admin.WebServices
 {

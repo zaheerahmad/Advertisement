@@ -56,7 +56,20 @@ namespace Advertisement.Controller
             return coll;
         }
 
-        public AdCollection FetchPagination(int paginationSize,int pageIndex)
+        [DataObjectMethod(DataObjectMethodType.Select, true)]
+        public AdCollection FetchByDate(string columnName,DateTime dateStart,DateTime dateEnd,int sizePerPage,int pageIndex)
+        {
+            AdCollection coll = new AdCollection();
+            Query qry = new Query(Ad.Schema);
+            qry = qry.AddBetweenAnd(columnName, dateStart, dateEnd);
+            qry.PageSize = sizePerPage;
+            qry.PageIndex = pageIndex;
+            coll.LoadAndCloseReader(qry.ExecuteReader());
+            return coll;
+        }
+        
+        [DataObjectMethod(DataObjectMethodType.Select, true)]
+        public AdCollection FetchPagination(int paginationSize, int pageIndex)
         {
             AdCollection coll = new AdCollection();
             Query qry = new Query(Ad.Schema);
@@ -67,16 +80,17 @@ namespace Advertisement.Controller
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public AdCollection FetchByID(object AdId)
-        {
-            AdCollection coll = new AdCollection().Where("AdId", AdId).Load();
-            return coll;
-        }
-
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public AdCollection FetchByLoginID(object LoginId)
         {
             AdCollection coll = new AdCollection().Where("LoginId", LoginId).Load();
+            return coll;
+        }
+
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public AdCollection FetchByID(object AdId)
+        {
+            AdCollection coll = new AdCollection().Where("AdId", AdId).Load();
             return coll;
         }
 
@@ -108,7 +122,7 @@ namespace Advertisement.Controller
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress,string AdStatus,string AdDate)
+	    public void Insert(int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress,string AdStatus,DateTime AdDate)
 	    {
 		    Ad item = new Ad();
 		    
@@ -141,7 +155,7 @@ namespace Advertisement.Controller
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress,string AdStatus,string AdDate)
+	    public void Update(int AdId,int LoginId,string AdTitle,string AdDetail,string AdAskingPrice,string AdPicture,string AdContactNo,string AdEmailAddress,string AdAddress,string AdStatus,DateTime AdDate)
 	    {
 		    Ad item = new Ad();
 	        item.MarkOld();

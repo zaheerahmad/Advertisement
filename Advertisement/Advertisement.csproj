@@ -103,6 +103,45 @@
     <Content Include="App_Data\materials_log.ldf">
       <DependentUpon>materials.mdf</DependentUpon>
     </Content>
+    <Content Include="assets\bootstrapDatepicker\css\datepicker.css" />
+    <Content Include="assets\bootstrapDatepicker\js\bootstrap-datepicker.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.da.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.de.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.el.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.es.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.he.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.id.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.is.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.it.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.th.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="assets\bootstrapDatepicker\js\locales\bootstrap-datepicker.zh-TW.js" />
     <Content Include="assets\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="assets\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="assets\bootstrap\css\bootstrap.css" />
@@ -128,6 +167,7 @@
     <Content Include="assets\images\Material Advertisement.jpg" />
     <Content Include="assets\images\photo.jpg" />
     <Content Include="assets\images\recycle-logo.jpg" />
+    <Content Include="assets\images\SalvageLogo.png" />
     <Content Include="assets\images\ScrapMetalRecycling.jpg" />
     <Content Include="assets\images\slider-1.jpg" />
     <Content Include="assets\images\slider-2.jpg" />
@@ -305,6 +345,7 @@
     <Compile Include="Admin\Common\Common.cs" />
     <Compile Include="Admin\Common\ImageResizer.cs" />
     <Compile Include="Admin\Controller\AdController.cs" />
+    <Compile Include="Admin\Controller\AdvertismentTblController.cs" />
     <Compile Include="Admin\Controls\ControlSettings.cs" />
     <Compile Include="Admin\Controls\ctlAd.ascx.cs">
       <DependentUpon>ctlAd.ascx</DependentUpon>
@@ -339,6 +380,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Admin\Model\Ad.cs" />
+    <Compile Include="Admin\Model\AdvertismentTbl.cs" />
     <Compile Include="Admin\WebServices\AdService.asmx.cs">
       <DependentUpon>AdService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -471,7 +513,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50231</DevelopmentServerPort>
+          <DevelopmentServerPort>54987</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

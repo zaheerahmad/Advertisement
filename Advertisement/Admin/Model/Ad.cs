@@ -231,8 +231,8 @@ namespace Advertisement.Model
 				
 				TableSchema.TableColumn colvarAdDate = new TableSchema.TableColumn(schema);
 				colvarAdDate.ColumnName = "AdDate";
-				colvarAdDate.DataType = DbType.String;
-				colvarAdDate.MaxLength = 50;
+				colvarAdDate.DataType = DbType.DateTime;
+				colvarAdDate.MaxLength = 0;
 				colvarAdDate.AutoIncrement = false;
 				colvarAdDate.IsNullable = false;
 				colvarAdDate.IsPrimaryKey = false;
@@ -366,9 +366,9 @@ namespace Advertisement.Model
 		  
 		[XmlAttribute("AdDate")]
 		[Bindable(true)]
-		public string AdDate 
+		public DateTime AdDate 
 		{
-			get { return GetColumnValue<string>(Columns.AdDate); }
+			get { return GetColumnValue<DateTime>(Columns.AdDate); }
 
 			set { SetColumnValue(Columns.AdDate, value); }
 
@@ -394,7 +394,7 @@ namespace Advertisement.Model
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress,string varAdStatus,string varAdDate)
+		public static void Insert(int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress,string varAdStatus,DateTime varAdDate)
 		{
 			Ad item = new Ad();
 			
@@ -429,7 +429,7 @@ namespace Advertisement.Model
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varAdId,int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress,string varAdStatus,string varAdDate)
+		public static void Update(int varAdId,int varLoginId,string varAdTitle,string varAdDetail,string varAdAskingPrice,string varAdPicture,string varAdContactNo,string varAdEmailAddress,string varAdAddress,string varAdStatus,DateTime varAdDate)
 		{
 			Ad item = new Ad();
 			
