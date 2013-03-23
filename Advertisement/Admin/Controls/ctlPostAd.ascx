@@ -79,8 +79,7 @@
         <label class="control-label" for="txtContactNo">Contact Number</label>
         <div class="controls">
           <asp:TextBox ID="txtContactNo" runat="server" placeHolder="e.g. '+923219570199'" TextMode="SingleLine"></asp:TextBox>
-          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtContactNo" runat="server" ForeColor="Red" Text="*" />
-          <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Mismatch Format (e.g. +923219570199)" ForeColor="Red" ValidationExpression="(\+){1}[0-9]{12}" ControlToValidate="txtContactNo"></asp:RegularExpressionValidator>
+          
         </div>
       </div>
       <div class="control-group">

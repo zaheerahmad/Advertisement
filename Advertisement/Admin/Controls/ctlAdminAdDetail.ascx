@@ -1,6 +1,6 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctlAdDetail.ascx.cs" Inherits="Advertisement.Controls.ctlAdDetail" %>
-<link href="../assets/themes/2/js-image-slider.css" rel="stylesheet" type="text/css" />
-<script src="../assets/themes/2/js-image-slider.js" type="text/javascript"></script>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctlAdminAdDetail.ascx.cs" Inherits="Advertisement.Admin.Controls.ctlAdminAdDetail" %>
+<link href="../../assets/themes/2/js-image-slider.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/themes/2/js-image-slider.js" type="text/javascript"></script>
 
 <script>
 
@@ -31,11 +31,11 @@
                         if (ad.AdDetail.Length > 60)
                         {
                             %>
-                      <img src="../upload/AdImage/Detail/<%=image%>" alt="<%=ad.AdDetail.Substring(0,60)+"..." %>" />
+                      <img src="../../upload/AdImage/Detail/<%=image%>" alt="<%=ad.AdDetail.Substring(0,60)+"..." %>" />
                       <%}
                         else
                         {%>
-                      <img src="../upload/AdImage/Detail/<%=image%>" alt="<%=ad.AdDetail%>" />
+                      <img src="../../upload/AdImage/Detail/<%=image%>" alt="<%=ad.AdDetail%>" />
                         <%}
                     }%>
                       
@@ -46,7 +46,7 @@
                     foreach (string image in adImage)
                     {%>
                         <div class="thumb">
-                        <div class="frame"><img src="../upload/AdImage/Detail/<%=image %>" /></div>
+                        <div class="frame"><img src="../../upload/AdImage/Detail/<%=image %>" /></div>
                         <%if (ad.AdDetail.Length > 20)
                         {
                             %>
@@ -102,7 +102,7 @@
             <%foreach(Advertisement.Model.Suggestion suggestionData in coll) 
                   
               {%>
-                <div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;"><%=suggestionData.Username %></h4>  <div class="media"><%=suggestionData.SuggestionText%></div>  </div>    </div>
+                <div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="../../assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;"><%=suggestionData.Username %></h4>  <div class="media"><%=suggestionData.SuggestionText%></div>  </div>    </div>
 
               <%} %>
 

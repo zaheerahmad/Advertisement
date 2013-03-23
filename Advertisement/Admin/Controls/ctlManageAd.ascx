@@ -54,13 +54,13 @@
                     <th><i class="icon-remove"></i></th>
                 </tr>
                 <%
-                    Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
+                    Advertisement.Controller.Ad1Controller adController = new Advertisement.Controller.Ad1Controller();
                     int id = TTD.Common.Utility.GetIntParameter("id");
-                    foreach (Advertisement.Model.Ad ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
+                    foreach (Advertisement.Model.Ad1 ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
                     {%>
                         <tr id="<%=ad.AdId %>">
                             <td><%=ad.AdTitle %></td>
-                            <td><img src="../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(',')) %>" alt="" /></td>
+                            <td><img src="../../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(',')) %>" alt="" /></td>
                             <td><%=ad.AdDate %></td>
                             <td><i class="icon-flag"></i><%=ad.AdStatus %></td>
                             <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2&id=<%=Session["userId"]%>&ad=<%=ad.AdId %>">Edit</a></td>

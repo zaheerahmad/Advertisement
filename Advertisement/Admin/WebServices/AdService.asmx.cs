@@ -24,10 +24,10 @@ namespace Advertisement.Admin.WebServices
         [WebMethod(EnableSession = true)]
         public void RemoveAd(int pAdId)
         {
-            Ad ad = new Ad("AdId", pAdId);
+            Ad1 ad = new Ad1("AdId", pAdId);
             if (ad != null)
             {
-                Ad.Delete(ad.AdId);
+                Ad1.Delete(ad.AdId);
             }
         }
     }

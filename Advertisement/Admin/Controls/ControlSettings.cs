@@ -12,6 +12,8 @@ namespace AdminSite.Controls
             Welcome = 1,
             PostAd = 2,
             ManageAd = 3,
+            AdminAdDetail = 4,
+            Ad = 5,
         }
 
         public static string GetControlFileName(ControlName controlId, string folderPath)
@@ -28,6 +30,9 @@ namespace AdminSite.Controls
                     break;
                 case ControlName.ManageAd:
                     controlName = "ctlManageAd";
+                    break;
+                case ControlName.AdminAdDetail:
+                    controlName = "ctlAdminAdDetail";
                     break;
                 default:
                     controlName = "ctlAd";

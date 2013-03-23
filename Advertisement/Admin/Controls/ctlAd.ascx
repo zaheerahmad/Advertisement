@@ -56,10 +56,10 @@
                     <th>Status</th>
                     <th>&nbsp;</th>
                 </tr>
-                <%Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
+                <%Advertisement.Controller.Ad1Controller adController = new Advertisement.Controller.Ad1Controller();
                   int i = 0;
                   int id = TTD.Common.Utility.GetIntParameter("id");
-                  foreach (Advertisement.Model.Ad ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
+                  foreach (Advertisement.Model.Ad1 ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
                   {
                       i++;
                       if (i == 5)
@@ -67,11 +67,11 @@
                       %>
                         <tr>
                             <th><%=ad.AdTitle%></th>
-                            <td><img src="../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(','))%>" /></td>
+                            <td><img src="../../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(','))%>" /></td>
                             <td><%=ad.AdDate %></td>
                             <td><%=ad.AdAskingPrice %></td>
                             <th><i class="icon-flag"></i>Availabe</th>
-                            <td><a href="../Advertisement.aspx?ctl=1&id=<%=ad.AdId %>">Check Details</a></td>
+                            <td><a href="admin1.aspx?ctl=4&id=<%=ad.AdId %>">Check Details</a></td>
                         </tr>
                   <%
                   }

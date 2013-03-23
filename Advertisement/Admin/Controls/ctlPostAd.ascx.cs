@@ -42,7 +42,7 @@ namespace AdminSite.Controls
             }
         }
 
-        string UploadPrintableFile(List<string> pImageList, Ad ad)
+        string UploadPrintableFile(List<string> pImageList, Ad1 ad)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace AdminSite.Controls
                     Directory.Delete(Server.MapPath(Global.AdImages + "/temp"));
                     if (!stringFiles.ToString().Equals(""))
                     {
-                        ad = new Ad(Ad.Columns.AdId, ad.AdId);
+                        ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
                         ad.IsNew = false;
                         ad.AdPicture = stringFiles.ToString();
                         ad.Save(Guid.NewGuid());
@@ -80,7 +80,7 @@ namespace AdminSite.Controls
             }
             catch (Exception ex)
             {
-                Ad.Destroy(ad.AdId);
+                Ad1.Destroy(ad.AdId);
                 return ex.Message;
             }
             return String.Empty;
@@ -118,7 +118,7 @@ namespace AdminSite.Controls
             string email = txtEmail.Text;
             string address = txtAddress.Text;
 
-            Ad ad = new Ad();
+            Ad1 ad = new Ad1();
             ad.IsNew = true;
             ad.LoginId = userId;
             ad.AdTitle = adTitle;
@@ -145,7 +145,7 @@ namespace AdminSite.Controls
                 divStatusSuccess.Visible = false;
                 divStatusError.Visible = true;
                 labelStatusError.Text = Global.ErrorLabelStatus + result;
-                Ad.Destroy(ad.AdId);
+                Ad1.Destroy(ad.AdId);
             }
             ClearForm();
           
@@ -173,7 +173,7 @@ namespace AdminSite.Controls
                     string email = txtEmail.Text;
                     string address = txtAddress.Text;
 
-                    Ad ad = new Ad("AdId", adId);
+                    Ad1 ad = new Ad1("AdId", adId);
                     ad.IsNew = false;
                     ad.AdTitle = adTitle;
                     ad.AdDetail = adDetatil;
@@ -199,7 +199,7 @@ namespace AdminSite.Controls
                         divStatusSuccess.Visible = false;
                         divStatusError.Visible = true;
                         labelStatusError.Text = Global.ErrorLabelStatus + result;
-                        Ad.Destroy(ad.AdId);
+                        Ad1.Destroy(ad.AdId);
                     }
                     ClearForm();
                  
@@ -233,8 +233,8 @@ namespace AdminSite.Controls
             }
             else
             {
+                //txtAskingPrice.Enabled = true;
                 txtAskingPrice.Text = "";
-                txtAskingPrice.Enabled = true;
             }
         }
 
@@ -274,7 +274,7 @@ namespace AdminSite.Controls
 
         public void LoadAd(int pAdId)
         {
-            Ad ad = new Ad("AdId", pAdId);
+            Ad1 ad = new Ad1("AdId", pAdId);
             if (ad != null)
             {
                 txtAdDetail.Text = ad.AdDetail;

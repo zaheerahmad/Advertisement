@@ -92,6 +92,7 @@
     <Content Include="Admin\assets\Styles\Site.css" />
     <Content Include="Admin\Controls\admin1.aspx" />
     <Content Include="Admin\Controls\ctlAd.ascx" />
+    <Content Include="Admin\Controls\ctlAdminAdDetail.ascx" />
     <Content Include="Admin\Controls\ctlManageAd.ascx" />
     <Content Include="Admin\Controls\ctlPostAd.ascx" />
     <Content Include="Admin\Controls\ctlWelcome.ascx" />
@@ -337,7 +338,7 @@
     </Compile>
     <Compile Include="Admin\Common\Common.cs" />
     <Compile Include="Admin\Common\ImageResizer.cs" />
-    <Compile Include="Admin\Controller\AdController.cs" />
+    <Compile Include="Admin\Controller\Ad1Controller.cs" />
     <Compile Include="Admin\Controls\admin1.aspx.cs">
       <DependentUpon>admin1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,6 +353,13 @@
     </Compile>
     <Compile Include="Admin\Controls\ctlAd.ascx.designer.cs">
       <DependentUpon>ctlAd.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAdminAdDetail.ascx.cs">
+      <DependentUpon>ctlAdminAdDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\ctlAdminAdDetail.ascx.designer.cs">
+      <DependentUpon>ctlAdminAdDetail.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Controls\ctlManageAd.ascx.cs">
       <DependentUpon>ctlManageAd.ascx</DependentUpon>
@@ -378,7 +386,7 @@
     <Compile Include="Admin\Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Model\Ad.cs" />
+    <Compile Include="Admin\Model\Ad1.cs" />
     <Compile Include="Admin\WebServices\AdService.asmx.cs">
       <DependentUpon>AdService.asmx</DependentUpon>
       <SubType>Component</SubType>

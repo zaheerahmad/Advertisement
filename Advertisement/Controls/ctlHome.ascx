@@ -482,8 +482,8 @@
                                         <legend>Featured Ads</legend>
                                         <div id="gallery" class="mainGallery">
 
-                                            <% Advertisement.Controller.AdController controllerAd = new Advertisement.Controller.AdController();
-                                               foreach (Advertisement.Model.Ad ad in controllerAd.FetchAll().OrderByDesc("AdDate"))
+                                            <% Advertisement.Controller.Ad1Controller controllerAd = new Advertisement.Controller.Ad1Controller();
+                                               foreach (Advertisement.Model.Ad1 ad in controllerAd.FetchAll().OrderByDesc("AdDate"))
                                                {
                                                    string[] arr = ad.AdPicture.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                                                    foreach (string image in arr)

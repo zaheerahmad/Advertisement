@@ -15,16 +15,16 @@ namespace AdminSite.Controls
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Advertisement.Controller.AdController adController = new Advertisement.Controller.AdController();
+            Advertisement.Controller.Ad1Controller adController = new Advertisement.Controller.Ad1Controller();
 
-            foreach (Advertisement.Model.Ad ad in adController.FetchAll().Where("LoginId", Session["userId"]).Load())
+            foreach (Advertisement.Model.Ad1 ad in adController.FetchAll().Where("LoginId", Session["userId"]).Load())
             {
                 int i = 0;
             }
             int userId = Utility.GetIntParameter("id");
             if (userId > 0)
             {
-                AdCollection col = new AdCollection();
+                Ad1Collection col = new Ad1Collection();
                 col.Where("LoginId", userId).Load();
                 if (col.Count > 0)
                 {

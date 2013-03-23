@@ -52,7 +52,16 @@ namespace Advertisement.Admin.Controls
                 }
                 else
                 {
-                    Response.Redirect("../Advertisement.aspx");
+                    int ctl = Utility.GetIntParameter("ctl");
+                    id = Utility.GetIntParameter("id");
+                    if (ctl == 4 && id != 0)
+                    {
+                        Utility.LoadPageContent(this.PlaceHolder1, ControlSettings.GetControlFileName((ControlSettings.ControlName)ctl, ""));
+                    }
+                    else
+                    {
+                        Response.Redirect("../../Advertisement.aspx");
+                    }
                 }
             }
         }

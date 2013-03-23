@@ -45,11 +45,12 @@
                             </a>
  
                             <!-- Be sure to leave the brand out there if you want it shown -->
-                            <a class="brand" href="Controls/Admin1.aspx?ctl=5&id=<%=Session["userId"]%>"><i class="icon-home icon-black"></i>Control Panel</a>
+                            <a class="brand" href="admin1.aspx?ctl=5&id=<%=Session["userId"]%>"><i class="icon-home icon-black"></i>Control Panel</a>
                             <ul class="nav">
                             <li>
-                                <a href="Controls/Admin1.aspx?ctl=5&id=<%=Session["userId"]%>">Ads</a>
+                                <a href="admin1.aspx?ctl=5&id=<%=Session["userId"]%>">Ads</a>
                             </li>
+
                             <%--<li>
                                 <a href="Admin.aspx?ctl=6">News</a>
                             </li>
@@ -63,6 +64,7 @@
                                 <a href="Admin.aspx?ctl=14">Portfolio</a>
                             </li>--%>
                             <li><a href="../../Advertisement.aspx" onclick="SignOut()">Sign Out</a></li>
+                            </ul>
                         </div>
                         </div>
                     </div>

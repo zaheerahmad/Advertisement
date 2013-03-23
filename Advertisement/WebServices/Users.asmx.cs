@@ -163,11 +163,11 @@ namespace Advertisement.WebServices
              
                 string username = string.Empty;
                 int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
-                AdController adController = new AdController();
-                AdCollection coll2 = adController.FetchAll();
+                Ad1Controller adController = new Ad1Controller();
+                Ad1Collection coll2 = adController.FetchAll();
                 int totalCount = coll2.Count;
                                     
-                AdCollection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
+                Ad1Collection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
                                    
 
              
@@ -179,7 +179,7 @@ namespace Advertisement.WebServices
 
 
                 //int countAdds = 0;
-                foreach (Ad ad in coll)
+                foreach (Ad1 ad in coll)
                 {
                     //if (countAdds == paginationCount)
                     //{
@@ -234,7 +234,7 @@ namespace Advertisement.WebServices
 
                                         </div>
 
-                                                    ", Convert.ToString(ad.AdId), ad.AdPicture.Substring(0, ad.AdPicture.IndexOf(',')), ad.AdAskingPrice, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100)+" ..." : ad.AdDetail, username, ad.AdAddress, ad.AdStatus, ad.AdTitle);
+                                                    ", Convert.ToString(ad.AdId), ad.AdPicture.Substring(0, ad.AdPicture.IndexOf(',')), ad.AdAskingPrice, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100)+" ..." : ad.AdDetail, username, ad.AdDate.ToString(), ad.AdStatus, ad.AdTitle);
 //                    sbReturnHtml.AppendFormat(@" <div class='row materialContent'>
 //                                       
 //                                         
@@ -353,7 +353,7 @@ namespace Advertisement.WebServices
 
                 }
 
-                AdCollection adver = new AdController().FetchByDate("AdDate", dtStartDate, dtEndDate, paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
+                Ad1Collection adver = new Ad1Controller().FetchByDate("AdDate", dtStartDate, dtEndDate, paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
                 int totalCount = adver.Count;
 
                 Dictionary<string, int> paramsDict = new Dictionary<string, int>();
@@ -363,7 +363,7 @@ namespace Advertisement.WebServices
                 strPagination = PreparePagination(paramsDict);
 
 
-                foreach (Ad ad in adver)
+                foreach (Ad1 ad in adver)
                 {
 
                     User user = new User("LoginId", ad.LoginId);
@@ -444,7 +444,7 @@ namespace Advertisement.WebServices
 
             try
             {
-                    AdCollection ad = new AdController().FetchAll().OrderByAsc("AdDate");
+                    Ad1Collection ad = new Ad1Controller().FetchAll().OrderByAsc("AdDate");
                     int totalCount = ad.Count;
 
 
@@ -529,7 +529,7 @@ namespace Advertisement.WebServices
             try
             {
 
-                AdCollection ad = new AdController().FetchAll().OrderByAsc("AdDate");
+                Ad1Collection ad = new Ad1Controller().FetchAll().OrderByAsc("AdDate");
                 int totalAdds = ad.Count;
 
                 int paginationStartVal = Convert.ToInt32(paginationStartValue);
@@ -624,13 +624,13 @@ namespace Advertisement.WebServices
 
 
                 int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
-                AdController adController = new AdController();
-                AdCollection coll2 = adController.FetchAll();
+                Ad1Controller adController = new Ad1Controller();
+                Ad1Collection coll2 = adController.FetchAll();
                 int totalCount = coll2.Count;
-                AdCollection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
+                Ad1Collection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
 
 
-                foreach (Ad ad in coll)
+                foreach (Ad1 ad in coll)
                 {
                     //if (countAdds == paginationCount)
                     //{
