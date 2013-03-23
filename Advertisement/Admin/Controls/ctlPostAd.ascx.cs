@@ -13,6 +13,7 @@ using System.Collections;
 using System.Data;
 using CuteWebUI;
 using Advertisement.Controller;
+using System.Web;
 
 namespace AdminSite.Controls
 {
@@ -25,8 +26,16 @@ namespace AdminSite.Controls
             txtAskingPrice.Enabled = true;
             chkBoxFree.Checked = false;
             divStatusError.Visible = false;
-            divStatusSuccess.Visible = false;
+            divStatusSuccess.Visible = false;            
             adId = Utility.GetIntParameter("ad");
+            string test = HttpContext.Current.Request.Browser.ToString();
+            string test1 = HttpContext.Current.Request.Params.ToString();
+            int test2 = HttpContext.Current.Request.Params.Count;
+            List<string> test3 = HttpContext.Current.Request.Params.AllKeys.ToList<string>();
+            List<string> test4 = new List<string>();
+         
+
+
             if (adId > 0)
             {
                 LoadAd(adId);
@@ -87,8 +96,8 @@ namespace AdminSite.Controls
             txtContactNo.Text = "";
             txtEmail.Text = "";
             txtAddress.Text = "";
-            ItemsList.DataSource = CreateDataSource(new ArrayList());
-            ItemsList.DataBind();
+            //ItemsList.DataSource = CreateDataSource(new ArrayList());
+            //ItemsList.DataBind();
         }
 
         public void Save()
@@ -139,7 +148,7 @@ namespace AdminSite.Controls
                 Ad.Destroy(ad.AdId);
             }
             ClearForm();
-            Session["userId"] = userId;
+          
         }
 
         protected void btnPostAd_Click(object sender, EventArgs e)
@@ -208,6 +217,9 @@ namespace AdminSite.Controls
                         labelStatusError.Text = Global.ErrorLabelStatus + ex.ToString();
                     }
                 }
+                //HttpContext context = HttpContext.Current;
+                //Page.Response.Redirect("admin1.aspx?id=0");
+                ////context.Response.Redirect("admin1.aspx?id=0");
             }
         }
 
@@ -286,23 +298,23 @@ namespace AdminSite.Controls
 
                 /////////////////
 
-                string file = ad.AdPicture;
-                string []files = file.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                if (files.Length > 0)
-                {
-                    DataTable dt = new DataTable();
-                    DataRow dr;
-                    dt.Columns.Add(new DataColumn("FileName", typeof(String)));
-                    for (int i = 0; i < files.Length; i++)
-                    {
-                        dr = dt.NewRow();
-                        dr[0] = files[i].ToString();
-                        dt.Rows.Add(dr);
-                    }
-                    DataView dv = new DataView(dt);
-                    ItemsList.DataSource = dv;
-                    ItemsList.DataBind();
-                }
+                //string file = ad.AdPicture;
+                //string []files = file.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                //if (files.Length > 0)
+                //{
+                //    DataTable dt = new DataTable();
+                //    DataRow dr;
+                //    dt.Columns.Add(new DataColumn("FileName", typeof(String)));
+                //    for (int i = 0; i < files.Length; i++)
+                //    {
+                //        dr = dt.NewRow();
+                //        dr[0] = files[i].ToString();
+                //        dt.Rows.Add(dr);
+                //    }
+                //    DataView dv = new DataView(dt);
+                //    ItemsList.DataSource = dv;
+                //    ItemsList.DataBind();
+                //}
             }
         }
 

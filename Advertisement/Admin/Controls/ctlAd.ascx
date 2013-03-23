@@ -12,9 +12,9 @@
 <div class="span2">
     <ul class="nav nav-list">
       <li class="nav-header">Advertisements</li>
-      <li id="home" class="active"><a href="Admin.aspx?ctl=5&id=<%=Session["userId"]%>">Home</a></li>
-      <li id="add"><a href="Admin.aspx?ctl=2&id=<%=Session["userId"]%>">Post Ad</a></li>
-      <li id="manage"><a href="Admin.aspx?ctl=3&id=<%=Session["userId"]%>">Manage Your Ads</a></li>
+      <li id="home" class="active"><a href="admin1.aspx?ctl=5&id=<%=Session["userId"]%>">Home</a></li>
+      <li id="add"><a href="admin1.aspx?ctl=2&id=<%=Session["userId"]%>">Post Ad</a></li>
+      <li id="manage"><a href="admin1.aspx?ctl=3&id=<%=Session["userId"]%>">Manage Your Ads</a></li>
     </ul>
 </div>
 <div class="span8">

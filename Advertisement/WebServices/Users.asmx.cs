@@ -167,7 +167,7 @@ namespace Advertisement.WebServices
                 AdCollection coll2 = adController.FetchAll();
                 int totalCount = coll2.Count;
                                     
-                AdCollection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByDesc("AdDate");
+                AdCollection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
                                    
 
              
@@ -353,7 +353,7 @@ namespace Advertisement.WebServices
 
                 }
 
-                AdCollection adver = new AdController().FetchByDate("AdDate", dtStartDate, dtEndDate, paginationCount, Convert.ToInt32(paginationVal));
+                AdCollection adver = new AdController().FetchByDate("AdDate", dtStartDate, dtEndDate, paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
                 int totalCount = adver.Count;
 
                 Dictionary<string, int> paramsDict = new Dictionary<string, int>();
@@ -436,6 +436,329 @@ namespace Advertisement.WebServices
         }
 
 
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string NextPaginator(string paginationEndValue)
+        {
+            StringBuilder returnPaginator = new StringBuilder();
+
+            try
+            {
+                    AdCollection ad = new AdController().FetchAll().OrderByAsc("AdDate");
+                    int totalCount = ad.Count;
+
+
+                    int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
+
+
+
+                    double res = totalCount / paginationCount;
+                    double totalAdds = Math.Ceiling(res);
+
+
+
+                    int paginationEndVal = Convert.ToInt32(paginationEndValue);
+                    int loopStartValue = paginationEndVal + 1;
+
+                    double orgPaginationEndValue = paginationEndVal;
+                
+                    paginationEndVal += 5;
+                    
+                
+                   
+                    double loopEndValue = 0;
+
+                    if (paginationEndVal > totalAdds)
+                    {
+                        loopEndValue = totalAdds - orgPaginationEndValue;
+                        if (loopEndValue == 0)
+                        {
+                            return string.Empty;
+                        }
+                        loopEndValue = (loopStartValue + loopEndValue)-1;
+                    }
+                    else
+                    {
+                        loopEndValue = paginationEndVal;
+                    }
+
+                    returnPaginator.Append(@"<ul class='pager'> <li class='previous'>
+                                                            <a class='previous' href='#'>&larr; Older</a>
+                                            </li></ul>");
+                    for (int i = loopStartValue; i <= loopEndValue; i++)
+                    {
+                        returnPaginator.AppendFormat(@"
+                                          <ul>                           
+                                            <li><a class='pg' href='#'>{0}</a></li>
+                                                              
+                                          </ul>
+                                    ", Convert.ToString(i));
+
+                    }
+
+                    returnPaginator.Append(@" <ul class='pager'><li class='next'>
+                                                            <a class='newer' href='#'>&larr; Newer</a>
+                                            </li></ul>");
+
+
+            }
+            catch (Exception ex)
+            {
+
+            
+            }
+
+          
+            ServiceResponce serviceResponceError = new ServiceResponce
+            {
+                serviceErrorCode = 0,
+                html = "",
+                htmlPagination = returnPaginator.ToString()
+            };
+            string jsonStringError = serviceResponceError.ToJSON();
+            return jsonStringError;
+        }
+
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string PreviousPaginator(string paginationStartValue)
+        {
+            StringBuilder previousPaginatorHtml = new StringBuilder();
+
+            try
+            {
+
+                AdCollection ad = new AdController().FetchAll().OrderByAsc("AdDate");
+                int totalAdds = ad.Count;
+
+                int paginationStartVal = Convert.ToInt32(paginationStartValue);
+                int loopStartValue = 0;
+
+                if (paginationStartVal > 1)
+                {
+                    paginationStartVal -= 5;
+                }
+                else
+                {
+                    loopStartValue = paginationStartVal;
+
+                }
+                
+                loopStartValue = paginationStartVal;
+                int loopEndValue = loopStartValue + 4;
+                
+             
+                previousPaginatorHtml.Append(@"<ul class='pager'> <li class='previous'>
+                                                            <a class='previous' href='#'>&larr; Older</a>
+                                           </li></ul>");
+
+                int count = loopStartValue;
+                while (count <= loopEndValue)
+                {
+                    
+                    previousPaginatorHtml.AppendFormat(@"
+                                          <ul>                           
+                                            <li><a class='pg' href='#'>{0}</a></li>
+                                                              
+                                          </ul>
+                                    ", Convert.ToString(count));
+
+                    count++;
+                    
+                }
+                
+                
+                previousPaginatorHtml.Append(@" <ul class='pager'><li class='next'>
+                                                            <a class='newer' href='#'>&larr; Newer</a>
+                                            </li></ul>");
+
+
+
+             
+             
+
+               
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }  
+
+            ServiceResponce serviceResponceError = new ServiceResponce
+            {
+                serviceErrorCode = 0,
+                html = "",
+                htmlPagination = previousPaginatorHtml.ToString()
+            };
+            string jsonStringError = serviceResponceError.ToJSON();
+            return jsonStringError;
+
+
+        }
+
+
+
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string PaginationHandler(string paginationVal)
+        {
+
+            StringBuilder sbReturnHtmlGallery = new StringBuilder();
+            StringBuilder sbReturnHtml = new StringBuilder();
+
+            
+            string username = string.Empty;
+            try
+            {
+
+                if (string.IsNullOrEmpty(paginationVal))
+                {
+                    paginationVal = "1";
+
+
+                }
+
+
+                int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
+                AdController adController = new AdController();
+                AdCollection coll2 = adController.FetchAll();
+                int totalCount = coll2.Count;
+                AdCollection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
+
+
+                foreach (Ad ad in coll)
+                {
+                    //if (countAdds == paginationCount)
+                    //{
+                    //    break;
+                    //}
+                    //countAdds += 1;
+
+
+                    User user = new User("LoginId", ad.LoginId);
+                    username = user.Username;
+                    string[] arr = ad.AdPicture.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string image in arr)
+                    {
+                        sbReturnHtmlGallery.AppendFormat(@"
+                                                   <a href='Advertisement.aspx?ctl=1&id={0}' class='show'>
+                                                    <img src='../upload/AdImage/MainSlider/{1}' alt='Flowing Rock' width='950' height='450' title='' alt='' rel='<h3>{2}</h3>{3}/>
+                                                   </a>
+                                                   <div class='caption'><div class='content'></div></div>", ad.AdId, image, ad.AdTitle, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) + " ..." : ad.AdDetail);
+                    }
+
+
+
+                    sbReturnHtml.AppendFormat(@" <div class='media infoDiv'  style='margin-top:19px;'>
+                                                <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                                                    <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
+                                                </a>
+                                               <div class='media-body'>
+                                                <div class='row'>
+                                                    <div class='span5'>
+                                                        <h4 class='media-heading'>{7}</h4> 
+                                                    </div>
+                                                    <div class='span3 priceDiv'>
+                                                        <span>{2}</span>
+                                                    </div>
+                                                </div>
+                                                 <div class='row'>
+                                                    <div class='span5'>
+                                                        <div class='media'>
+                                                            {3}
+                                                        
+                                                        </div>
+                                                    </div>
+                                                    <div class='span3 moreInfo'>
+                                                               <ul> 
+                                                               
+                                                                    <li><i class='icon-asterisk'></i><strong>{4}</strong></li>
+                                                                    <li><i class='icon-asterisk'></i><strong>{5}</strong></li>
+                                                                    <li><i class='icon-ok'></i><strong>{6}</strong></li>
+                                                               </ul>
+                                                    </div>
+                                               </div>
+                                            </div>
+
+                                        </div>
+
+                                                    ", Convert.ToString(ad.AdId), ad.AdPicture.Substring(0, ad.AdPicture.IndexOf(',')), ad.AdAskingPrice, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) + " ..." : ad.AdDetail, username, ad.AdAddress, ad.AdStatus, ad.AdTitle);
+                    //                    sbReturnHtml.AppendFormat(@" <div class='row materialContent'>
+                    //                                       
+                    //                                         
+                    //                                            <div class='media infoDiv'  style='margin-top:19px;'>
+                    //                                         <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                    //                                             <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
+                    //                                          </a>
+                    //                                          <div class='media-body'>
+                    //                                            <div class='row'>
+                    //                                                <div class='span5'>
+                    //                                                     <h4 class='media-heading'>{7}</h4> 
+                    //                                                </div>
+                    //                                                <div class='span3 priceDiv'>
+                    //                                                 <span>{2}</span>
+                    //                                                </div>
+                    //                                           </div>
+                    //                                               <div class='row'>
+                    //                                                    <div class='span5'>
+                    //                                                        <div class='media'>
+                    //
+                    //                                                            {3}
+                    //                                                        </div>
+                    //                                                    </div>
+                    //                                                    <div class='span3 moreInfo'>
+                    //                                                              <ul> 
+                    ////                                                               
+                    ////                                                                    <li><i class='icon-asterisk'></i><strong>{4}</strong></li>
+                    ////                                                                    <li><i class='icon-asterisk'></i><strong>{5}</strong></li>
+                    ////                                                                    <li><i class='icon-ok'></i><strong>{6}</strong></li>
+                    ////                                                               </ul>
+                    //                                                    </div>
+                    //                                               </div>
+                    //                                          </div>
+                    //
+                    //                                        </div>
+                    //                                         <% }
+                    //                                             %>
+                    //
+                    //                                        <div class='row'>
+                    //                                                      <ul class='pager'>
+                    //                                                              <li class='previous'>
+                    //                                                                    <a href='#' onClick=''>&larr; Older</a>
+                    //                                                              </li>
+                    //                                                               <li class='next'>
+                    //                                                                    <a href='#'>Newer &rarr;</a>
+                    //                                                                </li>
+                    //                                                       </ul>
+                    //                                        </div>
+                    //                               </div>", Convert.ToString(ad.AdId), ad.AdPicture.Substring(0, ad.AdPicture.IndexOf(',')), ad.AdAskingPrice, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) : ad.AdDetail, username, ad.AdAddress, ad.AdStatus, ad.AdTitle);
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+
+            ServiceResponce serviceResponceError = new ServiceResponce
+            {
+                serviceErrorCode = 0,
+                html = Convert.ToString(sbReturnHtml),
+                htmlPagination = "",
+            };
+            string jsonStringError = serviceResponceError.ToJSON();
+            return jsonStringError;
+        }
+
+
+
         public string PreparePagination(Dictionary<string,int> paramsDict)
         {
             string returnString = string.Empty;
@@ -453,7 +776,15 @@ namespace Advertisement.WebServices
                 double res = paginationLimit / paginationCount;
                 double totalPages =Math.Ceiling(res);
 
-                for(int i = 0; i < totalPages; i++){
+
+                sbReturnPaginationHtml.Append(@"<ul class='pager'> <li class='previous'>
+                                                            <a class='previous' href='#'>&larr; Older</a>
+                                            </li></ul>");
+                
+                
+                //for(int i = 0; i < totalPages; i++){
+                for (int i = 0; i < 5; i++)
+                {
                     if (i + 1 == selectedPagination)
                     {
                         sbReturnPaginationHtml.AppendFormat(@"
@@ -473,6 +804,10 @@ namespace Advertisement.WebServices
                                     ", Convert.ToString(i + 1));
                     }
                 }
+
+                sbReturnPaginationHtml.Append(@" <ul class='pager'><li class='next'>
+                                                            <a class='newer'href='#'>&larr; Newer</a>
+                                            </ul></li>");
                     
 
             }

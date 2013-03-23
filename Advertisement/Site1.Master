@@ -37,7 +37,7 @@
                         if (obj.serviceErrorCode == 0) {
                             document.getElementById('inputEmail').value = "";
                             document.getElementById('inputPassword').value = "";
-                            window.location.href = "Admin/Admin.aspx?id=" + obj.id;
+                            window.location.href = "Admin/Controls/admin1.aspx?id=" + obj.id;
                         }
                         else {
                             $('#errorAlert').fadeIn(100);

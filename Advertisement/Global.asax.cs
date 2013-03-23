@@ -36,8 +36,9 @@ namespace Advertisement
             //ManagePortfolio = 16
         }
 
-        public const string ControlsPath = "~/Controls/";
-        public const string MainPageName = "Admin.aspx";
+        //public const string ControlsPath = "~/Controls/";
+        public const string ControlsPath = "Controls/";
+        public const string MainPageName = "admin1.aspx";
         public const string ErrorLogin = "*Error - Invalid User/Password";
         public const string ServicesImages = "~/upload/ServicesImages/";
         public const string ErrorLabelStatus = "Request couldn't be completed due to an error. Error: ";

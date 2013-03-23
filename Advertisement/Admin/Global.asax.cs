@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+
 using System.Web.SessionState;
 
 namespace AdminSite
@@ -222,6 +223,7 @@ namespace AdminSite
 
         void Session_End(object sender, EventArgs e)
         {
+            string s = string.Empty;
             // Code that runs when a session ends. 
             // Note: The Session_End event is raised only when the sessionstate mode
             // is set to InProc in the Web.config file. If session mode is set to StateServer 

@@ -27,7 +27,11 @@
                                         }
 
 
-                                        var link = $(this).attr('href');                                      
+
+
+
+                                        var link = $(this).attr('href');
+
                                         $.ajax({
                                             type: "POST",
                                             url: link,
@@ -57,9 +61,123 @@
 
 
 
-                                    $('.date').live("click", function () {
+                                    $("a.previous").live("click", function (e) {
 
-                                        $(this).datepicker('show');
+                                        e.preventDefault();
+                                        $("div.materialContent").addClass("noAjax");
+                                        var endValuePagination = $(this).parent().parent().next().find(">:first-child").find('a').text();
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "WebServices/Users.asmx/PreviousPaginator",
+                                            data: "{'paginationStartValue':'" + endValuePagination + "'}",
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            async: false,
+                                            cache: false,
+                                            success: function (msg) {
+
+                                                var obj = jQuery.parseJSON(msg.d);
+                                                if (obj.serviceErrorCode == 0) {
+                                                    //                                                    $('div.materialContent').html('');
+                                                    //                                                    $('div.materialContent').html(obj.html);
+
+
+                                                    $("#pages").html(' ');
+                                                    $("#pages").html(obj.htmlPagination);
+                                                }
+                                                else {
+                                                    $('#errorAlert').fadeIn(100);
+                                                }
+                                            }
+                                        });
+
+
+
+                                    });
+
+
+                                    $("a.pg").live("click", function () {
+                                       
+                                        
+                                        var selectPG = $(this).text();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "WebServices/Users.asmx/PaginationHandler",
+                                            data: "{'paginationVal':'" + selectPG + "'}",
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            async: false,
+                                            cache: false,
+                                            success: function (msg) {
+                                                setTimeout(function () { getLatestAdds(); }, 20000);
+                                                var obj = jQuery.parseJSON(msg.d);
+                                                if (obj.serviceErrorCode == 0) {
+                                                    $('div.materialContent').html('');
+                                                    $('div.materialContent').html(obj.html);
+
+
+                                                    //   $("#pages").html(' ');
+                                                    // $("#pages").html(obj.htmlPagination);
+                                                }
+                                                else {
+                                                    $('#errorAlert').fadeIn(100);
+                                                }
+                                            }
+                                        });
+
+
+
+                                    });
+
+
+
+
+                                    $("a.newer").live("click", function (e) {
+                                        e.preventDefault();
+                                        $("div.materialContent").addClass("noAjax");
+                                        var endValuePagination = $(this).parent().parent().prev().find(">:first-child").find('a').text();
+
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "WebServices/Users.asmx/NextPaginator",
+                                            data: "{'paginationEndValue':'" + endValuePagination + "'}",
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            async: false,
+                                            cache: false,
+                                            success: function (msg) {
+                                                setTimeout(function () { getLatestAdds(); }, 20000);
+                                                var obj = jQuery.parseJSON(msg.d);
+                                                if (obj.serviceErrorCode == 0) {
+                                                    //                                                    $('div.materialContent').html('');
+                                                    //                                                    $('div.materialContent').html(obj.html);
+
+
+                                                    $("#pages").html(' ');
+                                                    $("#pages").html(obj.htmlPagination);
+                                                }
+                                                else {
+                                                    $('#errorAlert').fadeIn(100);
+                                                }
+                                            }
+                                        });
+
+
+
+                                    });
+
+
+
+                                    //                                                                        $('.date').live("click", function () {
+
+                                    //                                                                            $(this).datepicker('show');
+
+                                    //                                                                        });
+
+
+                                    $('.date').datepicker().on('changeDate', function (ev) {
+                                        $(this).datepicker('hide');
 
                                     });
 
@@ -74,6 +192,7 @@
                                         if (!$(this).parent().hasClass("nav")) {
 
                                             e.preventDefault();
+
                                             $("li.currentLi").removeClass("currentLi");
                                             $(this).addClass("currentLi");
 
@@ -167,7 +286,7 @@
                                         async: false,
                                         cache: false,
                                         success: function (msg) {
-                                            setTimeout(function () { getLatestAdds(); }, 20000);
+//                                            setTimeout(function () { getLatestAdds(); }, 20000);
                                             var obj = jQuery.parseJSON(msg.d);
                                             if (obj.serviceErrorCode == 0) {
                                                 $('div.materialContent').html('');
@@ -407,14 +526,14 @@
                                                                     
                                                                     
                                                                         <div class="input-append date" id="startDate"  data-date="12-02-2012" data-date-format="mm/dd/yyyy">
-                                                                                <input class="span2" name="startDate" size="16" style="width: 90px;" type="text" value="12-02-2012">
+                                                                                <input class="span2" name="startDate" size="16" style="width: 90px;" type="text">
                                                                                 <span class="add-on"><i class="icon-th"></i></span>
                                                                         </div>
                                                                        
                                                                        
                                                                         <label class="control-label">End Date</label>
                                                                         <div class="input-append date" id="endDate"  data-date="12-02-2012" data-date-format="mm/dd/yyyy">
-                                                                                <input class="span2" name="endDate" size="16" style="width: 90px;" type="text" value="12-02-2012">
+                                                                                <input class="span2" name="endDate" size="16" style="width: 90px;" type="text">
                                                                                 <span class="add-on"><i class="icon-th"></i></span>
                                                                         </div>
                                                                    
@@ -447,7 +566,7 @@
                                
                                </div>
                                
-                                    <div class="pagination" id="pages">
+                                    <div class="pagination pagination-centered" id="pages">
 
 
                                     </div>

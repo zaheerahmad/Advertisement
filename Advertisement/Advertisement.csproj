@@ -75,7 +75,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\AdminSite.csproj" />
     <Content Include="Admin\AdminSite.csproj.user" />
     <Content Include="Admin\assets\bootstrap\css\bootstrap-responsive.css" />
@@ -91,6 +90,7 @@
     <Content Include="Admin\assets\Scripts\jquery-1.4.1.js" />
     <Content Include="Admin\assets\Scripts\jquery-1.4.1.min.js" />
     <Content Include="Admin\assets\Styles\Site.css" />
+    <Content Include="Admin\Controls\admin1.aspx" />
     <Content Include="Admin\Controls\ctlAd.ascx" />
     <Content Include="Admin\Controls\ctlManageAd.ascx" />
     <Content Include="Admin\Controls\ctlPostAd.ascx" />
@@ -328,13 +328,6 @@
     <Content Include="WebServices\Users.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\AdminSite.Master.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -345,6 +338,13 @@
     <Compile Include="Admin\Common\Common.cs" />
     <Compile Include="Admin\Common\ImageResizer.cs" />
     <Compile Include="Admin\Controller\AdController.cs" />
+    <Compile Include="Admin\Controls\admin1.aspx.cs">
+      <DependentUpon>admin1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\admin1.aspx.designer.cs">
+      <DependentUpon>admin1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Controls\ControlSettings.cs" />
     <Compile Include="Admin\Controls\ctlAd.ascx.cs">
       <DependentUpon>ctlAd.ascx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctlPostAd.ascx.cs" Inherits="AdminSite.Controls.ctlPostAd" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" EnableViewState="true"  CodeBehind="ctlPostAd.ascx.cs" Inherits="AdminSite.Controls.ctlPostAd" %>
 <link href="~/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link href="~/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
 <%@ Register TagPrefix="CuteWebUI" Namespace="CuteWebUI" Assembly="CuteWebUI.AjaxUploader" %>
@@ -13,9 +13,9 @@
 <div class="span2" style="position:fixed">
     <ul class="nav nav-list">
       <li class="nav-header">Advertisements</li>
-      <li id="home"><a href="Admin.aspx?ctl=5&id=<%=Session["userId"]%>">Home</a></li>
-      <li id="add" class="active"><a href="Admin.aspx?ctl=2&id=<%=Session["userId"]%>">Post Ad</a></li>
-      <li id="manage"><a href="Admin.aspx?ctl=3&id=<%=Session["userId"]%>">Manage Your Ads</a></li>
+      <li id="home"><a href="admin1.aspx?ctl=5&id=<%=Session["userId"]%>">Home</a></li>
+      <li id="add" class="active"><a href="admin1.aspx?ctl=2&id=<%=Session["userId"]%>">Post Ad</a></li>
+      <li id="manage"><a href="admin1.aspx?ctl=3&id=<%=Session["userId"]%>">Manage Your Ads</a></li>
     </ul>
 </div>
 <div class="span8 offset2">
