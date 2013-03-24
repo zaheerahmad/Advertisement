@@ -41,7 +41,7 @@
                                             async: false,
                                             cache: false,
                                             success: function (msg) {
-                                                setTimeout(function () { getLatestAdds(); }, 20000);
+                                                //                                                setTimeout(function () { getLatestAdds(); }, 20000);
                                                 var obj = jQuery.parseJSON(msg.d);
                                                 if (obj.serviceErrorCode == 0) {
                                                     $('div.materialContent').html('');
@@ -50,6 +50,11 @@
 
                                                     $("#pages").html(' ');
                                                     $("#pages").html(obj.htmlPagination);
+                                                }
+                                                else if (obj.serviceErrorCode == 2) {                                                  
+                                                    $('div.materialContent').html('');
+                                                    $('div.materialContent').html(obj.html);
+
                                                 }
                                                 else {
                                                     $('#errorAlert').fadeIn(100);
@@ -98,8 +103,8 @@
 
 
                                     $("a.pg").live("click", function () {
-                                       
-                                        
+
+
                                         var selectPG = $(this).text();
                                         $.ajax({
                                             type: "POST",
