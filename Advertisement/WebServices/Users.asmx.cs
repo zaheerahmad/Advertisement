@@ -108,7 +108,7 @@ namespace Advertisement.WebServices
                 {
                     string username = string.Empty;
                     Model.Suggestion sugesstion = new Model.Suggestion();
-                    if (Session != null)
+                    if (Session["username"] != null)
                     {
                         username = Convert.ToString(Session["username"]);
                     
@@ -121,7 +121,7 @@ namespace Advertisement.WebServices
                     }
 
 
-                    username = Convert.ToString(Session["username"]);                  
+                              
                     sugesstion.AdverId = Convert.ToInt32(adverId);
                     sugesstion.SuggestionText = suggestionText;
                     sugesstion.Username = "Anonymous";
@@ -348,13 +348,37 @@ namespace Advertisement.WebServices
                 {
                     if (dtStartDate > dtEndDate)
                     {
-                        return string.Empty;
+                        ServiceResponce serviceResponceError = new ServiceResponce
+                        {
+                            serviceErrorCode = 1,
+                            html = "Start date couldn't be greater than end date",
+                            htmlPagination = string.Empty,
+                        };
+                        string returnJson = serviceResponceError.ToJSON();
+                        return returnJson;
                     }
 
                 }
 
                 Ad1Collection adver = new Ad1Controller().FetchByDate("AdDate", dtStartDate, dtEndDate, paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
                 int totalCount = adver.Count;
+
+
+                if (totalCount == 0)
+                {
+                    ServiceResponce serviceResponceError = new ServiceResponce
+                    {
+                        serviceErrorCode = 2,
+                        html = "<div class='alert alert-info'>No results found .. !</div>",
+                        htmlPagination = string.Empty,
+                    };
+                    string returnJson = serviceResponceError.ToJSON();
+                    return returnJson;
+
+
+                }
+
+
 
                 Dictionary<string, int> paramsDict = new Dictionary<string, int>();
                 paramsDict["paginationCount"] = paginationCount;
@@ -424,13 +448,13 @@ namespace Advertisement.WebServices
 
             }
 
-            ServiceResponce serviceResponceError = new ServiceResponce
+            ServiceResponce serviceResponceErrorFinal = new ServiceResponce
             {
                 serviceErrorCode = 0,
                 html = Convert.ToString(sbReturnHtml),
                 htmlPagination = strPagination,
             };
-            string jsonStringError = serviceResponceError.ToJSON();
+            string jsonStringError = serviceResponceErrorFinal.ToJSON();
             return jsonStringError;
 
         }
