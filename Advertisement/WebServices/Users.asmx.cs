@@ -469,10 +469,10 @@ namespace Advertisement.WebServices
             try
             {
                     Ad1Collection ad = new Ad1Controller().FetchAll().OrderByAsc("AdDate");
-                    int totalCount = ad.Count;
+                    double totalCount = ad.Count;
 
 
-                    int paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
+                    double paginationCount = Convert.ToInt32(WebConfigurationManager.AppSettings["pagination"]);
 
 
 
@@ -497,7 +497,14 @@ namespace Advertisement.WebServices
                         loopEndValue = totalAdds - orgPaginationEndValue;
                         if (loopEndValue == 0)
                         {
-                            return string.Empty;
+                            ServiceResponce serviceResponceError1 = new ServiceResponce
+                            {
+                                serviceErrorCode = 1,
+                                html = "",
+                                htmlPagination = returnPaginator.ToString()
+                            };
+                            string jsonStringError1 = serviceResponceError1.ToJSON();
+                            return jsonStringError1;
                         }
                         loopEndValue = (loopStartValue + loopEndValue)-1;
                     }
@@ -562,6 +569,17 @@ namespace Advertisement.WebServices
                 if (paginationStartVal > 1)
                 {
                     paginationStartVal -= 5;
+                }
+                else if (paginationStartVal == 1)
+                {
+                    ServiceResponce serviceResponceError1 = new ServiceResponce
+                    {
+                        serviceErrorCode = 1,
+                        html = "",
+                        htmlPagination = previousPaginatorHtml.ToString()
+                    };
+                    string jsonStringError1 = serviceResponceError1.ToJSON();
+                    return jsonStringError1;
                 }
                 else
                 {
@@ -807,13 +825,21 @@ namespace Advertisement.WebServices
                 
                 
                 //for(int i = 0; i < totalPages; i++){
-                for (int i = 0; i < 5; i++)
+                if (totalPages > 5)
+                {
+                    totalPages = 5;
+                }
+
+
+
+
+                for (int i = 0; i < totalPages; i++)
                 {
                     if (i + 1 == selectedPagination)
                     {
                         sbReturnPaginationHtml.AppendFormat(@"
                                       <ul>                           
-                                        <li class='currentLi'><a href='#'>{0}</a></li>
+                                        <li class='currentLi'><a class='pg' href='#'>{0}</a></li>
                                                               
                                       </ul>
                                 ", Convert.ToString(i + 1));
@@ -822,7 +848,7 @@ namespace Advertisement.WebServices
                     {
                         sbReturnPaginationHtml.AppendFormat(@"
                                           <ul>                           
-                                            <li><a href='#'>{0}</a></li>
+                                            <li><a class='pg' href='#'>{0}</a></li>
                                                               
                                           </ul>
                                     ", Convert.ToString(i + 1));
