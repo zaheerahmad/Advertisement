@@ -99,7 +99,6 @@
     <Content Include="Admin\Global.asax" />
     <Content Include="Admin\WebServices\AdService.asmx" />
     <Content Include="Admin\WebServices\SessionHandler.asmx" />
-    <Content Include="Advertisement.aspx" />
     <Content Include="App_Data\materials.mdf" />
     <Content Include="App_Data\materials_log.ldf">
       <DependentUpon>materials.mdf</DependentUpon>
@@ -315,6 +314,7 @@
     <Content Include="Controls\ctlMissionStatement.ascx" />
     <Content Include="Controls\ctlSignUp.ascx" />
     <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
@@ -395,13 +395,6 @@
       <DependentUpon>SessionHandler.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Advertisement.aspx.cs">
-      <DependentUpon>Advertisement.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Advertisement.aspx.designer.cs">
-      <DependentUpon>Advertisement.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CodeGen\ClassGenerator.ascx.cs">
       <DependentUpon>ClassGenerator.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -481,6 +474,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -519,7 +518,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54987</DevelopmentServerPort>
+          <DevelopmentServerPort>64937</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

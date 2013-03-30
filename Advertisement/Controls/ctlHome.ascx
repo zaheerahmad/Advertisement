@@ -495,7 +495,7 @@
                                                    {
                                                    %>
                             
-                                               <a href="Advertisement.aspx?ctl=1&id=<%=ad.AdId %>" class="show">
+                                               <a href="index.aspx?ctl=1&id=<%=ad.AdId %>" class="show">
                                                 <img src="../upload/AdImage/MainSlider/<%=image%>" alt="Flowing Rock" width="950" height="450" title="" alt="" rel="<h3><%=ad.AdTitle %></h3><%if(ad.AdDetail.Length > 60){ %><%=ad.AdDetail.Substring(0,60) + "..." %> <%}%><%else{ %><%=ad.AdDetail %><%} %>" />
                                                </a>
                              
@@ -515,12 +515,12 @@
                                             <h6>Filter Results</h6>
                                             <form action="">
                                                 <table class="table">
-                                                    <tr>
+                                                    <%--<tr>
                                                     <td>
                                                         <label>Filter By Material Name</label>
                                                         <input type="text" class="input-medium" placeholder="Material Name"/>
                                                     </td>
-                                                    </tr>
+                                                    </tr>--%>
                                                     <tr>
                                                     <td>
                                                      

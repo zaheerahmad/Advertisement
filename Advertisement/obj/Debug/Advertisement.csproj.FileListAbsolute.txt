@@ -76,3 +76,16 @@ C:\khurram\FreeLancing\Material\trunk\Advertisement\bin\Advertisement.pdb
 C:\khurram\FreeLancing\Material\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
 C:\khurram\FreeLancing\Material\trunk\Advertisement\obj\Debug\Advertisement.dll
 C:\khurram\FreeLancing\Material\trunk\Advertisement\obj\Debug\Advertisement.pdb
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\Advertisement.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\Advertisement.pdb
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\AjaxControlToolkit.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\Anthem.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\eWorld.UI.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\GMDatePicker.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\SubSonic.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\TTD.Common.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\TTD.Web.Providers.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\bin\wwHoverPanel.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\obj\Debug\ResolveAssemblyReference.cache
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\obj\Debug\Advertisement.dll
+E:\Work\Latest\Advertisement\temp\trunk\Advertisement\obj\Debug\Advertisement.pdb

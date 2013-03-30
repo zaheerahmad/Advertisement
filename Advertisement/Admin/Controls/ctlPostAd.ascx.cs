@@ -67,7 +67,7 @@ namespace AdminSite.Controls
                 }
                 if (pImageList.Count > 0)
                 {
-                    Directory.Delete(Server.MapPath(Global.AdImages + "/temp"));
+                    Directory.Delete(Server.MapPath(Global.AdImages + "/temp"), true);
                     if (!stringFiles.ToString().Equals(""))
                     {
                         ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
@@ -102,6 +102,8 @@ namespace AdminSite.Controls
 
         public void Save()
         {
+            if (imageList.Count > 0)
+            {
             int userId = Utility.GetIntParameter("id");
             string adTitle = txtAdTitle.Text;
             string adDetatil = txtAdDetail.Text;
@@ -134,6 +136,7 @@ namespace AdminSite.Controls
 
             //Now Save Picture As Well..
             string result = UploadPrintableFile(imageList,ad);
+                imageList = new List<string>();
             if (result.Equals(""))
             {
                 divStatusError.Visible = false;
@@ -146,6 +149,14 @@ namespace AdminSite.Controls
                 divStatusError.Visible = true;
                 labelStatusError.Text = Global.ErrorLabelStatus + result;
                 Ad1.Destroy(ad.AdId);
+            }
+            }
+            else
+            {
+                string result = "Atleast 1 picture must be uploaded";
+                divStatusSuccess.Visible = false;
+                divStatusError.Visible = true;
+                labelStatusError.Text = Global.ErrorLabelStatus + result;
             }
             ClearForm();
           

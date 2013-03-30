@@ -11,7 +11,7 @@ using Advertisement.Controller;
 
 namespace Advertisement
 {
-    public partial class Advertisement : System.Web.UI.Page
+    public partial class index : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

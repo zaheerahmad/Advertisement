@@ -10,7 +10,7 @@
 namespace Advertisement {
     
     
-    public partial class Advertisement {
+    public partial class index {
         
         /// <summary>
         /// PlaceHolder1 control.

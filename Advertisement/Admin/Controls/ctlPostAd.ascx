@@ -58,7 +58,7 @@
         <label class="control-label" for="fuAdPictures">Pictures of your Ad<br /><i class="icon-picture"></i><small>You can add 4 pictures</small></label><br />
         <div class="controls">
             <CuteWebUI:Uploader id="Uploader1" runat="server" MultipleFilesUpload="true" ShowProgressBar="true" ShowProgressInfo="true"
-              MaxFilesLimit="4" OnUploadCompleted="uploader1_UploadCompleted"/><br />
+              MaxFilesLimit="4" OnUploadCompleted="uploader1_UploadCompleted" upload/><br />
               <asp:DataList ID="ItemsList" RepeatDirection="Vertical" RepeatLayout="Table" runat="server">  
                 <ItemTemplate>  
                     file name:  
@@ -76,7 +76,7 @@
       </div>
       <legend>Your Details</legend>
       <div class="control-group">
-        <label class="control-label" for="txtContactNo">Contact Number</label>
+        <label class="control-label" for="txtContactNo">Contact Number (Optional)</label>
         <div class="controls">
           <asp:TextBox ID="txtContactNo" runat="server" placeHolder="e.g. '+923219570199'" TextMode="SingleLine"></asp:TextBox>
           

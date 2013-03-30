@@ -29,7 +29,7 @@ namespace Advertisement.Admin.Controls
                
                 else
                 {
-                    Response.Redirect("../../Advertisement.aspx");
+                    Response.Redirect("../../index.aspx");
                 }
 
              
@@ -60,7 +60,7 @@ namespace Advertisement.Admin.Controls
                     }
                     else
                     {
-                        Response.Redirect("../../Advertisement.aspx");
+                        Response.Redirect("../../index.aspx");
                     }
                 }
             }

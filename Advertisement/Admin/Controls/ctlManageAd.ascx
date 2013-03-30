@@ -3,14 +3,14 @@
 <link href="~/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('a').click(
+        $('a.Delete').click(
         function () {
             $(this).parent().parent().fadeOut(1000);
             var AdId = $(this).attr('title');
             //Do something with link_text 
             $.ajax({
                 type: "POST",
-                url: "WebServices/AdService.asmx/RemoveAd",
+                url: "../WebServices/AdService.asmx/RemoveAd",
                 data: "{'pAdId':" + AdId + "}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -60,11 +60,19 @@
                     {%>
                         <tr id="<%=ad.AdId %>">
                             <td><%=ad.AdTitle %></td>
+                            <%if (ad.AdPicture.Contains(","))
+                              { %>
+
                             <td><img src="../../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(',')) %>" alt="" /></td>
+                                <%} %>
+                                <%else
+                                { %>
+                                <td><img src="" alt="No Image" /></td>
+                                <%} %>
                             <td><%=ad.AdDate %></td>
                             <td><i class="icon-flag"></i><%=ad.AdStatus %></td>
-                            <td><i class="icon-edit"></i><a href="Admin.aspx?ctl=2&id=<%=Session["userId"]%>&ad=<%=ad.AdId %>">Edit</a></td>
-                            <td><i class="icon-remove"></i><a  title="<%=ad.AdId %>" href="#">Delete</a></td>
+                            <td><i class="icon-edit"></i><a href="admin1.aspx?ctl=2&id=<%=Session["userId"]%>&ad=<%=ad.AdId %>">Edit</a></td>
+                            <td><i class="icon-remove"></i><a  title="<%=ad.AdId %>" href="#" class="Delete">Delete</a></td>
                         </tr>
                    <% }
                      %>

@@ -14,7 +14,14 @@
     }
 
 </style>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <div class="page-header">
+
 <%int id = TTD.Common.Utility.GetIntParameter("id");
                     Advertisement.Model.Ad1 ad = new Advertisement.Model.Ad1("AdId", id);%>
         <div class="hero-unit">

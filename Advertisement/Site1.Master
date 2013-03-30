@@ -179,19 +179,19 @@
                   </a>
  
                   <!-- Be sure to leave the brand out there if you want it shown -->
-                  <a class="brand" href="Advertisement.aspx?ctl=0">Material Advertisement</a>
+                  <a class="brand" href="index.aspx?ctl=0">Material Advertisement</a>
  
                   <!-- Everything you want hidden at 940px or less, place within here -->
                   <div class="nav-collapse collapse">
                     <!-- .nav, .navbar-search, .navbar-form, etc -->
                     <ul class="nav">
-                      <li> <a class="home" href='Advertisement.aspx?ctl=0' onclick="">Home</a></li>
-                      <li> <a class="home" href='Advertisement.aspx?ctl=4' onclick="">About Us</a></li>
-                      <li> <a class="home" href='Advertisement.aspx?ctl=3' onclick="">Mission Statement</a></li>
+                      <li> <a class="home" href='index.aspx?ctl=0' onclick="">Home</a></li>
+                      <li> <a class="home" href='index.aspx?ctl=4' onclick="">About Us</a></li>
+                      <li> <a class="home" href='index.aspx?ctl=3' onclick="">Mission Statement</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         <li><a id="loginAnchor" href="#">Login</a></li>
-                        <li><a id="signUpAnchor" href="Advertisement.aspx?ctl=2">Sign Up</a></li>
+                        <li><a id="signUpAnchor" href="index.aspx?ctl=2">Sign Up</a></li>
                     </ul>
                   </div>
  

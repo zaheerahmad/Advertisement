@@ -218,7 +218,7 @@ namespace Advertisement.WebServices
                     string[] arr = ad.AdPicture.Split(new Char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                     foreach (string image in arr){
                         sbReturnHtmlGallery.AppendFormat(@"
-                                                   <a href='Advertisement.aspx?ctl=1&id={0}' class='show'>
+                                                   <a href='index.aspx?ctl=1&id={0}' class='show'>
                                                     <img src='../upload/AdImage/MainSlider/{1}' alt='Flowing Rock' width='950' height='450' title='' alt='' rel='<h3>{2}</h3>{3}/>
                                                    </a>
                                                    <div class='caption'><div class='content'></div></div>", ad.AdId, image, ad.AdTitle, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100)+" ..." : ad.AdDetail);
@@ -227,7 +227,7 @@ namespace Advertisement.WebServices
                     
                     
                     sbReturnHtml.AppendFormat(@" <div class='media infoDiv'  style='margin-top:19px;'>
-                                                <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                                                <a class='pull-left' href='../index.aspx?ctl=1&id={0}'>
                                                     <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
                                                 </a>
                                                <div class='media-body'>
@@ -264,7 +264,7 @@ namespace Advertisement.WebServices
 //                                       
 //                                         
 //                                            <div class='media infoDiv'  style='margin-top:19px;'>
-//                                         <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+//                                         <a class='pull-left' href='../index.aspx?ctl=1&id={0}'>
 //                                             <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
 //                                          </a>
 //                                          <div class='media-body'>
@@ -421,7 +421,7 @@ namespace Advertisement.WebServices
                     foreach (string image in arr)
                     {
                         sbReturnHtmlGallery.AppendFormat(@"
-                                                   <a href='Advertisement.aspx?ctl=1&id={0}' class='show'>
+                                                   <a href='index.aspx?ctl=1&id={0}' class='show'>
                                                     <img src='../upload/AdImage/MainSlider/{1}' alt='Flowing Rock' width='950' height='450' title='' alt='' rel='<h3>{2}</h3>{3}/>
                                                    </a>
                                                    <div class='caption'><div class='content'></div></div>", ad.AdId, image, ad.AdTitle, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) + " ..." : ad.AdDetail);
@@ -430,7 +430,7 @@ namespace Advertisement.WebServices
 
 
                     sbReturnHtml.AppendFormat(@" <div class='media infoDiv'  style='margin-top:19px;'>
-                                                <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                                                <a class='pull-left' href='../index.aspx?ctl=1&id={0}'>
                                                     <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
                                                 </a>
                                                <div class='media-body'>
@@ -712,7 +712,7 @@ namespace Advertisement.WebServices
                     foreach (string image in arr)
                     {
                         sbReturnHtmlGallery.AppendFormat(@"
-                                                   <a href='Advertisement.aspx?ctl=1&id={0}' class='show'>
+                                                   <a href='index.aspx?ctl=1&id={0}' class='show'>
                                                     <img src='../upload/AdImage/MainSlider/{1}' alt='Flowing Rock' width='950' height='450' title='' alt='' rel='<h3>{2}</h3>{3}/>
                                                    </a>
                                                    <div class='caption'><div class='content'></div></div>", ad.AdId, image, ad.AdTitle, ad.AdDetail.Length > 100 ? ad.AdDetail.Substring(0, 100) + " ..." : ad.AdDetail);
@@ -721,7 +721,7 @@ namespace Advertisement.WebServices
 
 
                     sbReturnHtml.AppendFormat(@" <div class='media infoDiv'  style='margin-top:19px;'>
-                                                <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                                                <a class='pull-left' href='../index.aspx?ctl=1&id={0}'>
                                                     <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
                                                 </a>
                                                <div class='media-body'>
@@ -758,7 +758,7 @@ namespace Advertisement.WebServices
                     //                                       
                     //                                         
                     //                                            <div class='media infoDiv'  style='margin-top:19px;'>
-                    //                                         <a class='pull-left' href='../Advertisement.aspx?ctl=1&id={0}'>
+                    //                                         <a class='pull-left' href='../index.aspx?ctl=1&id={0}'>
                     //                                             <img class='media-object imgInfo' src='../upload/AdImage/thumbnails/{1}' alt='No Image'></img>
                     //                                          </a>
                     //                                          <div class='media-body'>
@@ -825,16 +825,6 @@ namespace Advertisement.WebServices
         }
 
 
-
-        [WebMethod(EnableSession = true)]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void RemoveSession(string test)
-        {
-            string test1 = string.Empty;
-            Session["userId"] = null;
-            Session["userName"] = null;
-            Session.Abandon();
-        }
 
         public string PreparePagination(Dictionary<string,int> paramsDict)
         {

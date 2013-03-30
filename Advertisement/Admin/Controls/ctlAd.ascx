@@ -67,7 +67,14 @@
                       %>
                         <tr>
                             <th><%=ad.AdTitle%></th>
+                            <%if (ad.AdPicture.Contains(","))
+                              { %>
                             <td><img src="../../upload/AdImage/thumbnails/<%=ad.AdPicture.Substring(0,ad.AdPicture.IndexOf(','))%>" /></td>
+                            <%} %>
+                            <%else
+                                { %>
+                              <td><img src="" alt="No Image" /></td>
+                              <%} %>
                             <td><%=ad.AdDate %></td>
                             <td><%=ad.AdAskingPrice %></td>
                             <th><i class="icon-flag"></i>Availabe</th>
