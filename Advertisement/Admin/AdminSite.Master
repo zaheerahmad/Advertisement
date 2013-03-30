@@ -9,11 +9,71 @@
         <link href="assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript">
+
+            $(function () {
+
+                $('a.sugst').live('click', function (e) {
+                    e.preventDefault();
+
+                    var advertisementId = $('#adverID').val();
+
+                    var link = $(this).attr('href');
+                    var suggestionBox = $('textarea[name="suggestionBox"]');
+                    var suggestion = suggestionBox.val();
+                    suggestion.replace(/\s/g, '')
+                    if (suggestion.replace(/\s/g, '').length != 0) {
+                        // $('div.commentBox').append('<div style="background-color:#f5f7fa;display: block;"><div class="comment" ><img src="assets/images/unknown.jpg"></img></div>&nbsp&nbsp<div style="padding-left:10px;" class="comment"><span>' + suggestion + '</span></div> </div>');
+                        // $('div.commentBox').append('<table class="table table-hover" width="100%"><tr><td width="10%"><img src="assets/images/unknown.jpg"></img><br />Anonymous</td><td width="70%"><div style="display:inline-block;" class="span6">' + suggestion + '</div></td></tr></table>')
+                        //  $('div.commentBox').append('<div class="container"  style="background-color:#f5f7fa;width:100%;margin-top:10px;" ><div class="row"><div class="span0"><img src="assets/images/unknown.jpg"></img></div><div class="span3 offset-6"><p style="color: #3b5998;"><b>Anonymous</b></p></div><div class="span6"><span style="color: #333;font-size: 13px;">' + suggestion + '</span></div></div></div></div>');
+                        //                    $('div.commentBox').append('<div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;">Anonymous</h4>  <div class="media">' + suggestion + ' </div>  </div>    </div>');
+                        $('textarea[name="suggestionBox"]').val(' ');
+                        if (suggestionBox.hasClass('error')) {
+                            suggestionBox.removeClass('error');
+
+                        }
+
+                        $.ajax({
+                            type: "POST",
+                            url: "../../WebServices/Users.asmx/ManageUser",
+                            data: "{'adverId':'" + advertisementId + "','suggestionText':'" + suggestion + "'}",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            async: false,
+                            cache: false,
+                            success: function (msg) {
+                                var obj = jQuery.parseJSON(msg.d);
+                                if (obj.serviceErrorCode == 0) {
+
+                                    $('div.commentBox').append('<div class="media" style="background-color:#f5f7fa">  <a class="pull-left" href="#">    <img class="media-object" src="../../assets/images/unknown.jpg">  </a>  <div class="media-body">    <h4 class="media-heading" style="color:#467ed6;">' + obj.html + '</h4>  <div class="media">' + suggestion + ' </div>  </div>    </div>');
+
+                                }
+                                else {
+                                    $('#errorAlert').fadeIn(100);
+                                }
+                            }
+                        });
+
+
+
+
+
+                    } else {
+                        $('textarea[name="suggestionBox"]').addClass('error');
+                    }
+
+                });
+
+
+
+            });
+
+
             function SignOut() {
+                alert("called");
                 $.ajax({
                     type: "POST",
-                    url: "WebServices/SessionHandler.asmx/RemoveSession",
-                    data: "{}",
+                    url: "../../WebServices/Users.asmx/RemoveSession",
+                    data: "{'test':''}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     async: false,
