@@ -116,7 +116,18 @@ namespace Advertisement.WebServices
                         sugesstion.SuggestionText = suggestionText;
                         sugesstion.Username = username;
                         sugesstion.Save();
-                        return string.Empty;
+
+
+
+                        ServiceResponce serviceResponceError = new ServiceResponce
+                        {
+                            serviceErrorCode = 0,
+                            html = username,
+                           
+                        };
+                        string jsonStringError = serviceResponceError.ToJSON();
+                        return jsonStringError;
+
 
                     }
 
@@ -126,6 +137,20 @@ namespace Advertisement.WebServices
                     sugesstion.SuggestionText = suggestionText;
                     sugesstion.Username = "Anonymous";
                     sugesstion.Save();
+
+
+
+                    ServiceResponce serviceResponceError1 = new ServiceResponce
+                    {
+                        serviceErrorCode = 0,
+                        html = "Anonymous",
+
+                    };
+                    string jsonStringError1 = serviceResponceError1.ToJSON();
+                    return jsonStringError1;
+
+
+
                 }
               
             }
@@ -800,6 +825,16 @@ namespace Advertisement.WebServices
         }
 
 
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void RemoveSession(string test)
+        {
+            string test1 = string.Empty;
+            Session["userId"] = null;
+            Session["userName"] = null;
+            Session.Abandon();
+        }
 
         public string PreparePagination(Dictionary<string,int> paramsDict)
         {
