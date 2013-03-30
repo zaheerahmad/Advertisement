@@ -48,6 +48,7 @@
         }
     </script>
     <script type="text/javascript">
+// jquery start from here which you have to merge
         $(document).ready(function () {
             $('.datepicker').datepicker();
             $('a.sugst').live('click', function (e) {
@@ -101,7 +102,7 @@
 
             });
 
-
+// jquery code ends here which you have to merge
             $('a#loginAnchor').click(function () {
 
                 $("#panel").slideToggle("slow");
