@@ -57,21 +57,18 @@
       <div class="control-group">
         <label class="control-label" for="fuAdPictures">Pictures of your Ad<br /><i class="icon-picture"></i><small>You can add 4 pictures</small></label><br />
         <div class="controls">
-            <CuteWebUI:Uploader id="Uploader1" runat="server" MultipleFilesUpload="true" ShowProgressBar="true" ShowProgressInfo="true"
+            <%--<CuteWebUI:Uploader id="Uploader1" runat="server" MultipleFilesUpload="true" ShowProgressBar="true" ShowProgressInfo="true"
               MaxFilesLimit="4" OnUploadCompleted="uploader1_UploadCompleted" upload/><br />
               <asp:DataList ID="ItemsList" RepeatDirection="Vertical" RepeatLayout="Table" runat="server">  
                 <ItemTemplate>  
                     file name:  
                     <%# DataBinder.Eval(Container.DataItem, "FileName")%>  
                 </ItemTemplate>  
-            </asp:DataList>  
+            </asp:DataList>  --%>
 
-<%--
+
 
             <asp:FileUpload ID="fuAdPicture1" runat="server"/>
-            <asp:FileUpload ID="fuAdPicture2" runat="server" />
-            <asp:FileUpload ID="fuAdPicture3" runat="server" />
-            <asp:FileUpload ID="fuAdPicture4" runat="server" />--%>
         </div>
       </div>
       <legend>Your Details</legend>

@@ -62,7 +62,7 @@
                   foreach (Advertisement.Model.Ad1 ad in adController.FetchByLoginID(Session["userId"]).OrderByDesc("AdDate"))
                   {
                       i++;
-                      if (i == 5)
+                      if (i == 10)
                       { break; }
                       %>
                         <tr>

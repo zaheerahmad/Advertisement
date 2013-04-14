@@ -112,22 +112,13 @@ namespace AdminSite.Controls {
         protected global::System.Web.UI.WebControls.CheckBox chkBoxFree;
         
         /// <summary>
-        /// Uploader1 control.
+        /// fuAdPicture1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CuteWebUI.Uploader Uploader1;
-        
-        /// <summary>
-        /// ItemsList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList ItemsList;
+        protected global::System.Web.UI.WebControls.FileUpload fuAdPicture1;
         
         /// <summary>
         /// txtContactNo control.
