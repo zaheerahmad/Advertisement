@@ -115,7 +115,7 @@
                                             async: false,
                                             cache: false,
                                             success: function (msg) {
-                                                setTimeout(function () { getLatestAdds(); }, 20000);
+                                                //setTimeout(function () { getLatestAdds(); }, 20000);
                                                 var obj = jQuery.parseJSON(msg.d);
                                                 if (obj.serviceErrorCode == 0) {
                                                     $('div.materialContent').html('');

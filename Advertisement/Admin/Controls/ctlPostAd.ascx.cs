@@ -11,7 +11,7 @@ using System.Text;
 using BlackBeltCoder;
 using System.Collections;
 using System.Data;
-using CuteWebUI;
+//using CuteWebUI;
 using Advertisement.Controller;
 using System.Web;
 
@@ -41,88 +41,105 @@ namespace AdminSite.Controls
                 LoadAd(adId);
             }
         }
-
-        //string UploadPrintableFile(List<string> pImageList, Ad1 ad)
+        //string UploadPrintableFile2(Portfolio portfolio)
         //{
-        //    try
+        //    string NewFileName = portfolio.PortfolioId + "-" + Path.GetFileName(fuPortfolioImage.PostedFile.FileName);
+        //    string FileNameWithoutExt = portfolio.PortfolioId + "-" + Path.GetFileNameWithoutExtension(fuPortfolioImage.PostedFile.FileName);
+        //    string error;
+        //    if (fuPortfolioImage.PostedFile.FileName == null || fuPortfolioImage.PostedFile.FileName.Equals("") && portfolioId == 0)
         //    {
-        //        if(pImageList.Count > 0)
-        //            DeletePreviousAdImages(ad.AdId);
-        //        int i = 1;
-        //        StringBuilder stringFiles = new StringBuilder();
-        //        foreach (string image in pImageList)
-        //        {
-                      
-        //            string NewFileName = ad.AdId + "-" + i + "-" + image;
-        //            Utility.DeleteFile(Global.AdImages + ad.AdPicture);
-
-        //            File.Move(Server.MapPath(Global.AdImages + "temp/" + image), Server.MapPath(Global.AdImages + NewFileName));
-        //            File.Delete(Server.MapPath(Global.AdImages + "temp/" + image));
-        //                // Resize image
-        //            Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.MainSliderAdImages) + NewFileName, 950, 450);
-        //            Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.AdThumbnailImage) + NewFileName, 70, 44);
-        //            Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.AdDetailImage) + NewFileName, 700, 306);
-        //            stringFiles.Append(NewFileName + ",");
-        //            i++;
-        //        }
-        //        if (pImageList.Count > 0)
-        //        {
-        //            Directory.Delete(Server.MapPath(Global.AdImages + "/temp"), true);
-        //            if (!stringFiles.ToString().Equals(""))
-        //            {
-        //                ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
-        //                ad.IsNew = false;
-        //                ad.AdPicture = stringFiles.ToString();
-        //                ad.Save(Guid.NewGuid());
-        //                return String.Empty;
-        //            }
-        //        }
+        //        portfolio = new Portfolio(Portfolio.Columns.PortfolioId, portfolio.PortfolioId);
+        //        portfolio.IsNew = false;
+        //        portfolio.PortfolioImage = "NoImage.jpg";
+        //        portfolio.Save(Guid.NewGuid());
+        //        return string.Empty;
         //    }
-        //    catch (Exception ex)
+        //    if (fuPortfolioImage.PostedFile.ContentLength > 1)
         //    {
-        //        Ad1.Destroy(ad.AdId);
-        //        return ex.Message;
+        //        Utility.DeleteFile(AdminSite.Global.PortFolio + portfolio.PortfolioImage);
+        //        if (Utility.UploadFile(fuPortfolioImage, FileNameWithoutExt, AdminSite.Global.PortFolio, out error))
+        //        {
+        //            portfolio = new Portfolio(Portfolio.Columns.PortfolioId, portfolio.PortfolioId);
+        //            portfolio.IsNew = false;
+        //            portfolio.PortfolioImage = NewFileName;
+        //            portfolio.Save(Guid.NewGuid());
+        //        }
+        //        else
+        //        {
+        //            Client.Destroy(portfolio.PortfolioId);
+        //            return error.ToString();
+        //        }
         //    }
         //    return String.Empty;
         //} // Upload file ends here 
 
-        string UploadPrintableFile(Ad1 ad)
+
+        string UploadPrintableFile(List<string> pImageList, Ad1 ad,List<FileUpload> files)
         {
-            string NewFileName = ad.AdId + "-" + Path.GetFileName(fuAdPicture1.PostedFile.FileName);
-            string FileNameWithoutExt = ad.AdId + "-" + Path.GetFileNameWithoutExtension(fuAdPicture1.PostedFile.FileName);
-            string error;
-            if (fuAdPicture1.PostedFile.FileName == null || fuAdPicture1.PostedFile.FileName.Equals("") && adId == 0)
+            try
             {
-                Ad1.Destroy(ad.AdId);
-                return "Atleast one Image must be uploaded!";
-                //ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
-                //ad.IsNew = false;
-                //ad.AdPicture = "NoImage.jpg";
-                //ad.Save(Guid.NewGuid());
-                //return string.Empty;
-            }
-            if (fuAdPicture1.PostedFile.ContentLength > 1)
-            {
-                // Resize image
-                
-                Utility.DeleteFile(Global.AdImages + ad.AdPicture);
-                
-                if (Utility.UploadFile(fuAdPicture1, FileNameWithoutExt, Global.AdImages, out error))
+                if(pImageList.Count > 0)
+                    DeletePreviousAdImages(ad.AdId);
+                int i = 1;
+                StringBuilder stringFiles = new StringBuilder();
+                int fileCount = 0;
+                List<string> fileNameList = new List<string>();
+                foreach (string image in pImageList)
                 {
-                    Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.MainSliderAdImages) + NewFileName, 950, 450);
-                    Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.AdThumbnailImage) + NewFileName, 70, 44);
-                    Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.AdDetailImage) + NewFileName, 700, 306);
+
+                    string NewFileName = ad.AdId + "-" + i + "-" + files[fileCount].PostedFile.FileName;
+                    fileNameList.Add(NewFileName);
+                    string FileNameWithoutExt = ad.AdId + "-" + Path.GetFileNameWithoutExtension(files[fileCount].PostedFile.FileName);
                     
-                    ad = new Ad1(Ad1.Columns.AdPicture, ad.AdPicture);
-                    ad.IsNew = false;
-                    ad.AdPicture = NewFileName + ",";
-                    ad.Save(Guid.NewGuid());
+                    Utility.DeleteFile(Global.AdImages + ad.AdPicture);
+                    
+                   
+                        files[fileCount].PostedFile.SaveAs(Server.MapPath(Global.AdImages) + NewFileName);
+                       
+                        // Resize image
+                        Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.MainSliderAdImages) + NewFileName, 950, 450);
+                        Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.AdThumbnailImage) + NewFileName, 70, 44);
+                        Common.Common.ResizeAndSaveImage(Server.MapPath(Global.AdImages) + NewFileName, Server.MapPath(Global.AdDetailImage) + NewFileName, 700, 306);
+                        stringFiles.Append(NewFileName + ",");
+                        i++;
+                        fileCount++;
+                    
+                }
+                if (pImageList.Count > 0)
+                {
+                    //Directory.Delete(Server.MapPath(Global.AdImages + "/temp"), true);
+                  
+                    if (!stringFiles.ToString().Equals(""))
+                    {
+                        ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
+                        ad.IsNew = false;
+                        ad.AdPicture = stringFiles.ToString();
+                        ad.Save(Guid.NewGuid());
+                        return String.Empty;
+                    }
+                    else
+                    {
+                        ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
+                        ad.IsNew = false;
+                        ad.AdPicture = "NoImage.jpg,";
+                        ad.Save(Guid.NewGuid());
+                        return String.Empty;
+
+                    }
                 }
                 else
                 {
-                    Ad1.Destroy(ad.AdId);
-                    return error.ToString();
+                    ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
+                    ad.IsNew = false;
+                    ad.AdPicture = "NoImage.jpg";
+                    ad.Save(Guid.NewGuid());
+                    return String.Empty;
                 }
+            }
+            catch (Exception ex)
+            {
+                Ad1.Destroy(ad.AdId);
+                return ex.Message;
             }
             return String.Empty;
         } // Upload file ends here 
@@ -143,54 +160,84 @@ namespace AdminSite.Controls
 
         public void Save()
         {
-           
-            int userId = Utility.GetIntParameter("id");
-            string adTitle = txtAdTitle.Text;
-            string adDetatil = txtAdDetail.Text;
-            string askingPrice = string.Empty;
-            if (chkBoxFree.Checked)
-            {
-                askingPrice = "Free";
-            }
-            else
-            {
-                askingPrice = txtAskingPrice.Text;
-            }
-            string contactNo = txtContactNo.Text;
-            string email = txtEmail.Text;
-            string address = txtAddress.Text;
+            //if (imageList.Count > 0)
+            //{
+                int userId = Utility.GetIntParameter("id");
+                string adTitle = txtAdTitle.Text;
+                string adDetatil = txtAdDetail.Text;
+                string askingPrice = string.Empty;
+                if (chkBoxFree.Checked)
+                {
+                    askingPrice = "Free";
+                }
+                else
+                {
+                    askingPrice = txtAskingPrice.Text;
+                }
+                string contactNo = txtContactNo.Text;
+                string email = txtEmail.Text;
+                string address = txtAddress.Text;
 
-            Ad1 ad = new Ad1();
-            ad.IsNew = true;
-            ad.LoginId = userId;
-            ad.AdTitle = adTitle;
-            ad.AdDetail = adDetatil;
-            ad.AdAskingPrice = askingPrice;
-            ad.AdContactNo = contactNo;
-            ad.AdEmailAddress = email;
-            ad.AdAddress = address;
-            ad.AdDate = DateTime.Now;
-            ad.AdStatus = "Available";
+                Ad1 ad = new Ad1();
+                ad.IsNew = true;
+                ad.LoginId = userId;
+                ad.AdTitle = adTitle;
+                ad.AdDetail = adDetatil;
+                ad.AdAskingPrice = askingPrice;
+                ad.AdContactNo = contactNo;
+                ad.AdEmailAddress = email;
+                ad.AdAddress = address;
+                ad.AdDate = DateTime.Now;
+                ad.AdStatus = "Available";
 
-            ad.Save();
+                ad.Save();
 
-            //Now Save Picture As Well..
-            string result = UploadPrintableFile(ad);
-                imageList = new List<string>();
-            if (result.Equals(""))
-            {
-                divStatusError.Visible = false;
-                divStatusSuccess.Visible = true;
-                lblStatusSuccess.Text = Global.SuccessLabelStatus;
-            }
-            else
-            {
-                divStatusSuccess.Visible = false;
-                divStatusError.Visible = true;
-                labelStatusError.Text = Global.ErrorLabelStatus + result;
-                Ad1.Destroy(ad.AdId);
-            }
-            //}
+                //Now Save Picture As Well..
+
+                List<FileUpload> files = new List<FileUpload>();
+                
+                if (fuAdPicture1.HasFile)
+                {
+                    imageList.Add(fuAdPicture1.FileName);
+                    files.Add(fuAdPicture1);
+                }
+            
+                if (fuAdPicture2.HasFile)
+                {
+                    imageList.Add(fuAdPicture2.FileName);
+                    files.Add(fuAdPicture2);
+                }
+                if (fuAdPicture3.HasFile)
+                {
+                    imageList.Add(fuAdPicture3.FileName);
+                    files.Add(fuAdPicture3);
+
+
+
+                }
+
+                if (fuAdPicture4.HasFile)
+                {
+                    imageList.Add(fuAdPicture4.FileName);
+                    files.Add(fuAdPicture4);
+                }
+               
+                string result = UploadPrintableFile(imageList,ad,files);
+                    imageList = new List<string>();
+                if (result.Equals(""))
+                {
+                    divStatusError.Visible = false;
+                    divStatusSuccess.Visible = true;
+                    lblStatusSuccess.Text = Global.SuccessLabelStatus;
+                }
+                else
+                {
+                    divStatusSuccess.Visible = false;
+                    divStatusError.Visible = true;
+                    labelStatusError.Text = Global.ErrorLabelStatus + result;
+                    Ad1.Destroy(ad.AdId);
+                }
+           // }
             //else
             //{
             //    string result = "Atleast 1 picture must be uploaded";
@@ -238,7 +285,37 @@ namespace AdminSite.Controls
                     ad.Save();
 
                     //Now Save Picture As Well..
-                    string result = UploadPrintableFile(ad);
+                    List<FileUpload> files = new List<FileUpload>();
+                    
+                    if (fuAdPicture1.HasFile)
+                    {
+                        imageList.Add(fuAdPicture1.FileName);
+                        files.Add(fuAdPicture1);
+                    }
+
+                    if (fuAdPicture2.HasFile)
+                    {
+                        imageList.Add(fuAdPicture2.FileName);
+                        files.Add(fuAdPicture2);
+                    }
+                    if (fuAdPicture3.HasFile)
+                    {
+                        imageList.Add(fuAdPicture3.FileName);
+                        files.Add(fuAdPicture3);
+
+
+
+                    }
+
+                    if (fuAdPicture4.HasFile)
+                    {
+                        imageList.Add(fuAdPicture4.FileName);
+                        files.Add(fuAdPicture4);
+                    }
+
+
+
+                    string result = UploadPrintableFile(imageList, ad, files);
                     if (result.Equals(""))
                     {
                         divStatusError.Visible = false;
@@ -259,7 +336,11 @@ namespace AdminSite.Controls
                 {
                     try
                     {
-                        Save();
+                        if (fuAdPicture1.PostedFile != null)
+                        {
+                            string img1 = fuAdPicture1.FileName;
+                            Save();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -303,25 +384,25 @@ namespace AdminSite.Controls
             DataView dv = new DataView(dt);
             return dv;
         }
-        protected void uploader1_UploadCompleted(object sender, UploaderEventArgs[] args)
-        {
-            if (!Directory.Exists(Server.MapPath(Global.AdImages + "/temp")))
-            {
-                Directory.CreateDirectory(Server.MapPath(Global.AdImages + "/temp"));
-            }
-            ArrayList files = new ArrayList();
-            for (int i = 0; i < args.Length; i++)
-            {
-                string[] arr = args[i].FileName.Split(new Char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-                string extension = arr[arr.Length - 1];
-                args[i].CopyTo(Global.AdImages + "/temp/" + args[i].FileName);
-                files.Add(args[i].FileName);
-                imageList.Add(args[i].FileName);
-            }
-            //generate the data source  
-            //ItemsList.DataSource = CreateDataSource(files);
-            //ItemsList.DataBind();
-        }
+        //protected void uploader1_UploadCompleted(object sender, UploaderEventArgs[] args)
+        //{
+        //    if (!Directory.Exists(Server.MapPath(Global.AdImages + "/temp")))
+        //    {
+        //        Directory.CreateDirectory(Server.MapPath(Global.AdImages + "/temp"));
+        //    }
+        //    ArrayList files = new ArrayList();
+        //    for (int i = 0; i < args.Length; i++)
+        //    {
+        //        string[] arr = args[i].FileName.Split(new Char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+        //        string extension = arr[arr.Length - 1];
+        //        args[i].CopyTo(Global.AdImages + "/temp/" + args[i].FileName);
+        //        files.Add(args[i].FileName);
+        //        imageList.Add(args[i].FileName);
+        //    }
+
+        //    ItemsList.DataSource = CreateDataSource(files);
+        //    ItemsList.DataBind();
+        //}
 
         public void LoadAd(int pAdId)
         {

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" EnableViewState="true"  CodeBehind="ctlPostAd.ascx.cs" Inherits="AdminSite.Controls.ctlPostAd" %>
 <link href="~/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
 <link href="~/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
-<%@ Register TagPrefix="CuteWebUI" Namespace="CuteWebUI" Assembly="CuteWebUI.AjaxUploader" %>
+<%--<%@ Register TagPrefix="CuteWebUI" Namespace="CuteWebUI" Assembly="CuteWebUI.AjaxUploader" %>--%>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -57,7 +57,7 @@
       <div class="control-group">
         <label class="control-label" for="fuAdPictures">Pictures of your Ad<br /><i class="icon-picture"></i><small>You can add 4 pictures</small></label><br />
         <div class="controls">
-            <%--<CuteWebUI:Uploader id="Uploader1" runat="server" MultipleFilesUpload="true" ShowProgressBar="true" ShowProgressInfo="true"
+           <%-- <CuteWebUI:Uploader id="Uploader1" runat="server" MultipleFilesUpload="true" ShowProgressBar="true" ShowProgressInfo="true"
               MaxFilesLimit="4" OnUploadCompleted="uploader1_UploadCompleted" upload/><br />
               <asp:DataList ID="ItemsList" RepeatDirection="Vertical" RepeatLayout="Table" runat="server">  
                 <ItemTemplate>  
@@ -68,7 +68,7 @@
 
 
 
-            <asp:FileUpload ID="fuAdPicture1" runat="server"/>
+            <asp:FileUpload ID= "fuAdPicture1" runat="server"/>
         </div>
       </div>
       <legend>Your Details</legend>

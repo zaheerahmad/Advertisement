@@ -193,7 +193,7 @@ namespace Advertisement.WebServices
                 int totalCount = coll2.Count;
                                     
                 Ad1Collection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
-                                   
+                var res = coll.OrderByDescending(obj => obj.AdDate);
 
              
                 paramsDict["paginationCount"] = paginationCount;
@@ -204,7 +204,7 @@ namespace Advertisement.WebServices
 
 
                 //int countAdds = 0;
-                foreach (Ad1 ad in coll)
+                foreach (Ad1 ad in res)
                 {
                     //if (countAdds == paginationCount)
                     //{
@@ -695,9 +695,8 @@ namespace Advertisement.WebServices
                 Ad1Collection coll2 = adController.FetchAll();
                 int totalCount = coll2.Count;
                 Ad1Collection coll = adController.FetchPagination(paginationCount, Convert.ToInt32(paginationVal)).OrderByAsc("AdDate");
-
-
-                foreach (Ad1 ad in coll)
+                var res = coll.OrderByDescending(obj => obj.AdDate);
+                foreach (Ad1 ad in res)
                 {
                     //if (countAdds == paginationCount)
                     //{

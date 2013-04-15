@@ -61,7 +61,6 @@ C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\Advertisement.dll
 C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\Advertisement.pdb
 C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\AjaxControlToolkit.dll
 C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\Anthem.dll
-C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\CuteWebUI.AjaxUploader.dll
 C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\eWorld.UI.dll
 C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\GMDatePicker.dll
 C:\khurram\FreeLancing\New folder (2)\trunk\Advertisement\bin\SubSonic.dll

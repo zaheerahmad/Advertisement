@@ -121,6 +121,33 @@ namespace AdminSite.Controls {
         protected global::System.Web.UI.WebControls.FileUpload fuAdPicture1;
         
         /// <summary>
+        /// fuAdPicture2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuAdPicture2;
+        
+        /// <summary>
+        /// fuAdPicture3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuAdPicture3;
+        
+        /// <summary>
+        /// fuAdPicture4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuAdPicture4;
+        
+        /// <summary>
         /// txtContactNo control.
         /// </summary>
         /// <remarks>

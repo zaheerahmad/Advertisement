@@ -67,14 +67,15 @@ namespace Advertisement.Controller
             coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
-
-        [DataObjectMethod(DataObjectMethodType.Select, true)]
+                [DataObjectMethod(DataObjectMethodType.Select, true)]
         public Ad1Collection FetchPagination(int paginationSize, int pageIndex)
         {
             Ad1Collection coll = new Ad1Collection();
+           
             Query qry = new Query(Ad1.Schema);
+            qry.OrderBy =OrderBy.Desc(Ad1.Columns.AdDate);
             qry.PageIndex = pageIndex;
-            qry.PageSize = paginationSize;
+            qry.PageSize = paginationSize;             
             coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
