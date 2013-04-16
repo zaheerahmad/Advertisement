@@ -131,7 +131,7 @@ namespace AdminSite.Controls
                 {
                     ad = new Ad1(Ad1.Columns.AdId, ad.AdId);
                     ad.IsNew = false;
-                    ad.AdPicture = "NoImage.jpg";
+                    ad.AdPicture = "NoImage.jpg,";
                     ad.Save(Guid.NewGuid());
                     return String.Empty;
                 }
