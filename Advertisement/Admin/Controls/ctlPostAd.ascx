@@ -69,6 +69,10 @@
 
 
             <asp:FileUpload ID= "fuAdPicture1" runat="server"/>
+            <asp:FileUpload ID= "fuAdPicture2" runat="server"/>
+            <asp:FileUpload ID= "fuAdPicture3" runat="server"/>
+            <asp:FileUpload ID= "fuAdPicture4" runat="server"/>
+        
         </div>
       </div>
       <legend>Your Details</legend>
